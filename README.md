@@ -18,7 +18,7 @@ run 'npm start' inside your root terminal.
 
 Open the winners or losers tab to check the daily stock market winners and losers. In the watchlist tab, you may search stocks by their ticker to find extra information and details about the company. You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
 
-## Built With
+## technologies
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
