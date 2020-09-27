@@ -1,21 +1,26 @@
 # 10/10 stock tracker
 
-A MERN stack authenticated application that allows a user to look up any stock and will help manage current stocks by tracking the latest winners and losers of the day and saving it onto a watchlist.
+Add stocks to your watchList with the 10/10 stock tracking app. It will give users insight on top 10 daily stock gainers and losers, as well as share and connect with a community. 
 
+
+![Project Image](stock.png)
 
 # installation 
 
-run 'npm i' inside the root folder of your terminal.
-
+to install all necessary dependencies, open the terminal inside youre root folder and run 'npm i'. 
 
 ## Getting Started
+run 'npm start' inside your root terminal.
 
-give your best answers in the questionaire and click 'submit', to get your results
+To participate, give your best answers in the questionaire then click 'submit' to get your results
 
 ## Built With
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [NodeJs](https://developer.mozilla.org/en-US/docs/Glossary/Node.js)
+* [ReactJs](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
+* [MySQL](https://www.siteground.com/tutorials/php-mysql/mysql/)
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## Deployed Link
