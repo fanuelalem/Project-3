@@ -35,9 +35,10 @@ To participate, give your best answers in the questionaire then click 'submit' t
 
 ## Authors
 
-Fanuel Alem 
+Fanuel Alem, Ganesh nimavat, HusamAhalim, Vanessa Emerick,
 
-- [Link to Portfolio Site](#)
+
+- [Link to Portfolio Site](https://fanuel-react-app.herokuapp.com/)
 - [Link to Github](https://github.com/fanuelalem/basic-portfolio-new)
 - [Link to LinkedIn](https://www.linkedin.com/in/fanuel-alem-12991b32/)
 
