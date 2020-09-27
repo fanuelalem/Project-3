@@ -7,14 +7,14 @@ Add stocks to your watchList with the 10/10 stock tracking app. It will give use
 
 ## Motivation
 
-our motivation when building this application was to provide users with informative insight on the stock market, and to encourage people from all backgrounds to become an informed investor. Our group focused on creating an inviting atmosphere for people unfamiliar with the stock market.
+Our motivation when building this application was to provide users with informative insight on the stock market, and to encourage people from all backgrounds to become an informed investor. Our group focused on creating an inviting atmosphere for people unfamiliar with the stock market.
 
 ## Installation 
 
-to install all necessary dependencies, open the terminal inside youre root folder and run 'npm i'. 
+To install all necessary dependencies, open the terminal inside youre root folder and run 'npm i'. 
 
 ## Getting Started
-run 'npm start' inside your root terminal.
+Run 'npm start' inside your root terminal.
 
 Open the winners or losers tab to check the daily stock market winners and losers. In the watchlist tab, you may search stocks by their ticker to find extra information and details about the company. You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
 
