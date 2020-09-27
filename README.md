@@ -9,7 +9,7 @@ Add stocks to your watchList with the 10/10 stock tracking app. It will give use
 
 our motivation when building this application was to provide users with informative insight on the stock market, and to encourage people from all backgrounds to become an informed investor. Our group focused on creating an inviting atmosphere for people unfamiliar with the stock market.
 
-# Installation 
+## Installation 
 
 to install all necessary dependencies, open the terminal inside youre root folder and run 'npm i'. 
 
