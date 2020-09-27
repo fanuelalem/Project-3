@@ -42,7 +42,7 @@ Fanuel Alem, Ganesh nimavat, HusamAhalim, Vanessa Emerick,
 - [Link to Github](https://github.com/fanuelalem/basic-portfolio-new)
 - [Link to LinkedIn](https://www.linkedin.com/in/fanuel-alem-12991b32/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/fanuelalem/Project-3/graphs/contributors) who participated in this project.
 
 ## License
 
