@@ -16,7 +16,7 @@ to install all necessary dependencies, open the terminal inside youre root folde
 ## Getting Started
 run 'npm start' inside your root terminal.
 
-To participate, give your best answers in the questionaire then click 'submit' to get your results
+Open the winners or losers tab to check the daily stock market winners and losers. In the watchlist tab, you may search stocks by their ticker to find extra information and details about the company. You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
 
 ## Built With
 
