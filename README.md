@@ -22,10 +22,11 @@ Open the winners or losers tab to check the daily stock market winners and loser
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Semantics-UI React](https://react.semantic-ui.com/)
 * [NodeJs](https://developer.mozilla.org/en-US/docs/Glossary/Node.js)
 * [ReactJs](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
 * [MongoDb](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_americas_united_states_search_brand_atlas_desktop&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=1718986498&gclid=Cj0KCQjwzbv7BRDIARIsAM-A6-2M3idV1X1f4PeHuJ9j77PNXa9d7p4AZa0zlIgQ395ijXQ-4sbPWRsaAuo7EALw_wcB)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [PassportJs](http://www.passportjs.org/packages/passport-jwt/)
 
 ## Deployed Link
