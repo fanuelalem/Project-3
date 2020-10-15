@@ -45,7 +45,16 @@ app.use(express.json());
 app.use("/",routes);
 require('./services/passport');
 // Connect database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/userstockitem', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/userstockitem', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+const MONGODB_URI = 'mongodb+srv://fanuel_alem:Classof2017@stormy-refuge.mt0nq.mongodb.net/<dbname>?retryWrites=true&w=majority'
+
+mongoose.connect(MONGODB_URI || 'mongodb://localhost/userstockitem', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+
+mongoose.connection.on('connected', ()=>{
+  console.log('mongoose is connected')
+})
+
+// Classof2017
 
 app.listen(PORT,()=>{
   console.log(`listening on PORT ${PORT}`)
