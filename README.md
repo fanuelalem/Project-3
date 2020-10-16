@@ -31,7 +31,7 @@ Open the winners or losers tab to check the daily stock market winners and loser
 
 ## Deployed Link
 
-* [See Live Site](https://stormy-refuge-75970.herokuapp.com/)
+* [See Live Site](https://thawing-bastion-89215.herokuapp.com/)
 
 
 ## Authors
