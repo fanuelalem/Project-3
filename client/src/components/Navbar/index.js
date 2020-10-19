@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,HashRouter } from 'react-router-dom';
 import { Menu, Segment, Button } from 'semantic-ui-react';
 import { white, orange } from 'color-name';
 
 
 export default (props) => (
+
+<HashRouter>
+
+ 
    <Menu widths={6} inverted>
       {/* <Menu.Item as ={Link} to="/home" icon='chart line'content="home"/> */}
  
@@ -26,6 +30,7 @@ export default (props) => (
 {props.authenticated ? <Menu.Item as ={Link} to="/signout" content="Sign out"/> 
 : <Menu.Item> <Button as ={Link} to="/signin" content="Log-in"/></Menu.Item> }
    </Menu>
+   </HashRouter>
 
  
  );
