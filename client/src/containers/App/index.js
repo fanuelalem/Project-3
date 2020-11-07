@@ -11,6 +11,7 @@ import SignIn from '../SignIn';
 import UserTodoList from '../userWatchList';
 import SignOut from '../SignOut';
  import NavBar from '../../components/Navbar';
+ import Nav from './../../components/nav'
  
 import './../../index.css'
 
@@ -36,11 +37,12 @@ class App extends Component {
       <div>
 
  
-      <Grid textAlign='center'   verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 700 }}>
+       
  
  
-           <NavBar authenticated={this.props.authenticated}/>
+           {/* <NavBar authenticated={this.props.authenticated}/> */}
+           <Nav authenticated={this.props.authenticated}/>
+
  
  
            <Route exact path='/winners' component={Winners}/>
@@ -65,8 +67,7 @@ class App extends Component {
           <Route exact path='/signin' component={SignIn}/>
           <Route exact path='/signout' component={SignOut}/>
           <Route exact path='/' component={SignUp}/> */}
-        </Grid.Column>
-      </Grid>
+        
 
  
       <Route exact path='/watchlist' component={UserTodoList}/>

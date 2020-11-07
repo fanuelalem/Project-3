@@ -76,7 +76,7 @@ state={
      const {handleSubmit} = this.props;
       return(
           <>
-<Segment style={{margin:'40px'}}>
+<Segment  vertical>
     <Grid columns={2} relaxed='very'>
       <Grid.Column >
 
