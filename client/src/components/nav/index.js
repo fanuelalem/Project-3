@@ -51,10 +51,10 @@ export default class Nav extends Component {
 
          {this.props.authenticated ? <Menu.Item
           as ={Link}
-          to="/community"
-          name='community'
+          to="/popular"
+          name='popular'
           icon='users'
-          active={activeItem === 'community'}
+          active={activeItem === 'popular'}
           onClick={this.handleItemClick}
         /> :null }
 
