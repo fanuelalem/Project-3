@@ -7,6 +7,11 @@ import logo from './../../components/Images/Logo.png'
 import axios from 'axios';
 import { AUTH_USER} from '../../actions/types';
 import { Link } from 'react-router-dom';
+import fanuel from './../../components/Images/fanuel.jpg'
+import ganesh from './../../components/Images/ganesh.png'
+import vanessa from './../../components/Images/vanessa.jpeg'
+import husam from './../../components/Images/husam.jpeg'
+
 
 import pic from './../../components/Images/pexelpic.jpg'
 
@@ -209,16 +214,16 @@ as={Link} to='/signup'>
 
             <Grid.Row columns={4}>
       <Grid.Column>
-        <Image className='img' src='https://react.semantic-ui.com/images/wireframe/image.png' />
+        <Image className='img' src={vanessa} />
       </Grid.Column>
       <Grid.Column>
-        <Image className='img'src='https://react.semantic-ui.com/images/wireframe/image.png' />
+        <Image className='img'src={husam} />
       </Grid.Column>
       <Grid.Column>
-        <Image className='img'src='https://react.semantic-ui.com/images/wireframe/image.png' />
+        <Image className='img'src={fanuel} />
       </Grid.Column>
       <Grid.Column>
-        <Image className='img'src='https://react.semantic-ui.com/images/wireframe/image.png' />
+        <Image className='img'src={ganesh} />
       </Grid.Column>
     </Grid.Row>
     </Grid>
