@@ -24,7 +24,7 @@ export default class Nav extends Component {
          <Menu secondary size='huge' >
         {this.props.authenticated?null:<Menu.Item
           as ={Link}
-          to="/home"
+          to="/"
           name='home'
           active={activeItem === 'home'}
           onClick={this.handleItemClick}

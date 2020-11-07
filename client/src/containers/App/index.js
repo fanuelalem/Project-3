@@ -44,7 +44,7 @@ class App extends Component {
            {/* <NavBar authenticated={this.props.authenticated}/> */}
            <Nav authenticated={this.props.authenticated}/>
 
-       <Route exact path='/home' component={Home}/>
+       <Route exact path='/' component={Home}/>
 
  
            <Route exact path='/winners' component={Winners}/>
