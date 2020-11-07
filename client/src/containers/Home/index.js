@@ -82,7 +82,7 @@ class SignIn extends Component {
  </div>
  <h1 className='node'> 10/10 Stock Tracker</h1>
   
- <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app. It will give users insight on top 10 daily stock gainers and losers, Allow you to search for any stock in the market, as well as share and connect with a community.</p>
+ <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and become a respectable investor with our amazing tools.</p>
  
    <Link
    as ={Link}
@@ -128,7 +128,7 @@ to='/searchstock'
                 View the top 10 stock Market daily winners and losers, and lookup any stock.
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-            Open the winners or losers tab to check the daily stock market winners and losers. In the watchlist tab, you may search stocks by their ticker to find extra information and details about the company.
+            Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you may search stocks by their ticker to find extra information and details about the company.
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
               Save stocks onto a watchlist and join the 10/10 stock community to see trends.
@@ -163,12 +163,12 @@ to='/searchstock'
 <Grid.Row columns={2}>
 <Grid.Column>
 <h1 className='how-it-works'style={{fontSize:'2.5rem'}}>How This simple app works</h1>     
-<p className='how-it-works'style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>This application will provide information on the stock markets top 10 winners and gainers of the day. It gives users an informative insight and allows them to manage them in a watchlist. Users can also share and connect with other users.</p>
+<p className='how-it-works'style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure and authenticated website and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
 </Grid.Column>
 <Grid.Column>
 <h1 className='mission'className='motiv'style={{fontSize:'2.5rem'}}>Mission </h1>     
 <p style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
-Our motivation when building this application was to provide users with informative insight on the stock market, and to encourage people from all backgrounds to become an informed investor. Our group focused on creating an inviting atmosphere for people unfamiliar with the stock market.</p>      </Grid.Column>
+Our motivation when building this application was to empower investors with valuable information about the stock market, and to also create an engaging experience for people with any background. Our group focused on an intuitive design, vibrant colors, and convenience for users.</p>      </Grid.Column>
 </Grid.Row>
 </Grid>
 
@@ -188,7 +188,8 @@ Our motivation when building this application was to provide users with informat
     <Grid.Row>
       <Grid.Column>
           <h1 style={{color:'white'}}className='how-it-works'>10/10 Stock Tracker</h1>
-          <div><p style={{color:'white',fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>This application will provide information on the stock markets top 10 winners and gainers of the day. It gives users an informative insight and allows them to manage them in a watchlist. Users can also share and connect with other users.</p></div>
+          <div><p style={{color:'white',fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>This application is a helpful tool that helps you save stocks onto a personal wathclist. It provides information on the stock markets top 10 winners and losers of the day. 
+Users can also search and track any stock in the market and view stocks that are trending among other users.</p></div>
       </Grid.Column>
       <Grid.Column>
 <h1 style={{color:'white'}}className='how-it-works'>      Get Started

@@ -76,7 +76,7 @@ export default class Nav extends Component {
           name='searchstock'
           active={activeItem === 'signup'}
           onClick={this.handleItemClick}
-         ><Icon style={{color:'#9d9d9d'}} name='signup'></Icon> <span style={{color:'#9d9d9d'}}> Search Stock</span> </Menu.Item>
+         ><Icon style={{color:'#9d9d9d'}} name='search'></Icon> <span style={{color:'#9d9d9d'}}> Search Stock</span> </Menu.Item>
 
 
          {this.props.authenticated ? <Menu.Item

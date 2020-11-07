@@ -55,12 +55,13 @@ class SignIn extends Component {
   render(){
     const {handleSubmit,invalid,submitting,submitFailed}=this.props
     return(
-      <div className='signing-in'>
+      <div className='signing-in'     >
 
-       <Container>
-
+      
+       <Container  >
+ 
       <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
-        <Segment stacked>
+        <Segment  >
           <Field
           name='email'
           component={this.renderEmail}
@@ -86,6 +87,7 @@ class SignIn extends Component {
           />
         </Segment>
       </Form>
+ 
       </Container>
       </div>
 
