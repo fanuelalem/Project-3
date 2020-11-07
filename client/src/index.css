@@ -3,3 +3,142 @@
 .form-control{margin-left:190px; margin-bottom:0}
 .detail{margin-left:170px;
 }
+
+ .glasses{
+     margin-right:3px
+ }
+  
+
+ .background{
+     background-color: #532f8c;
+ }
+ hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.search-container{
+    text-align:center;
+        padding-top:93px;
+}
+ .navy{
+    top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+      position: fixed;
+       padding-left: 25px;
+      padding-right: 25px;
+      
+   
+   }
+   .detail{
+       margin-left:0
+   }
+
+   .search-stock{
+    padding-top:93px;
+
+   }
+    .ptagg{
+        margin-bottom:40px
+    }
+.l{
+    text-align: center;
+     
+ }
+ .how-it-works{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+ }
+ .motiv{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+ }
+.j{
+    display:flex;
+    justify-content:center;
+}
+   .im{
+        
+       border-radius:50%;
+ 
+       border:  solid white;
+       width:110px;
+       height:106px;
+    }
+   .node{
+       margin-top:20px;
+       font-size:63px;
+       font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+       color:white;
+       line-height: 1.1;
+       font-weight: 500;
+   }
+.logo{
+    margin-left:3px
+}
+   .info{
+    text-align:center;
+        padding-top:93px;
+        
+      
+   }
+   .button-one{
+       background-color:green
+   }
+.buttn{
+    margin-right:6px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    border:1px solid transparent;
+    cursor: pointer;
+    background-color:white
+}
+
+.buttn2{
+    margin-right:3px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    /* border-color: #845ac7; */
+    cursor: pointer;
+    /* background-color:#845ac7; */
+    color:white
+}
+.signing-in{
+    display:flex;
+    justify-content:center;
+    margin-top:100px
+}
+.signing-up{
+    display:flex;
+    justify-content:center;
+    margin-top:100px
+}
+ 
+.buttn:hover{
+    background-color:#ccc
+}
+
+.img{
+    border-radius:50%
+}
+.div-tag{
+    padding-bottom:15px
+}
+.p-tag{
+    margin-top:15px;
+ }
+   .description{
+    font-size: 21px;
+    font-weight: 200;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#d9ccee;
+    max-width:75%;
+    margin: 1em auto 2em;
+    line-height: 1.42857143;
+   }

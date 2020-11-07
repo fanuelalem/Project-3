@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Segment, Button } from 'semantic-ui-react';
+import { Form, Segment, Button,Container } from 'semantic-ui-react';
 import { email, length, required } from 'redux-form-validators';
 import axios from 'axios';
-
+import './../../index.css'
 import { AUTH_USER, AUTH_USER_ERROR } from '../../actions/types';
 
 class SignUp extends Component {
@@ -71,7 +71,11 @@ class SignUp extends Component {
      const {handleSubmit, invalid, submitting, submitFailed} = this.props;
     return (
       // onSubmit={handleSubmit(this.onSubmit)}
-     <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
+      <div className='signing-up'>
+
+       <Container>
+
+      <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
         <Segment stacked>
           <Field
           name='email'
@@ -91,7 +95,7 @@ class SignUp extends Component {
           />
           <Button
           content="Sign Up"
-          color="blue"
+          color="purple"
           fluid
           size="large"
           type="submit"
@@ -100,7 +104,9 @@ class SignUp extends Component {
         </Segment>
       </Form>
 
+      </Container>
 
+      </div>
 
 
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
-import { Form, Segment, Button } from 'semantic-ui-react';
+import { Form, Segment, Button,Container } from 'semantic-ui-react';
 import { email, required } from 'redux-form-validators';
 import axios from 'axios';
 import { AUTH_USER} from '../../actions/types';
+import './../../index.css'
 
 class SignIn extends Component {
 
@@ -22,36 +23,9 @@ class SignIn extends Component {
     }
   }
 
-  // renderEmail = ({ input, meta }) => {
-  //   return (
-  //     <Form.Input
-  //       {...input}
-  //       error={ meta.touched && meta.error }
-  //       fluid
-  //       icon='user'
-  //       iconPosition='left'
-  //       autoComplete='off'
-  //       placeholder='Email Address'
-  //     />
-  //   );
-  // }
-  // renderPassword = ({ input, meta }) => {
-  //   return (
-  //     <Form.Input
-  //       {...input}
-  //       error={  meta.touched && meta.error }
-  //       fluid
-  //       type='password'
-  //       icon='lock'
-  //       placeholder='password'
-  //       autoComplete='off'
-  //       iconPosition='left'
-  //     />
-  //   );
-  // }
+  
   renderEmail = ({input,meta}) => {
-    // console.log(meta);
-    return(
+     return(
       <Form.Input
       {...input}
       error={meta.touched && meta.error}
@@ -81,6 +55,10 @@ class SignIn extends Component {
   render(){
     const {handleSubmit,invalid,submitting,submitFailed}=this.props
     return(
+      <div className='signing-in'>
+
+       <Container>
+
       <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
         <Segment stacked>
           <Field
@@ -100,7 +78,7 @@ class SignIn extends Component {
           />
           <Button
           content='Sign In'
-          color='blue'
+          color='purple'
           fluid
           size='large'
           type='submit'
@@ -108,6 +86,9 @@ class SignIn extends Component {
           />
         </Segment>
       </Form>
+      </Container>
+      </div>
+
     )
   }
   // render() {

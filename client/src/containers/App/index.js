@@ -12,11 +12,12 @@ import UserTodoList from '../userWatchList';
 import SignOut from '../SignOut';
  import NavBar from '../../components/Navbar';
  import Nav from './../../components/nav'
+ import SearchStock from './../SearchStock'
  
 import './../../index.css'
 
 // import Chat from '../chatComponent';
-
+import Home from './../Home/index'
 
 import { connect } from 'react-redux';
 
@@ -43,7 +44,8 @@ class App extends Component {
            {/* <NavBar authenticated={this.props.authenticated}/> */}
            <Nav authenticated={this.props.authenticated}/>
 
- 
+       <Route exact path='/home' component={Home}/>
+
  
            <Route exact path='/winners' component={Winners}/>
            <Route exact path='/losers' component={Losers}/>
@@ -55,6 +57,7 @@ class App extends Component {
            <Route exact path='/signup' component={SignUp}/>
            <Route exact path='/signin' component={SignIn}/>
            <Route exact path='/signout' component={SignOut}/>
+           <Route exact path='/searchstock' component={SearchStock}/>
 
            <Route exact path='/popular' component={AllTodosList}/>
 
