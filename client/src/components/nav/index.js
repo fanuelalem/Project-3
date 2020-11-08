@@ -91,7 +91,7 @@ export default class Nav extends Component {
             name='signin'
             active={activeItem === 'signin' }
              onClick={this.handleItemClick}
-         > <Icon style={{color:'#9d9d9d'}} name='sign-in'></Icon><span style={{color:'#9d9d9d'}}>Sign-in</span></Menu.Item> }
+         > <Icon style={{color:'#9d9d9d'}} name='sign-in'></Icon><span className='signin-nav'style={{color:'#9d9d9d'}}>Sign-in</span></Menu.Item> }
  
 
          
@@ -103,7 +103,7 @@ export default class Nav extends Component {
           name='signup'
           active={activeItem === 'signup'}
           onClick={this.handleItemClick}
-         ><Icon style={{color:'#9d9d9d'}} name='signup'></Icon> <span style={{color:'#9d9d9d'}}> Sign-Up</span> </Menu.Item>}
+         ><Icon style={{color:'#9d9d9d'}} name='signup'></Icon> <span className='signup-nav' style={{color:'#9d9d9d'}}> Sign-Up</span> </Menu.Item>}
  
 
           

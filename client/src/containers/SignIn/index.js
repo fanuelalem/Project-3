@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
-import { Form, Segment, Button,Container } from 'semantic-ui-react';
+import { Form, Segment, Button,Container,Image } from 'semantic-ui-react';
+import logo from './../../components/Images/Logo.png'
 import { email, required } from 'redux-form-validators';
 import axios from 'axios';
 import { AUTH_USER} from '../../actions/types';
@@ -55,14 +56,14 @@ class SignIn extends Component {
   render(){
     const {handleSubmit,invalid,submitting,submitFailed}=this.props
     return(
-      <div className='signing-in'     >
-
+ 
       
-       <Container  >
+       <Container className='signing-in' style={{width:'500px'}} >
+ 
  
       <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
         <Segment  >
-          <Field
+            <Field
           name='email'
           component={this.renderEmail}
           validate={[
@@ -89,46 +90,9 @@ class SignIn extends Component {
       </Form>
  
       </Container>
-      </div>
-
+ 
     )
   }
-  // render() {
-  //   const { invalid, submitting, submitFailed, handleSubmit } = this.props;
-  //   return (
-  //     <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
-  //       <Segment stacked>
-  //         <Field
-  //           name='email'
-  //           iscool='mannyiscool'
-  //           component={ this.renderEmail }
-  //           validate={
-  //             [
-  //               required({ msg: 'Email is required' }),
-  //               email({ msg: 'You must provide a valid email address' })
-  //             ]
-  //           }
-  //         />
-  //         <Field
-  //           name='password'
-  //           component={this.renderPassword}
-  //           validate={
-  //             [
-  //               required({ msg: 'You must provide a password' })
-  //             ]
-  //           }
-  //         />
-  //         <Button
-  //           content='Sign In'
-  //           color='teal'
-  //           fluid
-  //           size='large'
-  //           type='submit'
-  //           disabled={ submitting }
-  //         />
-  //       </Segment>
-  //     </Form>
-  //   );
-  // }
+   
 }
 export default reduxForm({ form: 'signin' })(SignIn);

@@ -76,13 +76,13 @@ const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/sho
     render() {
       
         return (
-            <div style={{minHeight:'100px',backgroundColor:'blue'}}>
-                <Container>
+            <div  style={{minHeight:'900px'}}>
+                <Container >
  
          
 
-<div className='search-container'>
-<Segment>
+<div className='search-container'  >
+<Segment >
 
 <SearchBar
  value={this.state.search}
@@ -90,7 +90,7 @@ const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/sho
  handleFormSubmit={this.handleFormSubmit}
 />
  
-<Grid divided='vertically'>
+{/* <Grid divided='vertically'>
     <Grid.Row columns={2}>
       <Grid.Column>
  
@@ -136,7 +136,7 @@ const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/sho
 
       </Grid.Column>
     </Grid.Row>
-    </Grid>
+    </Grid> */}
   
 <Card
 exchange={this.state.result.exchange}
@@ -170,6 +170,8 @@ heading={this.state.result.name ||
      
  </Detail>
 
+ 
+
 
 
 
@@ -186,7 +188,18 @@ heading={this.state.result.name ||
 
 
  </div>
- 
+ <Plot 
+        data={[
+          {
+            x: this.state.xvalues,
+            y: this.state.yvalues,
+            type: 'scatter',
+            mode: 'lines+markers',
+            marker: {color: 'red'},
+          }
+        ]}
+        layout={{width: 1000, height: 450, }}
+       />
 
  </Segment>
 

@@ -73,10 +73,10 @@ class SignUp extends Component {
       // onSubmit={handleSubmit(this.onSubmit)}
       <div className='signing-up'>
 
-       <Container>
+       <Container className='signing-in' style={{width:'500px'}}>
 
       <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
-        <Segment stacked>
+        <Segment  >
           <Field
           name='email'
           component={this.renderEmail}

@@ -11,7 +11,8 @@ const Detail = (props) => {
  
                 <Grid.Row columns={5}>
       <Grid.Column>
-      <h2> Company Name</h2> <p>{props.companyName}</p>
+       <h2> Company Name</h2>          <Image   src={props.logo} avatar/>
+<span>{props.companyName}</span>
       </Grid.Column>
       <Grid.Column>
       <h2>exchange</h2> <p> {props.exchange}</p>

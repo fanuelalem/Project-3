@@ -131,7 +131,7 @@ to='/searchstock'
             Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you may search stocks by their ticker to find extra information and details about the company.
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              Save stocks onto a watchlist and join the 10/10 stock community to see trends.
+              Save stocks onto a watchlist and join the 10/10 stock community to view trends.
             </Header>
             <p style={{ fontSize: '1.33em' }}>
             You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
@@ -163,7 +163,7 @@ to='/searchstock'
 <Grid.Row columns={2}>
 <Grid.Column>
 <h1 className='how-it-works'style={{fontSize:'2.5rem'}}>How This simple app works</h1>     
-<p className='how-it-works'style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure and authenticated website and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
+<p className='how-it-works'style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure website with authentication and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
 </Grid.Column>
 <Grid.Column>
 <h1 className='mission'className='motiv'style={{fontSize:'2.5rem'}}>Mission </h1>     
@@ -188,8 +188,10 @@ Our motivation when building this application was to empower investors with valu
     <Grid.Row>
       <Grid.Column>
           <h1 style={{color:'white'}}className='how-it-works'>10/10 Stock Tracker</h1>
-          <div><p style={{color:'white',fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>This application is a helpful tool that helps you save stocks onto a personal wathclist. It provides information on the stock markets top 10 winners and losers of the day. 
-Users can also search and track any stock in the market and view stocks that are trending among other users.</p></div>
+          <div><p style={{color:'white',fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
+          This application is a helpful tool that helps you save stocks onto a personal watchlist. It provides information on the stock markets top 10 winners and losers of the day. Users can also search and track any stock in the market and view stocks that are trending among other users.
+
+</p></div>
       </Grid.Column>
       <Grid.Column>
 <h1 style={{color:'white'}}className='how-it-works'>      Get Started
