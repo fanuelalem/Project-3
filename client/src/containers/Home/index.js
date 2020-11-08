@@ -77,12 +77,12 @@ class SignIn extends Component {
 <Container >
 
  <div className='j'>
- <Image className='im'src={logo}/>
+ <Image style={{backgroundColor:'white'}} className='im'src={logo}/>
   
  </div>
- <h1 className='node'> 10/10 Stock Tracker</h1>
+ <h1 className='node'> Getting Started on your 10/10 stock tracker account </h1>
   
- <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and become a respectable investor with our amazing tools.</p>
+ <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and become a prominent investor with our amazing tools.</p>
  
    <Link
    as ={Link}
@@ -101,7 +101,7 @@ class SignIn extends Component {
 as={Link}
 to='/searchstock'
 >
-<Button  color='purple'> <Icon name='download'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
+<Button  color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
 
 </Link>
 

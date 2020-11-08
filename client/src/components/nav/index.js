@@ -28,8 +28,8 @@ export default class Nav extends Component {
           name='home'
           active={activeItem === 'home'}
           onClick={this.handleItemClick}
-        >     <Image className='logo'src={logo} avatar />
-        <span  className='logo'style={{color:'#9d9d9d'}}> 10/10</span> </Menu.Item>}
+        >     <Image style={{backgroundColor:'white'}}className='im'className='logo'src={logo} avatar />
+        <span  className='logo'style={{color:'#9d9d9d'}}> 10/10 Stock Tracker</span> </Menu.Item>}
         {this.props.authenticated?<Menu.Item
           as ={Link}
           to="/winners"
