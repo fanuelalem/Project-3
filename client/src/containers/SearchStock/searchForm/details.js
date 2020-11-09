@@ -7,7 +7,7 @@ import pic from './../../../components/Images/pexelpic.jpg'
 const Detail = (props) => {
   return (
     <div className='detail'>
-<Grid>
+{/* <Grid>
  
                 <Grid.Row columns={5}>
       <Grid.Column>
@@ -27,7 +27,7 @@ const Detail = (props) => {
       <h2>shareOutstanding</h2><p>{props.shareOutstanding}</p>
       </Grid.Column>
     </Grid.Row>
-  </Grid>
+  </Grid> */}
 
 
 

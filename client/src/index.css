@@ -21,9 +21,13 @@
 
 .search-container{
     text-align:center;
-        padding-top:93px;
+        padding-top:10px;
   }
-  
+   
+ 
+   .input-search{
+       margin-right:10px
+   }
  .navy{
     top: 0;
       right: 0;

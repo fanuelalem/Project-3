@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react'
+import { Button ,Icon} from 'semantic-ui-react'
 import './../../../index.css'
 
 
@@ -12,9 +12,10 @@ function SearchBar(props) {
               <div className="col-12">
 
               <form  >
-      <div style={{marginBottom:'40px'}} >
+      <div style={{marginBottom:'50px'}} >
          <Input
-         focus placeholder='Search...'
+         className='input-search'
+          placeholder='Search...'
           placeholder='Search...'
           onChange={props.handleInputChange}
           value={props.value}
@@ -23,8 +24,9 @@ function SearchBar(props) {
             id="search"
          />
          
-         <Button onClick={props.handleFormSubmit} className="btn btn-primary">
-          Search
+         <Button onClick={props.handleFormSubmit} color='purple'>
+           <Icon name='search'></Icon>
+          Search a stock
         </Button>
       </div>
     </form>

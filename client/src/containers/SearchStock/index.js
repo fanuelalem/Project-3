@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import API from "./searchForm/utils"
 import Detail from './searchForm/details'
 import SearchBar from './searchForm/search'
-import {Grid,Message,Container,Segment,Image,Label,Item,Button,Icon} from 'semantic-ui-react'
+import {List,Grid,Message,Container,Segment,Image,Label,Item,Button,Icon} from 'semantic-ui-react'
  import Plot from 'react-plotly.js';
 import Card from './searchForm/Card'
 import otherUtil from './searchForm/otherutil'
 import axios from 'axios'
 
 import {connect} from 'react-redux'
-const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-
+ 
 
    
 
@@ -21,7 +20,8 @@ const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/sho
         result: {},
         search: "",
         xvalues:[],
-        yvalues:[]
+        yvalues:[],
+        visible:false
        };
       componentDidMount() {
         this.searchMovies('aapl');
@@ -47,11 +47,14 @@ const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/sho
 
          API.search(query)
         .then((response)=>{
+            console.log(response)
           for(var key in response.data['Time Series (Daily)']){
             xfunction.push(key);
             yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-          }
-          this.setState({xvalues:xfunction,yvalues:yfunction})
+           }
+          this.setState({xvalues:xfunction,yvalues:yfunction},()=>{
+              console.log(xfunction)
+          })
            
          })
         .catch((e)=>{
@@ -79,11 +82,10 @@ const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/sho
             <div  style={{minHeight:'900px'}}>
                 <Container >
  
-         
-
-<div className='search-container'  >
-<Segment >
-
+       <div style={{backgroundColor:'white',margin:'100px 00px 0px 0px',borderRadius:'10px'}}>
+ 
+<div className='search-container'   >
+ <h1 style={{margin:'0px 0px 30px 0px',fontSize:'50px'}}>Search Stock Here</h1>
 <SearchBar
  value={this.state.search}
  handleInputChange={this.handleInputChange}
@@ -188,23 +190,72 @@ heading={this.state.result.name ||
 
 
  </div>
- <Plot 
+  
+
+ 
+       </div>
+
+       <Grid  >
+    <Grid.Row>
+      <Grid.Column width={5}>
+          <div  >
+            <div className='stock-info'style={{textAlign:'center',fontSize:'25px'}}>
+            <List>
+    <List.Item style={{margin:'0px 0px 20px 0px'}}>
+      <List.Header style={{margin:'0px 0px 5px 0px'}} >Company </List.Header>{this.state.result.name} ({this.state.result.ticker})
+    </List.Item>
+    <List.Item style={{margin:'0px 0px 20px 0px'}}>
+      <List.Header style={{margin:'0px 0px 5px 0px'}}>Exchange</List.Header>
+{this.state.result.exchange}    </List.Item>
+    <List.Item style={{margin:'0px 0px 20px 0px'}}>
+      <List.Header style={{margin:'0px 0px 5px 0px'}}>Industry</List.Header>
+{this.state.result.finnhubIndustry}
+    </List.Item>
+    <List.Item style={{margin:'0px 0px 20px 0px'}}>
+      <List.Header style={{margin:'0px 0px 5px 0px'}}>Company Website</List.Header>
+<a href={this.state.result.weburl}style={{color:'black'}}> {this.state.result.weburl}</a> 
+    </List.Item>
+    <List.Item style={{margin:'0px 0px 20px 0px'}}>
+      <List.Header style={{margin:'0px 0px 5px 0px'}}>IPO</List.Header>
+{this.state.result.ipo}
+    </List.Item>
+     
+  </List>
+ 
+
+         
+ 
+
+
+         
+
+          </div>
+          </div>
+
+ 
+
+      </Grid.Column>
+      <Grid.Column width={11}>
+       <Plot  
         data={[
           {
             x: this.state.xvalues,
             y: this.state.yvalues,
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: {color: 'red'},
+            type: 'smooth',
+            mode: '',
+             marker: {color: 'red'},
           }
         ]}
-        layout={{width: 1000, height: 450, }}
-       />
+         
+         layout={{width: 660, height: 500, }}
+       />      
+       
+       </Grid.Column>
+    </Grid.Row>
 
- </Segment>
-
-       </div>
-
+    
+  </Grid>
+  </div>  
 
        </Container>
 
