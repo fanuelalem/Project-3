@@ -82,7 +82,7 @@ class SignIn extends Component {
  </div>
  <h1 className='node'> Getting Started on your 10/10 stock tracker account </h1>
   
- <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and become a prominent investor with our amazing tools.</p>
+ <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and become a smarter investor with our amazing tools.</p>
  
    <Link
    as ={Link}
