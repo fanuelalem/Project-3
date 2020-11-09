@@ -59,7 +59,7 @@ import { Table } from 'semantic-ui-react'
 
 const WinnerListItems = props => (
 
-    <div>
+    <div style={{margin:'100px 40px 0px 40px'}}>
 
     <Table widths={4}>
      <Table.Header>

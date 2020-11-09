@@ -21,7 +21,7 @@ export default class Nav extends Component {
        <div className='navy'   style={{backgroundColor:'#222222'}}>
 <Container>
 
-         <Menu secondary size='huge' >
+         <Menu secondary size='huge'  >
         {this.props.authenticated?null:<Menu.Item
           as ={Link}
           to="/"
@@ -36,7 +36,8 @@ export default class Nav extends Component {
           name='winners'
           active={activeItem === 'winners'}
           onClick={this.handleItemClick}
-        > <Icon style={{color:'#9d9d9d'}} name='sort amount up'></Icon><span style={{color:'#9d9d9d'}}> Winners</span>  </Menu.Item>: null}
+        > 
+        <Icon style={{color:'#9d9d9d'}} name='sort amount up'></Icon><span style={{color:'#9d9d9d'}}> Winners</span>  </Menu.Item>: null}
         {this.props.authenticated?<Menu.Item
           as ={Link}
           to="/losers"
@@ -69,14 +70,14 @@ export default class Nav extends Component {
         <Input icon='search' placeholder='Search...' />
           </Menu.Item>:null} */}
 
-<Menu.Item
+{/* <Menu.Item
           as ={Link}
  
           to="/searchstock"
           name='searchstock'
           active={activeItem === 'signup'}
           onClick={this.handleItemClick}
-         ><Icon style={{color:'#9d9d9d'}} name='search'></Icon> <span style={{color:'#9d9d9d'}}> Search Stock</span> </Menu.Item>
+         ><Icon style={{color:'#9d9d9d'}} name='search'></Icon> <span style={{color:'#9d9d9d'}}> Search Stock</span> </Menu.Item> */}
 
 
          {this.props.authenticated ? <Menu.Item

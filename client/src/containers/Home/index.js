@@ -189,7 +189,7 @@ Our motivation when building this application was to empower investors with valu
       <Grid.Column>
           <h1 style={{color:'white'}}className='how-it-works'>10/10 Stock Tracker</h1>
           <div><p style={{color:'white',fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
-          This application is a helpful tool that helps you save stocks onto a personal watchlist. It provides information on the stock markets top 10 winners and losers of the day. Users can also search and track any stock in the market and view stocks that are trending among other users.
+          This application is a helpful tool to save stocks onto a personal watchlist. It provides information on the stock markets top 10 winners and losers of the day. Users can also search and track any stock in the market and view stocks that are trending among other users.
 
 </p></div>
       </Grid.Column>

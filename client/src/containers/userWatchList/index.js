@@ -76,7 +76,10 @@ state={
      const {handleSubmit} = this.props;
       return(
           <>
-<Segment  vertical>
+              <div style={{margin:'100px 40px 0px 40px'}}>
+
+ 
+<Segment    >
     <Grid columns={2} relaxed='very'>
       <Grid.Column >
 
@@ -93,7 +96,7 @@ state={
 
        <Header as="h2" color="blue" textAlign="center" content="watchlist"/>
           <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
-              <Segment stacked>
+              <Segment  >
                 <Field
                 name="text"
                 component={this.renderAddTodo}
@@ -128,9 +131,10 @@ state={
               </Grid.Column>
     </Grid>
 
-    <Divider vertical>
-     </Divider>
+    
   </Segment>
+  </div>
+
           </>
       );
   }

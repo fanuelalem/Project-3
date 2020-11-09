@@ -85,12 +85,17 @@ import {connect} from 'react-redux'
        <div style={{backgroundColor:'white',margin:'100px 00px 0px 0px',borderRadius:'10px'}}>
  
 <div className='search-container'   >
- <h1 style={{margin:'0px 0px 30px 0px',fontSize:'50px'}}>Search Stock Here</h1>
-<SearchBar
+
+ 
+      {/* <h1 style={{margin:'0px 0px 30px 0px',fontSize:'50px'}}>Search Stock Here</h1> */}
+      <SearchBar
  value={this.state.search}
  handleInputChange={this.handleInputChange}
  handleFormSubmit={this.handleFormSubmit}
 />
+      
+
+ 
  
 {/* <Grid divided='vertically'>
     <Grid.Row columns={2}>

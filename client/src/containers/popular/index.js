@@ -37,7 +37,7 @@ class AllTodosList extends Component {
   renderList = () => {
   
     return(
-   <div>
+      <div style={{margin:'100px 40px 0px 40px'}}>
 
   
      <Table singleLine>
@@ -50,7 +50,7 @@ class AllTodosList extends Component {
       </Table.Header>
       <Table.Body>
        
-  {this.props.allTodos.map(({_id,text,dateCreated})=>(
+  {this.props.allTodos.map(({_id,text,dateCreated,name})=>(
      <Table.Row key={_id}>
          <Table.Cell> <h3>{text}</h3></Table.Cell>
          <Table.Cell>{moment(dateCreated).fromNow()}</Table.Cell>

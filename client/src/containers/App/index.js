@@ -14,6 +14,8 @@ import SignOut from '../SignOut';
  import Nav from './../../components/nav'
  import SearchStock from './../SearchStock'
  
+ import ScrollToTop from './../../components/scrolltop/index'
+
 import './../../index.css'
 
 // import Chat from '../chatComponent';
@@ -39,7 +41,8 @@ class App extends Component {
 
  
        
- 
+<ScrollToTop className='scroll'/>
+
  
            {/* <NavBar authenticated={this.props.authenticated}/> */}
            <Nav authenticated={this.props.authenticated}/>
