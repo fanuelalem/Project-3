@@ -87,7 +87,7 @@ class SignIn extends Component {
       <Form   size='large' onSubmit={handleSubmit(this.onSubmit)}>
       <Segment style={{backgroundColor:'#f7f8fa'}} >
 
-         <Header color="purple" textAlign="center" style={{ fontSize: '34px' }}>
+         <Header color="grey" textAlign="center" style={{ fontSize: '34px' }}>
               <Image style={{backgroundColor:'white'}} className='im'src={logo} />
               Log-in to your account
             </Header>
