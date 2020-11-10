@@ -37,7 +37,7 @@ export default class Nav extends Component {
           active={activeItem === 'winners'}
           onClick={this.handleItemClick}
         > 
-        <Icon style={{color:'#9d9d9d'}} name='sort amount up'></Icon><span style={{color:'#9d9d9d'}}> Winners</span>  </Menu.Item>: null}
+        <Icon style={{color:'#9d9d9d'}} name='trophy'></Icon><span style={{color:'#9d9d9d'}}> Winners</span>  </Menu.Item>: null}
         {this.props.authenticated?<Menu.Item
           as ={Link}
           to="/losers"
@@ -61,7 +61,7 @@ export default class Nav extends Component {
           icon='users'
           active={activeItem === 'popular'}
           onClick={this.handleItemClick}
-        > <Icon style={{color:'#9d9d9d'}} name='user outline'></Icon><span style={{color:'#9d9d9d'}}>Community</span></Menu.Item> :null }
+        > <Icon style={{color:'#9d9d9d'}} name='fire'></Icon><span style={{color:'#9d9d9d'}}>Trending</span></Menu.Item> :null }
 
         
 
