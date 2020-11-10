@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Segment,Input, Menu,Container,Icon,Image } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../Images/Logo.png'
+import SearchBar from './../../containers/SearchStock/searchForm/search' 
 
 export default class Nav extends Component {
   state = { activeItem: 'home'}
@@ -78,7 +79,7 @@ export default class Nav extends Component {
           active={activeItem === 'signup'}
           onClick={this.handleItemClick}
          ><Icon style={{color:'#9d9d9d'}} name='search'></Icon> <span style={{color:'#9d9d9d'}}> Search Stock</span> </Menu.Item> */}
-
+  
 
          {this.props.authenticated ? <Menu.Item
             as={Link}
@@ -106,7 +107,7 @@ export default class Nav extends Component {
           onClick={this.handleItemClick}
          ><Icon style={{color:'#9d9d9d'}} name='signup'></Icon> <span className='signup-nav' style={{color:'#9d9d9d'}}> Sign-Up</span> </Menu.Item>}
  
-
+ 
           
         </Menu.Menu>
       </Menu>
