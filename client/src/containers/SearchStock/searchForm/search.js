@@ -12,22 +12,23 @@ function SearchBar(props) {
               <div className="col-12">
 
               <form  >
-      <div style={{marginBottom:'50px'}} >
-         <Input
-         className='input-search'
-          placeholder='Search...'
-          placeholder='Search...'
+      <div style={{marginBottom:'25px'}} >
+
+      <div>
+    <Input  className='input-search'
+          placeholder=''
+          placeholder='enter ticker'
           onChange={props.handleInputChange}
           value={props.value}
           name="search"
           type="text"
-            id="search"
-         />
+            id="search" />
+    <Button onClick={props.handleFormSubmit} color='purple'  >   
+          Search </Button>
+  </div>
+     
          
-         <Button onClick={props.handleFormSubmit} color='purple'>
-           <Icon name='search'></Icon>
-          Search a stock
-        </Button>
+         
       </div>
     </form>
 

@@ -90,17 +90,13 @@ import {connect} from 'react-redux'
              <div  style={{minHeight:'900px'}}>
                 <Container >
  
-       <div style={{backgroundColor:'white',margin:'100px 00px 0px 0px',borderRadius:'10px'}}>
+       <div style={{backgroundColor:'white',margin:'100px 00px 0px 0px',borderRadius:'5px'}}>
  
 <div className='search-container'   >
 
  
       {/* <h1 style={{margin:'0px 0px 30px 0px',fontSize:'50px'}}>Search Stock Here</h1> */}
-      <SearchBar
- value={this.state.search}
- handleInputChange={this.handleInputChange}
- handleFormSubmit={this.handleFormSubmit}
-/>
+      
       
 
  
@@ -211,12 +207,24 @@ heading={this.state.result.name ||
        <Grid  >
     <Grid.Row>
       <Grid.Column width={5}>
+        <div className='search-container'  >
+
+       <SearchBar
+ value={this.state.search}
+ handleInputChange={this.handleInputChange}
+ handleFormSubmit={this.handleFormSubmit}
+/>
+</div>
+
           <div  >
-            <div className='stock-info'style={{textAlign:'center',fontSize:'25px'}}>
+            <div className='stock-info'style={{textAlign:'center',fontSize:'18px'}}>
             <List>
     <List.Item style={{margin:'0px 0px 20px 0px'}}>
-      <List.Header style={{margin:'0px 0px 5px 0px'}} >Company </List.Header>{this.state.result.name} ({this.state.result.ticker})
+      <List.Header style={{margin:'0px 0px 5px 0px'}} >  </List.Header><Image style={{margin:'0px 0px 0px 0px'}}className='imgl' src={this.state.result.logo}/>
     </List.Item>
+    <List.Item style={{margin:'0px 0px 20px 0px'}}>
+      <List.Header style={{margin:'0px 0px 5px 0px'}}>Company</List.Header>
+{this.state.result.name} {this.state.result.ticker} </List.Item>
     <List.Item style={{margin:'0px 0px 20px 0px'}}>
       <List.Header style={{margin:'0px 0px 5px 0px'}}>Exchange</List.Header>
 {this.state.result.exchange}    </List.Item>
@@ -226,7 +234,7 @@ heading={this.state.result.name ||
     </List.Item>
     <List.Item style={{margin:'0px 0px 20px 0px'}}>
       <List.Header style={{margin:'0px 0px 5px 0px'}}>Company Website</List.Header>
-<a href={this.state.result.weburl}style={{color:'black'}}> {this.state.result.weburl}</a> 
+<a href={this.state.result.weburl}> {this.state.result.weburl}</a> 
     </List.Item>
     <List.Item style={{margin:'0px 0px 20px 0px'}}>
       <List.Header style={{margin:'0px 0px 5px 0px'}}>IPO</List.Header>
@@ -260,7 +268,7 @@ heading={this.state.result.name ||
           }
         ]}
          
-         layout={{width: 660, height: 500, }}
+         layout={{width: 660, height: 500,title:`${this.state.result.name}` }}
        />      
        
        </Grid.Column>
