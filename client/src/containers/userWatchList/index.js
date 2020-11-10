@@ -101,7 +101,7 @@ state={
 
 
 
-       <Header as="h2" color="blue" textAlign="center" content="watchlist"/>
+       <Header as="h2"  textAlign="center" content="My Watchlist"/>
           <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
               <Segment  >
                 <Field
