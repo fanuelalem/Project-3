@@ -128,7 +128,7 @@ class SignIn extends Component {
 </Grid>
 
      
-<div className='div-tag'style={{backgroundColor:'#222222'}}>
+<div className='div-tag1'style={{backgroundColor:'#222222'}}>
     <Container>
 <Segment vertical>
 
