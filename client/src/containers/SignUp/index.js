@@ -9,6 +9,7 @@ import fanuel from './../../components/Images/fanuel.jpg'
 import ganesh from './../../components/Images/ganesh.png'
 import vanessa from './../../components/Images/vanessa.jpeg'
 import husam from './../../components/Images/husam.jpeg'
+import './../../index.css'
 
 
 import axios from 'axios';
@@ -83,7 +84,7 @@ class SignUp extends Component {
       <div  >
 
 <Helmet>
-   <style>{'body { background-color: white; }'}</style>
+   <style>{'body { background-color: #532f8c; }'}</style>
 
          </Helmet>
          <Grid textAlign="center" style={{ height: '75vh',margin:'0px 0 99px 0' }} verticalAlign="middle">
@@ -95,9 +96,9 @@ class SignUp extends Component {
       <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
         
         <Segment style={{backgroundColor:'#f7f8fa' }} >
-        <Header color="grey" textAlign="center" style={{ fontSize: '36px' }}>
-       <Image style={{backgroundColor:'white'}} className='im'src={logo} />
-              Create an account
+        <Header  color='grey' textAlign="center" style={{ fontSize: '33px' }}>
+       <Image style={{backgroundColor:'white'}} className='im22'src={logo} />
+              <span style={{ margin:'0 0 0 15px'}}>Create an account </span> 
             </Header>
           <Field
           name='email'

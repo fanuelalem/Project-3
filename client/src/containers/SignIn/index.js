@@ -69,7 +69,7 @@ class SignIn extends Component {
     return(
  <div>
    <Helmet>
-   <style>{'body { background-color: white; }'}</style>
+   <style>{'body { background-color: #532f8c; }'}</style>
 
          </Helmet>
    {/* <div className='j2'>

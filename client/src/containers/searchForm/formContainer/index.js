@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import API from "./../utils"
 import Detail from './../details'
 import SearchBar from './../search'
-import { Grid,Message } from 'semantic-ui-react'
+import { Grid,Message,List,Image,Icon } from 'semantic-ui-react'
 import Card from './../Card'
 import Plot from 'react-plotly.js';
 import {connect} from 'react-redux'
@@ -35,6 +35,7 @@ import axios from 'axios'
 
         otherUtil.search(query)
         .then((response)=>{
+          console.log(response,'data')
           this.setState({result:response.data},()=>{
             console.log(response.data)
           })
@@ -116,20 +117,73 @@ heading={this.state.result.name ||
 
 {/* <UserTodoList/> */}
 <div>
+
+
+
+  
 <Plot 
         data={[
           {
             x: this.state.xvalues,
             y: this.state.yvalues,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: ' ',
             marker: {color: 'red'},
+            
           }
         ]}
-        layout={{width: 630, height: 450, }}
+        layout={{width: 630, height: 450,title:`${this.state.result.name}` }}
+
+        
        />
 
+<div style={{textAlign:'center'}}>
 
+        
+<List>
+<Grid>
+  
+ <Grid.Row columns={4}>
+      <Grid.Column>
+      <List.Item>
+      <List.Header> <h2>   Company</h2> </List.Header><h5> {this.state.result.name}</h5> 
+    </List.Item>      </Grid.Column>
+      <Grid.Column>
+      <List.Item>
+      <List.Header><h2 > Website</h2></List.Header>
+     <h5>   <a href={this.state.result.weburl}>   {this.state.result.weburl}    </a>    </h5>
+    </List.Item>      </Grid.Column>
+      <Grid.Column>
+      <List.Item>
+      <List.Header><h2> Exchange</h2></List.Header><h5> 
+{this.state.result.exchange}   
+
+      </h5>
+  </List.Item>      </Grid.Column>
+      <Grid.Column>
+      <List.Item>
+      <List.Header><h2> Industry</h2></List.Header>
+      <h5>
+{this.state.result.finnhubIndustry}
+
+      </h5>
+     </List.Item>      </Grid.Column>
+    </Grid.Row>
+    </Grid>
+
+
+    
+
+     
+
+  
+
+   
+
+
+  </List>
+
+  </div>
 
  </div>
  

@@ -1,19 +1,28 @@
 import React from "react";
-import { Header,Icon,Card,Image } from 'semantic-ui-react'
+import { Header,Icon,Card,Image,List } from 'semantic-ui-react'
 import './../../index.css'
 
 const Detail = (props) => {
   return (
-    <div className='detail'>
-      <ul>
-      <li> <a href={props.weburl}> {props.weburl}</a> </li>
+    <div className='detail' style={{textAlign:'center'}}>
 
-      <li><strong>exchange: </strong>{props.exchange}</li>
+{/* <List>
+    <List.Item>
+      <List.Header>Company</List.Header>{props.name}
+    </List.Item>
+    <List.Item>
+      <List.Header>Company Website</List.Header>
+      <a style={{color:'orange'}}href={props.weburl}> {props.weburl}</a>    </List.Item>
+    <List.Item>
+      <List.Header>exchange</List.Header>
+{props.exchange}    </List.Item>
+    <List.Item>
+      <List.Header>Industry</List.Header>
+{props.finnhubIndustry}
+    </List.Item>
+  </List> */}
 
-        <li><strong>Industry: </strong>{props.finnhubIndustry}</li>
-        <li><strong>shareOutstanding: </strong>{props.shareOutstanding}</li>
-
-      </ul>
+       
     </div>
      );
 }

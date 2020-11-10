@@ -9,6 +9,8 @@ import DeleteTodoModal from './../../components/DeleteModal';
 import { Table } from 'semantic-ui-react'
 import FormContainer from './../searchForm/formContainer/index'
 import moment from 'moment'
+import { Helmet } from 'react-helmet';
+
 
 class AllTodosList extends Component {
   componentDidMount() {
@@ -37,6 +39,12 @@ class AllTodosList extends Component {
   renderList = () => {
   
     return(
+<div>
+
+       <Helmet>
+   <style>{'body { background-color: #532f8c; }'}</style>
+
+         </Helmet>
       <div style={{margin:'100px 40px 0px 40px'}}>
 
   
@@ -64,7 +72,8 @@ class AllTodosList extends Component {
    
   
    </div>
-  
+   </div>
+
     )
   };
    

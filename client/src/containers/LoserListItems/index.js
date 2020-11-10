@@ -50,14 +50,23 @@
 
 
 import React from "react" 
+
+
 import { Link } from "react-router-dom"
+
+import { Helmet } from 'react-helmet';
+
 // import "../App.css"
 import { Table } from 'semantic-ui-react'
 
 
 const LoserListItems = props => (
+<div>
+<Helmet>
+   <style>{'body { background-color: #532f8c; }'}</style>
 
-  <div style={{margin:'100px 40px 0px 40px'}}>
+         </Helmet>
+   <div style={{margin:'100px 40px 0px 40px'}}>
 
     <Table widths={4}>
     <Table.Header>
@@ -94,7 +103,8 @@ const LoserListItems = props => (
     </Table>
  
   
- 
+    </div>
+
   </div>
 );
 

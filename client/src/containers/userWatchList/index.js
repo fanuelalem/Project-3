@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Grid,Divider,Header, Form, Segment, Message, List, Pagination, Button, Icon } from 'semantic-ui-react';
 import FormContainer from './../searchForm/formContainer/index'
 import { compose } from 'redux';
+import { Helmet } from 'react-helmet';
+
   
 import axios from 'axios';
 
@@ -47,6 +49,7 @@ state={
   renderAddTodo = ({ input, meta }) => {
      return (
       <>
+
         <Form.Input
           {...input}
           error={ meta.touched && meta.error }
@@ -76,6 +79,10 @@ state={
      const {handleSubmit} = this.props;
       return(
           <>
+<Helmet>
+   <style>{'body { background-color: #532f8c; }'}</style>
+
+         </Helmet>
               <div style={{margin:'100px 40px 0px 40px'}}>
 
  
@@ -104,7 +111,7 @@ state={
                 <Button
                 type='submit'
                 fluid
-                color='blue'
+                color='purple'
                 content='add'
                 />
               </Segment>

@@ -7,6 +7,8 @@ import {List,Grid,Message,Container,Segment,Image,Label,Item,Button,Icon} from '
 import Card from './searchForm/Card'
 import otherUtil from './searchForm/otherutil'
 import axios from 'axios'
+import { Helmet } from 'react-helmet';
+
 
 import {connect} from 'react-redux'
  
@@ -79,7 +81,13 @@ import {connect} from 'react-redux'
     render() {
       
         return (
-            <div  style={{minHeight:'900px'}}>
+
+          <div>
+<Helmet>
+   <style>{'body { background-color: #532f8c; }'}</style>
+
+         </Helmet>
+             <div  style={{minHeight:'900px'}}>
                 <Container >
  
        <div style={{backgroundColor:'white',margin:'100px 00px 0px 0px',borderRadius:'10px'}}>
@@ -264,6 +272,7 @@ heading={this.state.result.name ||
 
        </Container>
 
+       </div>
 
 
             </div>
