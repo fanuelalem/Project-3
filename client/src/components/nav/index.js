@@ -1,19 +1,74 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { Segment,Input, Menu,Container,Icon,Image } from 'semantic-ui-react'
+import { Segment,Input, Menu,Container,Icon,Image, Button } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../Images/Logo.png'
-import SearchBar from './../../containers/SearchStock/searchForm/search' 
+// import SearchBar from './../../containers/SearchStock/searchForm/search' 
+// import otherUtil from './APICall/otherutil'
+// import API from './APICall/utils'
+// import SearchNav from './SearchNav/index'
+import SearchProp from './Prop/index'
 
 export default class Nav extends Component {
-  state = { activeItem: 'home'}
+  state = { activeItem: 'home', visible:true 
+
+}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   
-  render(props) {
-    console.log(this.props)
+//   componentDidMount() {
+//     this.searchMovies('aapl');
+
+//   }
+
+//   searchMovies = async (query) => {
+//     let xfunction=[];
+//     let yfunction=[];
+
+    
+
+
+//     otherUtil.search(query)
+//     .then((response)=>{
+//       console.log(response,'data')
+//       this.setState({result:response.data},()=>{
+//         console.log(response.data)
+//       })
+//     })
+
+ 
+    
+
+//      API.search(query)
+//     .then((response)=>{
+//       for(var key in response.data['Time Series (Daily)']){
+//         xfunction.push(key);
+//         yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+//       }
+//       this.setState({xvalues:xfunction,yvalues:yfunction})
+       
+//      })
+//     .catch((e)=>{
+//         console.log(e)
+//     })
+// }
+
+// handleInputChange = event => {
+//     const value = event.target.value;
+//     const name = event.target.name;
+//     this.setState({
+//       [name]: value
+//     });
+//   };
+
+//   handleFormSubmit = event => {
+//     event.preventDefault();
+//     this.searchMovies(this.state.search);
+     
+//   };
+   render() {
+    console.log(this.props,'nav props')
 
     const { activeItem } = this.state
 
@@ -67,6 +122,8 @@ export default class Nav extends Component {
         
 
         <Menu.Menu position='right'>
+
+
           {/* {this.props.authenticated?<Menu.Item>
         <Input icon='search' placeholder='Search...' />
           </Menu.Item>:null} */}
@@ -79,7 +136,7 @@ export default class Nav extends Component {
           active={activeItem === 'signup'}
           onClick={this.handleItemClick}
          ><Icon style={{color:'#9d9d9d'}} name='search'></Icon> <span style={{color:'#9d9d9d'}}> Search Stock</span> </Menu.Item> */}
-  
+   
 
          {this.props.authenticated ? <Menu.Item
             as={Link}
@@ -107,9 +164,43 @@ export default class Nav extends Component {
           onClick={this.handleItemClick}
          ><Icon style={{color:'#9d9d9d'}} name='signup'></Icon> <span className='signup-nav' style={{color:'#9d9d9d'}}> Sign-Up</span> </Menu.Item>}
  
+ <Menu.Item
+         as={Link}
+         to='/searchstock'
+           active={activeItem === 'searchstock'}
+          >
+
  
-          
-        </Menu.Menu>
+    
+<div  >
+ 
+ <input
+ style={{border:"none",padding:'8px 6px 7px 14px',margin:'0 0 0 0',borderBottomLeftRadius:'6px',borderTopLeftRadius:'6px'}}
+onChange={this.props.onsearch}
+value={this.value}
+placeholder='Search Ticker...'
+name="search"
+type="text"
+className="search-tool"
+id="search"
+>
+
+</input>
+
+<button 
+className='searchticker'
+style={{padding:'5px 5px 6px 5px',border:'none',width:'50px',borderTopRightRadius:'6px',borderBottomRightRadius:'6px'}}
+onClick={this.props.buttonClick}
+>  <Icon name='search'> </Icon></button>    
+
+</div>  
+   
+
+  
+
+          </Menu.Item>
+ 
+         </Menu.Menu>
       </Menu>
       </Container>
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { Header,Icon,Card,Image,Grid,Segment,Button} from 'semantic-ui-react'
-import './../../../index.css'
+// import './../../../index.css'
 import { Link } from 'react-router-dom';
-import pic from './../../../components/Images/pexelpic.jpg'
+// import pic from './../../../components/Images/pexelpic.jpg'
 
 const Detail = (props) => {
   return (
@@ -27,12 +27,12 @@ const Detail = (props) => {
       <h2>shareOutstanding</h2><p>{props.shareOutstanding}</p>
       </Grid.Column>
     </Grid.Row>
-  </Grid> 
+  </Grid> */}
 
 
 
  
-          */}
+         
   
  
      </div>

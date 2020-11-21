@@ -42,31 +42,31 @@ import {connect} from 'react-redux'
         
  
 
-        otherUtil.search(query)
-        .then((response)=>{
-          this.setState({result:response.data},()=>{
-            console.log(response.data)
-          })
-        })
+        // otherUtil.search(query)
+        // .then((response)=>{
+        //   this.setState({result:response.data},()=>{
+        //     console.log(response.data)
+        //   })
+        // })
 
      
         
 
-         API.search(query)
-        .then((response)=>{
-            console.log(response)
-          for(var key in response.data['Time Series (Daily)']){
-            xfunction.push(key);
-            yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-           }
-          this.setState({xvalues:xfunction,yvalues:yfunction},()=>{
-              console.log(xfunction)
-          })
+        //  API.search(query)
+        // .then((response)=>{
+        //     console.log(response)
+        //   for(var key in response.data['Time Series (Daily)']){
+        //     xfunction.push(key);
+        //     yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+        //    }
+        //   this.setState({xvalues:xfunction,yvalues:yfunction},()=>{
+        //       console.log(xfunction)
+        //   })
            
-         })
-        .catch((e)=>{
-            console.log(e)
-        })
+        //  })
+        // .catch((e)=>{
+        //     console.log(e)
+        // })
     }
 
     handleInputChange = event => {
@@ -219,6 +219,8 @@ heading={this.state.result.name ||
  handleInputChange={this.handleInputChange}
  handleFormSubmit={this.handleFormSubmit}
 />
+  
+
 </div>
 
           <div  >

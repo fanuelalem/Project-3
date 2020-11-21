@@ -179,3 +179,21 @@
     margin: 1em auto 2em;
     line-height: 1.42857143;
    }
+ 
+ .search-tool:focus,
+.searchticker{
+    outline: none;
+
+ }
+
+ .searchticker{
+     cursor: pointer;
+     background-color:#a332c8;
+     color:white
+ }
+ 
+
+ .search-tool[type="text"]
+{
+    font-size:14px;
+}

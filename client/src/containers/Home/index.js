@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import {Container,Header,Image,Segment,Grid,Button,Divider,Form,Icon } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../../components/Images/Logo.png'
- import { Field, reduxForm, SubmissionError } from 'redux-form';
- import { email, required } from 'redux-form-validators';
+ 
 import axios from 'axios';
-import { AUTH_USER} from '../../actions/types';
-import { Link } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
 import fanuel from './../../components/Images/fanuel.jpg'
 import ganesh from './../../components/Images/ganesh.png'
 import vanessa from './../../components/Images/vanessa.jpeg'
@@ -15,56 +13,14 @@ import husam from './../../components/Images/husam.jpeg'
 
 import pic from './../../components/Images/pexelpic.jpg'
 
-class SignIn extends Component {
+export default class Home extends Component {
 
-    onSubmit = async (formValues, dispatch) => {
-        try {
-         const { data } = await axios.post('/api/auth/signin', formValues);
-         localStorage.setItem('token', data.token);
-         dispatch({ type: AUTH_USER, payload: data.token });
-         this.props.history.push('/watchlist');
-       } catch (e) {
-          throw new SubmissionError({
-           email: 'Please try again',
-           password: 'You entered a bad password',
-           _error: 'Login Failed'
-         });
-       }
-     }
-   
+ 
      
-     renderEmail = ({input,meta}) => {
-        return(
-         <Form.Input
-         {...input}
-         error={meta.touched && meta.error}
-         fluid
-         icon='user'
-         iconPosition='left'
-         autoComplete='off'
-         placeholder='Email Address'
-         />
-       )
-     }
-     renderPassword = ({ input, meta }) => {
-       return (
-         <Form.Input
-           {...input}
-           error={meta.touched && meta.error }
-           fluid
-           type='password'
-           icon='lock'
-           placeholder='password'
-           autoComplete='off'
-           iconPosition='left'
-         />
-       );
-     }
-
 
     render() {
-        const {handleSubmit,invalid,submitting,submitFailed}=this.props
 
+      console.log(this.props,'hello')
         return (
             <div>
 
@@ -100,8 +56,9 @@ class SignIn extends Component {
 <Link
 as={Link}
 to='/searchstock'
+
 >
-<Button  color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
+<Button color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
 
 </Link>
 
@@ -256,4 +213,4 @@ as={Link} to='/signup'>
 }
 
 
-export default reduxForm({ form: 'signin' })(SignIn);
+ 
