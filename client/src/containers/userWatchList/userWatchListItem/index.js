@@ -25,6 +25,7 @@ export default (props) => {
        <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/>
 
        </Table.Row>
+       
  ))}
     
     </Table.Body>

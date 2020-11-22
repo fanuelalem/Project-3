@@ -99,79 +99,24 @@ import {connect} from 'react-redux'
  
 <div className='search-container'   >
 
- 
-      {/* <h1 style={{margin:'0px 0px 30px 0px',fontSize:'50px'}}>Search Stock Here</h1> */}
-      
-      
-
- 
- 
-{/* <Grid divided='vertically'>
-    <Grid.Row columns={2}>
-      <Grid.Column>
- 
-      <div style={{padding:'25px'}}>
-
-<Item.Group divided>
-
-<Item>
-<Item.Image size='tiny' src={this.state.result.logo} />
-
-<Item.Content>
- <Item.Header><h1>{this.state.result.name}</h1>
-</Item.Header>
- <Item.Meta>
-   <span className='price'>$1200</span>
-   <span className='stay'>1 Month</span>
- </Item.Meta>
- <Item.Description>{paragraph}</Item.Description>
-</Item.Content>
-</Item>
-
-
-</Item.Group>
-
-</div>
-
-       </Grid.Column>
-      <Grid.Column>
   
-       <Plot 
-        data={[
-          {
-            x: this.state.xvalues,
-            y: this.state.yvalues,
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: {color: 'red'},
-          }
-        ]}
-        layout={{width: 550, height: 450, }}
-       />
- 
-
-      </Grid.Column>
-    </Grid.Row>
-    </Grid> */}
   
 <Card
 exchange={this.state.result.exchange}
 weburl={this.state.result.weburl}
 ticker={this.state.result.ticker}
 logo={this.state.result.logo}
+
 heading={this.state.result.name || 
     
     <Message negative>
     <Message.Header>No results to display </Message.Header>
       <p>Please try again...</p>
   </Message>
- }>
+ }
+ >
  
- {this.state.result.name ? (
-
-
-
- <Detail
+ {this.state.result.name ? (<Detail
  weburl={this.state.result.weburl}
  companyName={this.state.result.name}
  exchange={this.state.result.exchange}
@@ -180,21 +125,8 @@ heading={this.state.result.name ||
  name={this.state.result.name}
  ticker={this.state.result.ticker}
  logo={this.state.result.logo}
- >
+ ></Detail>) : (<h3> </h3>)}
 
-
-     
- </Detail>
-
- 
-
-
-
-
-
- ) : (
-  <h3> </h3>
-) }
 </Card> 
 
 {/* <UserTodoList/> */}

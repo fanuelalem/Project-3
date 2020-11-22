@@ -79,8 +79,7 @@ class AllTodosList extends Component {
    
 
   render() {
-    console.log(this.props);
-    return (
+     return (
       <List celled selection size='huge'>
         {this.props.getAllTodosError ? <Message negative header={this.props.getAllTodosError}/> : null}
       { this.renderList() }

@@ -19,9 +19,8 @@ export default class Home extends Component {
      
 
     render() {
-
-      console.log(this.props,'hello')
-        return (
+ 
+          return (
             <div>
 
            
@@ -58,7 +57,9 @@ as={Link}
 to='/searchstock'
 
 >
-<Button color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
+<Button 
+// onClick={this.props.onhomeclick} 
+color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
 
 </Link>
 
@@ -112,6 +113,7 @@ to='/searchstock'
         </Grid.Row>
       </Grid>
     </Segment>
+
     <div style={{ padding: '6em 0em' }}>
 
 <Container >

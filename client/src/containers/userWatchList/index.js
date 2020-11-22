@@ -27,10 +27,26 @@ state={
 }
 
 
+// onSubmit = async (formValues,dispatch) => {
+    
+//   const {text} = formValues
+  
+//         try {
+//         await axios.post('/api/user/stock', {text:'ko'}, { headers: { 'authorization': localStorage.getItem('token')}} );
+//         dispatch({ type: ADD_TODO });
+//         this.props.getUserTodos();
+//       } catch (e) {
+//         dispatch({ type: ADD_TODO_ERROR, payload: e });
+//       }
+//     }
+  
  
 
   onSubmit = async (formValues,dispatch) => {
-     try {
+    
+
+
+      try {
       await axios.post('/api/user/stock', formValues, { headers: { 'authorization': localStorage.getItem('token')}} );
       dispatch({ type: ADD_TODO });
       this.props.getUserTodos();
@@ -40,6 +56,9 @@ state={
   }
 
 
+addWinnerStock = () => {
+  alert('hello')
+}
  
 
   componentDidMount() {
@@ -76,7 +95,9 @@ state={
 
 
   render() {
+    console.log(this.props)
      const {handleSubmit} = this.props;
+
       return(
           <>
 <Helmet>

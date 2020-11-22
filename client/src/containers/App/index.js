@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react';
+import { Grid,Message } from 'semantic-ui-react';
  
 // import NavBar from './../../components/Navbar';
 import Winners from '../winners';
@@ -13,7 +13,7 @@ import SignOut from '../SignOut';
  import NavBar from '../../components/Navbar';
  import Nav from './../../components/nav'
  import SearchStock from './../../containers/SearchStock'
- 
+  
  
  import ScrollToTop from './../../components/scrolltop/index'
  import Result from './../../components/nav/Result'
@@ -21,6 +21,7 @@ import SignOut from '../SignOut';
 import './../../index.css'
 import otherUtil from './../APICall/otherutil'
 import API from './../APICall/utils'
+import Info from '../APICall/info'
 
 // import Chat from '../chatComponent';
 import Home from './../Home/index'
@@ -36,19 +37,28 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 
+
+
   state = { 
     result: {},
     search: "",
     xvalues:[],
     yvalues:[],
-    visible:true
+    visible:true,
+    name:'',
+    info:{}
 }
 
 
-componentDidMount() {
-    this.searchMovies('aapl');
+ 
 
-  }
+ 
+componentDidMount() {
+    this.searchMovies('');
+   }
+
+   
+
 
   searchMovies = async (query) => {
     let xfunction=[];
@@ -58,50 +68,81 @@ componentDidMount() {
 
 
     otherUtil.search(query)
-    .then((response)=>{
-      console.log(response,'data')
-      this.setState({result:response.data},()=>{
-        console.log(response.data,'this is in the nav component')
-      })
+     .then((response)=>{
+      console.log(response,'finhubb api')
+
+       this.setState({result:response.data})
     })
 
- 
+    Info.search(query)
+    .then((response)=>{
+     console.log(response,'data api')
+
+      this.setState({info:response.data})
+   })
     
 
      API.search(query)
     .then((response)=>{
+      console.log(response,'alphavantage api')
       for(var key in response.data['Time Series (Daily)']){
         xfunction.push(key);
         yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
       }
       this.setState({xvalues:xfunction,yvalues:yfunction})
-       
-     })
+      })
     .catch((e)=>{
         console.log(e)
     })
 }
   
+  // handleInputChange = event => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   this.setState({
+  //     [name]: value
+  //   });
+ 
+ 
+    
+ 
+  // };
   handleInputChange = event => {
-    const value = event.target.value;
-    const name = event.target.name;
-    this.setState({
-      [name]: value
-    });
+   
+ const {value} = event.target
+ this.setState({search:value})
+ 
   };
 
+
+  goToStockSearch = () => {
+    this.setState({visible:true})
+
+  }
+ 
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchMovies(this.state.search);
-     
-  };
-
+   this.setState({search:''})
   
+   };
 
+ 
+   
+noDisplayFunction = () => {
+  this.setState({visible:false})
+}
+
+
+ 
+
+ 
   render () {
  
-    console.log(this.props,'this is app')
+
+
     return (
+      
       <div>
 
  
@@ -109,25 +150,24 @@ componentDidMount() {
 <ScrollToTop className='scroll'/>
 
  
-            <Nav onsearch={this.handleInputChange} visible={this.state.visible} name='name is fanuel' buttonClick={this.handleFormSubmit} authenticated={this.props.authenticated}/>
+            <Nav search ={this.state.search} noDisplay={this.noDisplayFunction} display = {this.goToStockSearch} onsearch={this.handleInputChange} visible={this.state.visible} name='name is fanuel' buttonClick={this.handleFormSubmit} authenticated={this.props.authenticated}/>
            
            
            <Route exact path='/searchstock' 
-           dc = 'wdece' 
-          //  component={Result}
-          render={(props) => (
-            <Result {...props} result = {this.state.result} resultvisible = {this.state.visible}  />
-          )}
-           /> 
+            render={(props) => (<Result {...props} 
+            result = {this.state.result}
+            visible = {this.state.visible}
+            info ={this.state.info}
+            />)}/> 
 
        <Route exact path='/' 
       //  component={NewHome}
        render={(props) => (
-        <Home {...props} name='hello world'changevisibility={this.changevisible} />
+        <Home {...props} name='hello world'visible = {this.state.visible} onhomeclick={this.goToStockSearch} />
       )}/>
 
  
-           <Route exact path='/winners' component={Winners}/>
+           <Route exact path='/winners'  component={Winners}/>
            <Route exact path='/losers' component={Losers}/>
 
  

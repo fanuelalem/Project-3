@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 import App from './containers/App/index';
-// import socketMiddleware from './reduxMiddlewares';
+ // import socketMiddleware from './reduxMiddlewares';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // 1st param is our reducers
 // 2nd param is any preloaded state we want
@@ -19,7 +19,7 @@ const store = createStore(
 );
 ReactDOM.render(
   <Provider store={store}>
-      <Router>
+      <Router >
       <HashRouter>
 
       <App />

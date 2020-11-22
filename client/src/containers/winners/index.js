@@ -11,7 +11,7 @@ import axios from 'axios';
 
 class Winners extends Component {
 state={
-
+title:'',
 gainer:[],
 losers:[]
 }
@@ -65,7 +65,7 @@ getWinners = () => {
       this.setState({
         gainer:response.data.gainers
       },()=>{
-        console.log(response.data.gainers)
+        console.log(response.data.gainers,'winner')
       })
     })
     .catch((error)=>{
@@ -74,12 +74,18 @@ getWinners = () => {
 
 }
 
+addWinner = () => {
+ axios.post('/api/user/stock',{title:this.state.gainer.standardName}).then((response)=>{
+   this.setState({title:response.data})
+ })
+
+}
 
   render() {
     return (
       <Grid centered>
         <Grid.Column textAlign='center'>
- <WinnerListItems gainers={this.state.gainer}/> 
+ <WinnerListItems  gainers={this.state.gainer}/> 
          </Grid.Column>
       </Grid>
     );
