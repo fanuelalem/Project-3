@@ -94,9 +94,8 @@ addWinnerStock = () => {
   }
 
 
-  render() {
-    console.log(this.props)
-     const {handleSubmit} = this.props;
+  render(props) {
+      const {handleSubmit} = this.props;
 
       return(
           <>
@@ -114,9 +113,7 @@ addWinnerStock = () => {
      
       <FormContainer/>   
  
-
-
-     </Grid.Column>
+      </Grid.Column>
       <Grid.Column> 
           
 

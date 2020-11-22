@@ -29,6 +29,7 @@ module.exports = {
       return res.status(403).json({e})
     }
   },
+  
   getAllUserEmails: async (req, res) => {
     // console.log("checking email database...")
     const {email}=req.query

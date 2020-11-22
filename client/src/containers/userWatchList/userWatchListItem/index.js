@@ -19,13 +19,17 @@ export default (props) => {
     <Table.Body>
      
 {props.todos.map(({_id,completed,text,dateCreated})=>(
-   <Table.Row key={_id}>
+
+
+ 
+    <Table.Row key={_id}>
        <Table.Cell > <h5>{text}</h5></Table.Cell>
        <Table.Cell>{moment(dateCreated).fromNow()} </Table.Cell>
        <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/>
 
        </Table.Row>
        
+   
  ))}
     
     </Table.Body>

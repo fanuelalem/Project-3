@@ -74,12 +74,12 @@ componentDidMount() {
        this.setState({result:response.data})
     })
 
-    Info.search(query)
-    .then((response)=>{
-     console.log(response,'data api')
+  //   Info.search(query)
+  //   .then((response)=>{
+  //    console.log(response,'data api')
 
-      this.setState({info:response.data})
-   })
+  //     this.setState({info:response.data})
+  //  })
     
 
      API.search(query)

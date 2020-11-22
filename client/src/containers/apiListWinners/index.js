@@ -58,7 +58,7 @@ class WinnerListItems extends Component {
      <Table.Header>
        <Table.Row>
 
-       <Table.HeaderCell><h2>Company [ticker]</h2></Table.HeaderCell>
+       <Table.HeaderCell><h2 style={{fontWeight:'500'}}>Company [ticker]</h2></Table.HeaderCell>
 
        <Table.HeaderCell>Last price</Table.HeaderCell>
        <Table.HeaderCell>price change</Table.HeaderCell>
@@ -83,15 +83,19 @@ class WinnerListItems extends Component {
            onSubmit={handleSubmit(this.onSubmit)}
           // onSubmit={()=>{alert('hello')}}
           >
+             
             <Button 
+            
+            style={{margin:'0 10px 0 0'}}
      // onClick={this.executeFunctions}
             onClick={()=>{this.setState({title:standardName},()=>{console.log(standardName)})}}  
           color='green'> 
-          <Icon style={{margin:'0 0 0 0'}}
-          name='plus'></Icon>
+          <Icon name='plus'></Icon>save to watchlist  
           </Button>
+        
+
           <span 
-          style={{fontWeight:'600'}}> 
+          style={{fontWeight:'500',fontSize:'20px'}}> 
 
           {standardName} [{ticker}]
           
