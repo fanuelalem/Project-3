@@ -30,26 +30,6 @@ getWinners = () => {
   // .catch((e)=>{
   //   console.log(e)
   // })
-  // axios({
-  //   "method":"GET",
-  //   "url":"https://morning-star.p.rapidapi.com/market/v2/get-movers",
-  //   "headers":{
-  //   "content-type":"application/octet-stream",
-  //   "x-rapidapi-host":"morning-star.p.rapidapi.com",
-  //   "x-rapidapi-key":"e74c1b33f6mshe580bbf974b73ccp1d5bcbjsn5bf09c8f0b61",
-  //   "useQueryString":true
-  //   }
-  //   })
-  //   .then((response)=>{
-  //     this.setState({
-  //       gainer:response.data.gainers
-  //     },()=>{
-  //       console.log(response.data.gainers)
-  //     })
-  //   })
-  //   .catch((error)=>{
-  //     console.log(error)
-  //   })
 
   axios({
     "method":"GET",
@@ -57,7 +37,7 @@ getWinners = () => {
     "headers":{
     "content-type":"application/octet-stream",
     "x-rapidapi-host":"morning-star.p.rapidapi.com",
-    "x-rapidapi-key":"f75310b92amsh13e6e1887369dacp14e2b7jsn1d042dbb2e3b",
+    "x-rapidapi-key":"e74c1b33f6mshe580bbf974b73ccp1d5bcbjsn5bf09c8f0b61",
     "useQueryString":true
     }
     })
@@ -65,12 +45,33 @@ getWinners = () => {
       this.setState({
         gainer:response.data.gainers
       },()=>{
-        console.log(response.data.gainers,'winner')
+        console.log(response.data.gainers)
       })
     })
     .catch((error)=>{
       console.log(error)
     })
+
+  // axios({
+  //   "method":"GET",
+  //   "url":"https://morning-star.p.rapidapi.com/market/v2/get-movers",
+  //   "headers":{
+  //   "content-type":"application/octet-stream",
+  //   "x-rapidapi-host":"morning-star.p.rapidapi.com",
+  //   "x-rapidapi-key":"f75310b92amsh13e6e1887369dacp14e2b7jsn1d042dbb2e3b",
+  //   "useQueryString":true
+  //   }
+  //   })
+  //   .then((response)=>{
+  //     this.setState({
+  //       gainer:response.data.gainers
+  //     },()=>{
+  //       console.log(response,'winner')
+  //     })
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
 
 }
 
@@ -82,7 +83,7 @@ addWinner = () => {
 }
 
   render() {
-    return (
+     return (
       <Grid centered>
         <Grid.Column textAlign='center'>
  <WinnerListItems  gainers={this.state.gainer}/> 

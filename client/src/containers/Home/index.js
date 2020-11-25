@@ -11,7 +11,7 @@ import vanessa from './../../components/Images/vanessa.jpeg'
 import husam from './../../components/Images/husam.jpeg'
 
 
-import pic from './../../components/Images/pexelpic.jpg'
+import pic from './../../components/Images/watchlist.png'
 
 export default class Home extends Component {
 
@@ -95,8 +95,8 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
             You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
             </p>
           </Grid.Column>
-          <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src={pic}/>
+          <Grid.Column floated='right' width={7} >
+            <Image style={{height:'270px',width:'405px',border:'1px solid #eaecef'}}bordered rounded size='large' src={pic}/>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>

@@ -63,21 +63,22 @@ import { Table } from 'semantic-ui-react'
 const LoserListItems = props => (
 <div>
 <Helmet>
-   <style>{'body { background-color: #532f8c; }'}</style>
+   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
 
          </Helmet>
    <div style={{margin:'100px 40px 0px 40px'}}>
 
+
     <Table widths={4}>
-    <Table.Header>
-       <Table.Row>
+    <Table.Header >
+       <Table.Row  >
 
-       <Table.HeaderCell><h2> Company [ticker]</h2></Table.HeaderCell>
+       <Table.HeaderCell  ><h2> Company [ticker]</h2></Table.HeaderCell>
 
-       <Table.HeaderCell>Last price</Table.HeaderCell>
-       <Table.HeaderCell>price change</Table.HeaderCell>
+       <Table.HeaderCell  >Last price</Table.HeaderCell>
+       <Table.HeaderCell >price change</Table.HeaderCell>
 
-         <Table.HeaderCell>percent change</Table.HeaderCell>
+         <Table.HeaderCell >percent change</Table.HeaderCell>
 
        </Table.Row>
      </Table.Header>
@@ -91,16 +92,16 @@ const LoserListItems = props => (
        <Table.Cell>${lastPrice} </Table.Cell>
        <Table.Cell >${priceChange} </Table.Cell>
 
-       <Table.Cell negative>{percentChange}% </Table.Cell>
+       <Table.Cell >{percentChange}% </Table.Cell> 
 
 
        {/* <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/> */}
 
-       </Table.Row>
+        </Table.Row>
   ))}
      
      </Table.Body>
-    </Table>
+    </Table> 
  
   
     </div>

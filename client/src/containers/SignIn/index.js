@@ -69,7 +69,7 @@ class SignIn extends Component {
     return(
  <div>
    <Helmet>
-   <style>{'body { background-color: #532f8c; }'}</style>
+   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
 
          </Helmet>
    {/* <div className='j2'>

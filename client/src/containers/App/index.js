@@ -22,7 +22,7 @@ import './../../index.css'
 import otherUtil from './../APICall/otherutil'
 import API from './../APICall/utils'
 import Info from '../APICall/info'
-
+ 
 // import Chat from '../chatComponent';
 import Home from './../Home/index'
 // import NewHome from './../NewHome/index'
@@ -46,11 +46,12 @@ class App extends Component {
     yvalues:[],
     visible:true,
     name:'',
-    info:{}
-}
+    info:{},
+ }
 
 
  
+
 
  
 componentDidMount() {
@@ -124,8 +125,7 @@ componentDidMount() {
     event.preventDefault();
     this.searchMovies(this.state.search);
    this.setState({search:''})
-  
-   };
+    };
 
  
    
@@ -133,12 +133,12 @@ noDisplayFunction = () => {
   this.setState({visible:false})
 }
 
-
+ 
  
 
  
   render () {
- 
+     
 
 
     return (

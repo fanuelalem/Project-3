@@ -5,10 +5,20 @@ import fanuel from './../../../components/Images/fanuel.jpg'
 import ganesh from './../../../components/Images/ganesh.png'
 import vanessa from './../../../components/Images/vanessa.jpeg'
 import husam from './../../../components/Images/husam.jpeg'
+import { Helmet } from 'react-helmet';
+
 
 export default class Result extends Component {
     render() {
          return (
+             <div>
+
+ 
+            <Helmet>
+   <style>{'body { background-color:#A98BD9}'}</style>
+
+ 
+         </Helmet>
  
  <Container fluid >
  
@@ -20,7 +30,7 @@ export default class Result extends Component {
 
  <Container>
 
- <Message negative>
+ <Message  >
     <Message.Header>No results to display </Message.Header>
       <p>Please try again...</p>
   </Message> 
@@ -41,7 +51,7 @@ export default class Result extends Component {
 <Grid divided='vertically'>
 <Grid.Row columns={2}>
 <Grid.Column>
-<div style={{ margin:'65px 0 0 25px',backgroundColor:'whitesmoke',border:'1px solid #eaecef',padding:'22px',borderRadius:'8px'}}>
+<div style={{ margin:'65px 0 0 25px',border:'1px solid black',padding:'22px',borderRadius:'8px',backgroundColor:'transparent'}}>
 
 <Item.Group  >
 
@@ -201,6 +211,7 @@ as={Link} to='/signup'>
 
             </Container>
 
+            </div>
 
 
             

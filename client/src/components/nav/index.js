@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { Segment, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
+import { Segment,Form, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../Images/Logo.png'
 import SearchProp from './Prop/index'
@@ -68,8 +68,7 @@ export default class Nav extends Component {
                 as={Link}
                 to="/popular"
                 name='popular'
-                icon='users'
-                active={activeItem === 'popular'}
+                 active={activeItem === 'popular'}
                 onClick={this.handleItemClick}
               > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span style={{ color: '#9d9d9d' }}>Trending</span></Menu.Item> : null}
 
@@ -106,33 +105,28 @@ export default class Nav extends Component {
 
                   ><Icon style={{ color: '#9d9d9d' }} name='signup'></Icon> <span className='signup-nav' style={{ color: '#9d9d9d' }}> Sign-Up</span> </Menu.Item>}
 
-              <Menu.Item
-                  
-                
->
-                <Link    as={Link}
-                    to='/searchstock'>
-                  {this.props.visible == true ? <Input
-                  icon={
-                     <Icon
-                          style={{ backgroundColor: 'white', color: 'purple' }}
-                          circular size='small'
-                          className='searchlink'
-                          name='search'
-                          link onClick={this.props.buttonClick}
-                          
-                      />
- 
-                      }
-                      className='search-tool'
-                      onChange={this.props.onsearch}
-                      name='search'
-                      value={this.props.search}
-                      placeholder='search a stock...'
-                      /> : this.props.visible == false}
-                    
-                    </Link>
-                  
+              <Menu.Item>
+
+ <Input
+  className='search-tool'
+  onChange={this.props.onsearch}
+  name='search'
+  value={this.props.search}
+  placeholder='search a stock...'>
+ </Input>
+ <Button
+ onClick={this.props.buttonClick}
+  className='searchlink'
+  name='search'>
+    button
+    </Button>
+
+
+    {/* {this.props.visible == true ?  */}
+    
+  
+     
+               
             </Menu.Item>
 
               </Menu.Menu>

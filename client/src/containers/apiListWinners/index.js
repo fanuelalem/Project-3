@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { Table,Grid,Divider,Header, Form, Segment, Message, List, Pagination, Button, Icon } from 'semantic-ui-react';
+import { Popup,Table,Grid,Divider,Header, Form, Segment, Message, List, Pagination, Button, Icon } from 'semantic-ui-react';
 import { compose } from 'redux';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
@@ -13,19 +13,39 @@ import { ADD_TODO_ERROR, ADD_TODO} from '../../actions/types';
 class WinnerListItems extends Component {
     state={
     title:'',
-   }
+    visible:false,
+    isOpen: false
+    
+  }
+   
 
 
-   onSubmit = async (formValues, dispatch) => {
-     const {title} = formValues
-    try {
-     await axios.post('/api/user/stock', {text:this.state.title}, { headers: { 'authorization': localStorage.getItem('token')}} );
-     dispatch({ type: ADD_TODO });
-     this.props.getUserTodos();
-   } catch (e) {
-     dispatch({ type: ADD_TODO_ERROR, payload: e });
-   }
- }
+    handleClose = ()=>{
+      this.setState({ isOpen: false })
+      clearTimeout(this.timeout)
+    }
+    handleOpen = ()=>{
+      this.setState({ isOpen: true })
+    
+      this.timeout = setTimeout(() => {
+        this.setState({ isOpen: false })
+      }, 3000)
+    }
+  
+
+
+//    onSubmit = async (formValues, dispatch) => {
+//      const {title} = formValues
+//     try {
+//      await axios.post('/api/user/stock', {text:this.state.title}, { headers: { 'authorization': localStorage.getItem('token')}} );
+//      dispatch({ type: ADD_TODO });
+//      this.props.getUserTodos();
+//    } catch (e) {
+//      dispatch({ type: ADD_TODO_ERROR, payload: e });
+//    }
+//  }
+
+
 
  componentDidMount() {
   this.props.getUserTodos();
@@ -37,10 +57,13 @@ class WinnerListItems extends Component {
   render() {
 
     const {handleSubmit} = this.props;
+    const style = {
+      borderRadius: '3px',
+      padding: '1em',
+      
+    }
 
-
-    console.log(this.state,'l')
-    return (
+     return (
       <div>
         
 
@@ -49,12 +72,12 @@ class WinnerListItems extends Component {
 
 
 <Helmet>
-   <style>{'body { background-color: #532f8c; }'}</style>
+   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
 
          </Helmet>
      <div style={{margin:'100px 40px 0px 40px'}}>
 
-    <Table widths={4}>
+    <Table widths={4} style={{backgroundImage:'linear-gradient(#EFEFBB,#D4D3DD)',color:'#222323'}} >
      <Table.Header>
        <Table.Row>
 
@@ -70,7 +93,7 @@ class WinnerListItems extends Component {
      <Table.Body>
       
 
- {this.props.gainers.map(({performanceId,standardName,ticker,percentChange,lastPrice,priceChange,exchange})=>(
+ {this.props.gainers.map(({id,performanceId,standardName,ticker,percentChange,lastPrice,priceChange,exchange})=>(
     
 
 
@@ -80,19 +103,52 @@ class WinnerListItems extends Component {
  <Table.Row key={performanceId}>
         <Table.Cell > 
           <Form 
-           onSubmit={handleSubmit(this.onSubmit)}
+          //  onSubmit={handleSubmit(this.onSubmit)}
           // onSubmit={()=>{alert('hello')}}
           >
-             
-            <Button 
+        
+
+         <Popup
+      // open={this.state.isOpen}
+      style={style}
+      on='click'
+      basic
+      trigger={<Button
+      color='green'
+     onClick={()=>{
+      // const a = this.handleClose()
+      // const b = this.handleOpen()
+       this.setState
+    ({title:standardName},()=>{console.log(standardName)})
+    
+  }
+    
+  }  
+    style={{margin:'0 10px 0 0'}}
+    icon='eye'>
+    
+      <Icon name='plus'></Icon> save to watchlist
+    </Button>} >
+   
+   <Message
+
+   vertical compact>
+   {`${standardName} has been added to your watchlist`}
+     </Message> 
+  
+  
+
+
+    </Popup>
+           
+            {/* <Button 
             
             style={{margin:'0 10px 0 0'}}
-     // onClick={this.executeFunctions}
-            onClick={()=>{this.setState({title:standardName},()=>{console.log(standardName)})}}  
+             onClick={()=>{this.setState({title:standardName},()=>{console.log(standardName)})}}  
           color='green'> 
           <Icon name='plus'></Icon>save to watchlist  
           </Button>
-        
+         */}
 
           <span 
           style={{fontWeight:'500',fontSize:'20px'}}> 
@@ -107,7 +163,7 @@ class WinnerListItems extends Component {
         <Table.Cell>${lastPrice} </Table.Cell>
         <Table.Cell >${priceChange} </Table.Cell>
 
-        <Table.Cell positive>+{percentChange}% </Table.Cell>
+        <Table.Cell >+{percentChange}% </Table.Cell>
 
 
         {/* <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/> */}

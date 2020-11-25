@@ -42,7 +42,7 @@ class AllTodosList extends Component {
 <div>
 
        <Helmet>
-   <style>{'body { background-color: #532f8c; }'}</style>
+   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
 
          </Helmet>
       <div style={{margin:'100px 40px 0px 40px'}}>
