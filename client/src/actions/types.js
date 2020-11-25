@@ -2,8 +2,11 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 
+  
+// Users Section
+export const GET_USERS = 'GET_USERS';
+export const GET_USERS_ERROR = 'GET_USERS_ERROR';
  
-
 // Todos Section
 export const GET_ALL_TODOS = 'GET_ALL_TODOS';
 export const GET_ALL_TODOS_ERROR = 'GET_ALL_TODOS_ERROR';

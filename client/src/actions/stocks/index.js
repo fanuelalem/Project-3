@@ -17,7 +17,9 @@ import axios from 'axios';
 export const getAllTodos = () => async dispatch => {
   try {
      const { data } = await axios.get('/api/stock');
-    dispatch({ type: GET_ALL_TODOS, payload: data });
+     dispatch({ type: GET_ALL_TODOS, payload: data });
+     console.log(data,'cdcdcdc')
+
   } catch (e) {
     dispatch({ type: GET_ALL_TODOS_ERROR, payload: 'Something went wrong, please refresh the page to try again'})
   }

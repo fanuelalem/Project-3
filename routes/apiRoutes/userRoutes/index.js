@@ -7,12 +7,14 @@ const {
   addStock,
 } = require('./../../../controllers/userController');
 
+ 
+
 const { requireAuth } = require('./../../../middlewares/authMiddlewares');
 
 // /api/user/emails
 router.get('/emails', getAllUserEmails);
 
-
+ 
 // /api/user/stock
 router.route('/stock')
   .get(requireAuth, getUserStocks)
