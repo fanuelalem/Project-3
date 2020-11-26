@@ -29,15 +29,14 @@ module.exports = {
       return res.status(403).json({e})
     }
   },
+
   
+
   getAllUserEmails: async (req, res) => {
-    // console.log("checking email database...")
-    const {email}=req.query
-     try {
-      const userEmail = await User.findOne({email}, 'email');
-      console.log(userEmail)
+    try {
+      const userEmail = await User.findOne({ email: req.query.email }, 'email');
       return res.status(200).json(userEmail);
-     } catch (e) {
+    } catch (e) {
       return res.status(403).json({ e });
     }
   },
@@ -53,6 +52,7 @@ module.exports = {
     try {
       // const user = await User.findById(req.user._id).populate('todos','text');
       // return res.status(200).json(user.stocks)
+      
       const stocks = await Stock.find({ user: req.user._id });
       return res.json(stocks);
     } catch (e) {
@@ -80,6 +80,14 @@ module.exports = {
       const deletedStock = await Stock.findByIdAndDelete(stockId);
       // Respond back with the deleted todo
       return res.json(deletedStock);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+   getUsers: async (req, res) => {
+    try {
+      const users = await User.find();
+      return res.status(200).json(users);
     } catch (e) {
       return res.status(403).json({ e });
     }

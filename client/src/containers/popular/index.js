@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { List, Header, Message } from 'semantic-ui-react';
 // Message third paramater
 import { connect } from 'react-redux';
-import { getAllTodos } from '../../actions/stocks';
+import { getAllTodos,getUserTodos } from '../../actions/stocks';
 // import {renderList} from './../rendernewList'
 // import moment from 'moment';
 import DeleteTodoModal from './../../components/DeleteModal';
@@ -16,6 +16,7 @@ class AllTodosList extends Component {
   componentDidMount() {
     console.log("Inside of componentDidMount");
     this.props.getAllTodos();
+    this.props.getUserTodos();
   }
 
   // renderList = () => {
@@ -37,7 +38,7 @@ class AllTodosList extends Component {
   // }
 
   renderList = () => {
-  console.log(this.props.allTodos,'ed')
+  console.log(this.props,'ed')
     return(
 <div>
 
@@ -92,7 +93,7 @@ function mapStateToProps(state) {
   return { allTodos: state.todos.allTodos, getAllTodosError: state.todos.getAllTodosError };
 }
 
-export default connect(mapStateToProps, { getAllTodos })(AllTodosList);
+export default connect(mapStateToProps, { getAllTodos,getUserTodos })(AllTodosList);
 
 // export default AllTodosList;
 

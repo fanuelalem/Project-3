@@ -40,6 +40,15 @@ export default class Nav extends Component {
                 <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
                 <span className='logo' style={{ color: '#9d9d9d' }}> 10/10 Stock Tracker</span> </Menu.Item>}
 
+                {this.props.authenticated ? <Menu.Item
+                as={Link}
+                to="/Users"
+                name='Users'
+                active={activeItem === 'Users'}
+                onClick={this.handleItemClick}
+              >
+                <Icon style={{ color: '#9d9d9d' }} name='user'></Icon><span style={{ color: '#9d9d9d' }}> Profile</span>  </Menu.Item> : null}
+
               {this.props.authenticated ? <Menu.Item
                 as={Link}
                 to="/winners"
@@ -48,6 +57,7 @@ export default class Nav extends Component {
                 onClick={this.handleItemClick}
               >
                 <Icon style={{ color: '#9d9d9d' }} name='trophy'></Icon><span style={{ color: '#9d9d9d' }}> Winners</span>  </Menu.Item> : null}
+         
               {this.props.authenticated ? <Menu.Item
                 as={Link}
                 to="/losers"

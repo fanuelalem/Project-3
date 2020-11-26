@@ -19,7 +19,61 @@ componentDidMount=()=>{
   this.getLosers()
  }
  getLosers = () => {
-    // axios.get('https://financialmodelingprep.com/api/v3/losers?apikey=fc798fa9b934e1e167d9324db570eb17')
+    
+
+ 
+  axios({
+    'method': 'GET',
+    'url': 'https://morning-star.p.rapidapi.com/market/v2/get-movers',
+    'headers': {
+      'x-rapidapi-key': '46d623d4e3mshe0376e4a2f88b30p13b625jsn10c462d75ab2',
+      'x-rapidapi-host': 'morning-star.p.rapidapi.com',
+      "useQueryString":true
+    }
+   }).then((response)=>{
+     this.setState({loser:response.data.losers})
+     console.log(response)
+   }).catch((e)=>{
+     console.log(e)
+   })
+
+
+  }
+
+  render() {
+    return (
+      <Grid centered>
+        <Grid.Column textAlign='center'>
+ <LoserListItems losers={this.state.loser}/> 
+         </Grid.Column>
+      </Grid>
+    );
+  }
+}
+
+// This takes a key which is what we want the states name to be as props
+// The value is what state we want to pull out from the store
+// function mapStateToProps(state) {
+//   return { counter: state.counter };
+// };
+// 2nd parameter to connect is what actions we want wired up to this component
+// To be sent to all of our reducers
+
+
+
+// export default requireAuth(connect(mapStateToProps, { increment, decrement })(Counter));
+//
+// export default compose(
+//   connect(mapStateToProps, { increment, decrement}),requireAuth)(Counter);
+
+// export default connect(mapStateToProps,{increment,decrement})(Counter)
+export default Losers
+
+
+
+//other account apis
+
+ // axios.get('https://financialmodelingprep.com/api/v3/losers?apikey=fc798fa9b934e1e167d9324db570eb17')
     // .then((response)=>{
     //   this.setState({
     //     loser:response.data
@@ -73,34 +127,3 @@ componentDidMount=()=>{
     //   .catch((error)=>{
     //     console.log(error)
     //   })
-
-  }
-
-  render() {
-    return (
-      <Grid centered>
-        <Grid.Column textAlign='center'>
- <LoserListItems losers={this.state.loser}/> 
-         </Grid.Column>
-      </Grid>
-    );
-  }
-}
-
-// This takes a key which is what we want the states name to be as props
-// The value is what state we want to pull out from the store
-// function mapStateToProps(state) {
-//   return { counter: state.counter };
-// };
-// 2nd parameter to connect is what actions we want wired up to this component
-// To be sent to all of our reducers
-
-
-
-// export default requireAuth(connect(mapStateToProps, { increment, decrement })(Counter));
-//
-// export default compose(
-//   connect(mapStateToProps, { increment, decrement}),requireAuth)(Counter);
-
-// export default connect(mapStateToProps,{increment,decrement})(Counter)
-export default Losers

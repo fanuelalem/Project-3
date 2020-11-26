@@ -5,6 +5,8 @@ import { Grid,Divider,Header, Form, Segment, Message, List, Pagination, Button, 
 import FormContainer from './../searchForm/formContainer/index'
 import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
+import { getUserData, getOtherUsers } from './../../actions/profile';
+
 
   
 import axios from 'axios';
@@ -95,6 +97,7 @@ addWinnerStock = () => {
 
 
   render(props) {
+    console.log(this.props,'dcsdcsds')
       const {handleSubmit} = this.props;
 
       return(
@@ -249,7 +252,7 @@ function mapStateToProps({ todos: { userTodos, getUserTodosServerError, getUserT
 }
  export default compose(
   reduxForm({ form: 'addTodo' }),
-  connect(mapStateToProps, { getUserTodos,updateTodoCompletedById, deleteTodoById })
+  connect(mapStateToProps, { getUserTodos,updateTodoCompletedById, deleteTodoById,getUserData, getOtherUsers })
 )(UserTodoList);
 
 

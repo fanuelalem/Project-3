@@ -9,12 +9,14 @@ import { Helmet } from 'react-helmet';
 import { getUserTodos, updateTodoCompletedById, deleteTodoById } from '../../actions/stocks';
 import { Link } from "react-router-dom"
 import { ADD_TODO_ERROR, ADD_TODO} from '../../actions/types';
+import { numericality } from 'redux-form-validators';
 
 class WinnerListItems extends Component {
     state={
     title:'',
     visible:false,
-    isOpen: false
+    isOpen: false,
+    rank:1
     
   }
    
@@ -34,16 +36,16 @@ class WinnerListItems extends Component {
   
 
 
-//    onSubmit = async (formValues, dispatch) => {
-//      const {title} = formValues
-//     try {
-//      await axios.post('/api/user/stock', {text:this.state.title}, { headers: { 'authorization': localStorage.getItem('token')}} );
-//      dispatch({ type: ADD_TODO });
-//      this.props.getUserTodos();
-//    } catch (e) {
-//      dispatch({ type: ADD_TODO_ERROR, payload: e });
-//    }
-//  }
+   onSubmit = async (formValues, dispatch) => {
+     const {title} = formValues
+    try {
+     await axios.post('/api/user/stock', {text:this.state.title}, { headers: { 'authorization': localStorage.getItem('token')}} );
+     dispatch({ type: ADD_TODO });
+     this.props.getUserTodos();
+   } catch (e) {
+     dispatch({ type: ADD_TODO_ERROR, payload: e });
+   }
+ }
 
 
 
@@ -64,7 +66,7 @@ class WinnerListItems extends Component {
     }
 
      return (
-      <div>
+       <div>
         
 
 
@@ -77,11 +79,11 @@ class WinnerListItems extends Component {
          </Helmet>
      <div style={{margin:'100px 40px 0px 40px'}}>
 
-    <Table widths={4} style={{backgroundImage:'linear-gradient(#EFEFBB,#D4D3DD)',color:'#222323'}} >
+    <Table widths={4} >
      <Table.Header>
        <Table.Row>
-
-       <Table.HeaderCell><h2 style={{fontWeight:'500'}}>Company [ticker]</h2></Table.HeaderCell>
+ 
+       <Table.HeaderCell><h2 >Company [ticker]</h2></Table.HeaderCell>
 
        <Table.HeaderCell>Last price</Table.HeaderCell>
        <Table.HeaderCell>price change</Table.HeaderCell>
@@ -91,19 +93,15 @@ class WinnerListItems extends Component {
        </Table.Row>
      </Table.Header>
      <Table.Body>
-      
-
- {this.props.gainers.map(({id,performanceId,standardName,ticker,percentChange,lastPrice,priceChange,exchange})=>(
+ 
+  {this.props.gainers.map(({num,id,performanceId,standardName,ticker,percentChange,lastPrice,priceChange,exchange})=>(
     
-
-
-
-
-
+    
  <Table.Row key={performanceId}>
+    
         <Table.Cell > 
           <Form 
-          //  onSubmit={handleSubmit(this.onSubmit)}
+           onSubmit={handleSubmit(this.onSubmit)}
           // onSubmit={()=>{alert('hello')}}
           >
         

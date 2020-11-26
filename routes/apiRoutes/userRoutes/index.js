@@ -7,13 +7,21 @@ const {
   addStock,
 } = require('./../../../controllers/userController');
 
- 
+const { getCurrentUser, getFilteredUsers } = require('./../../../controllers/profileController');
+
 
 const { requireAuth } = require('./../../../middlewares/authMiddlewares');
 
 // /api/user/emails
 router.get('/emails', getAllUserEmails);
 
+router.route('/profile')
+  .get(requireAuth, getCurrentUser);
+
+  
+
+router.route('/profiles')
+  .get(requireAuth, getFilteredUsers);
  
 // /api/user/stock
 router.route('/stock')

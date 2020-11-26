@@ -11,7 +11,10 @@ import vanessa from './../../components/Images/vanessa.jpeg'
 import husam from './../../components/Images/husam.jpeg'
 
 
-import pic from './../../components/Images/watchlist.png'
+ import pic1 from './../../components/Images/topgainers.png'
+ import pic2 from './../../components/Images/watchlist.png'
+
+
 
 export default class Home extends Component {
 
@@ -73,32 +76,58 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
 
        </div>
        
- 
+       <Segment style={{ padding: '8em 0em' }} vertical>
+         <Container>
 
-        <div className='l'>
- 
+          <Grid>
+         <Grid.Row columns={2}>
+         <Grid.Column>
+         <Header as='h3' style={{ fontSize: '2em' }}>
+          
+         View the top 10 stock Market daily winners and losers, and lookup any stock.
+        </Header>
+        <p style={{ fontSize: '1.33em' }}>
+             Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you may search stocks by their ticker to find extra information and details about the company.
+           
+        </p>
+  </Grid.Column>
+  <Grid.Column>
+<Image src={pic1}/>
 
-<Segment style={{ padding: '8em 0em' }} vertical>
-      <Grid container stackable verticalAlign='middle'>
-        <Grid.Row>
-          <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-                View the top 10 stock Market daily winners and losers, and lookup any stock.
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-            Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you may search stocks by their ticker to find extra information and details about the company.
-            </p>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              Save stocks onto a watchlist and join the 10/10 stock community to view trends.
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-            You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
-            </p>
-          </Grid.Column>
-          <Grid.Column floated='right' width={7} >
-            <Image style={{height:'270px',width:'405px',border:'1px solid #eaecef'}}bordered rounded size='large' src={pic}/>
-          </Grid.Column>
-        </Grid.Row>
+  </Grid.Column>
+
+         </Grid.Row>
+           
+         </Grid>
+
+         
+        
+<br></br>
+<br></br>
+<br></br>
+
+        <Divider/>
+
+        <br></br>
+<br></br>
+<br></br>
+
+        <Grid>
+         <Grid.Row columns={2}>
+         <Grid.Column>
+         <Header as='h3' style={{ fontSize: '2em' }}>
+          
+         Save stocks onto a watchlist and join the 10/10 stock community to view trends.
+        </Header>
+        <p style={{ fontSize: '1.33em' }}>
+        You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
+
+        </p>
+  </Grid.Column>
+  <Grid.Column>
+  <Image src={pic2}/>
+  </Grid.Column>
+  </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
           <Link
@@ -111,8 +140,17 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
  
  </Grid.Column>
         </Grid.Row>
-      </Grid>
-    </Segment>
+
+          
+           
+         </Grid>
+         </Container>
+
+     </Segment>
+
+        <div className='l'>
+ 
+ 
 
     <div style={{ padding: '6em 0em' }}>
 

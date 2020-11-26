@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Grid,Message } from 'semantic-ui-react';
+import Users from './../Users/index'
  
 // import NavBar from './../../components/Navbar';
 import Winners from '../winners';
@@ -173,6 +174,7 @@ noDisplayFunction = () => {
  
 
 
+           <Route exact path='/Users' component={Users}/>
 
            <Route exact path='/signup' component={SignUp}/>
            <Route exact path='/signin' component={SignIn}/>
