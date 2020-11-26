@@ -13,7 +13,7 @@ import axios from 'axios';
 export const getUserData = () => async (dispatch) => {
   console.log('hit')
   try {
-    const { data } = await axios.get('http://localhost:3000/api/user/profile', {
+    const { data } = await axios.get('/api/user/profile', {
       headers: { authorization: localStorage.getItem('token') },
     });
     dispatch({ type: GET_USER_DATA, payload: data });
@@ -30,7 +30,7 @@ export const getOtherUsers = () => async (dispatch) => {
   console.log('im hitting.other ')
 
   try {
-    const { data } = await axios.get('http://localhost:3000/api/user/profiles', {
+    const { data } = await axios.get('/api/user/profiles', {
       headers: { authorization: localStorage.getItem('token') },
     });
     dispatch({ type: GET_OTHER_USERS, payload: data });
