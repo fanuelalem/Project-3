@@ -132,9 +132,8 @@ heading={this.state.result.name ||
             
           }
         ]}
-        layout={{width: 630, height: 450,title:`${this.state.result.name}` }}
-
-        
+        layout={{width: 630, height: 450,background:'yellow',title:`${this.state.result.name}` }}
+         
        />
 
 <div style={{textAlign:'center'}}>

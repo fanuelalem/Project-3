@@ -69,8 +69,19 @@
 .winnermenu{
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
-
+ 
 }
+.header1{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #9d9d9d
+}
+.header1:hover{
+color:white;
+cursor: pointer;
+ }
 
 
 .j2{
@@ -209,11 +220,12 @@
 
 .search-tool{
     padding:0;
-     height:30px
+     height:30px;
+ 
 }
 
 .searchlink{
-     height:25px
-}
+     height:25px;
+ }
  
- 
+  

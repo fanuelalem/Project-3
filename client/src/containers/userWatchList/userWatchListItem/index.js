@@ -8,7 +8,7 @@ export default (props) => {
   
   return(
  <div>
-     <Table singleLine>
+     <Table singleLine  >
     <Table.Header>
       <Table.Row>
       <Table.HeaderCell>Stock Name</Table.HeaderCell>

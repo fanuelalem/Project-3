@@ -69,7 +69,7 @@ componentDidMount() {
     })
   })
 
-    this.searchMovies('');
+    this.searchMovies('tsla');
    }
 
    

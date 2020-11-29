@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Container,Message,Item,Header,Image,Segment,Grid,Button,Divider,Form,Icon } from 'semantic-ui-react'
+import {Container,List,Message,Item,Header,Image,Segment,Grid,Button,Divider,Form,Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import fanuel from './../../../components/Images/fanuel.jpg'
 import ganesh from './../../../components/Images/ganesh.png'
@@ -15,7 +15,7 @@ export default class Result extends Component {
 
  
             <Helmet>
-   <style>{'body { background-color:#A98BD9}'}</style>
+   <style>{'body { background-color:'}</style>
 
  
          </Helmet>
@@ -31,8 +31,8 @@ export default class Result extends Component {
  <Container>
 
  <Message  >
-    <Message.Header>this page is currently still in development</Message.Header>
-      <p>Please come back another time...</p>
+    <Message.Header>Cannot Find this stock</Message.Header>
+      <p>Please try again another time...</p>
   </Message> 
   </Container>
 
@@ -48,52 +48,51 @@ export default class Result extends Component {
  
  <div >
 
-<Grid divided='vertically'>
-<Grid.Row columns={2}>
-<Grid.Column>
+ 
+  
+ 
 
-
-{/* <div style={{ margin:'65px 0 0 25px',border:'1px solid black',padding:'22px',borderRadius:'8px',backgroundColor:'transparent'}}>
+<div style={{ margin:'65px 25px 0 25px',border:'1px solid black',padding:'22px',borderRadius:'8px',backgroundColor:'rgb(34, 34, 34)',color:'white'}}>
 
 <Item.Group  >
 
 <Item>
 <Item.Image style={{width:'60px',height:'60px',border:'1px solid #eaecef'}} src={this.props.result.logo} />
-<Item.Content verticalAlign='middle'><h2 style={{fontWeight:'500',fontSize:'40px'}}>{this.props.result.name}</h2></Item.Content>
+<Item.Content verticalAlign='middle'><h2 style={{fontWeight:'500',fontSize:'35px'}}>{this.props.result.name}</h2></Item.Content>
 </Item>
 </Item.Group>
 
 <Divider />
-<h3>Exchange - {this.props.result.exchange}</h3>
+<p className='details'>Exchange - {this.props.result.exchange}</p>
 
 <Divider />
-<h3 >Shares Outstanding - {this.props.result.shareOutstanding}</h3>
-
-
-<Divider />
-<h3> website - <a href={this.props.result.weburl} target='_blank'> {this.props.result.weburl} </a></h3>
-
-<Divider />
-<h3 > industry -  {this.props.result.finnhubIndustry}</h3>
+<p className='details' >Shares Outstanding - {this.props.result.shareOutstanding}</p>
 
 
 <Divider />
-<h3> ticker -{this.props.result.ticker}</h3>
+<p className='details'> website - <a href={this.props.result.weburl} target='_blank'> {this.props.result.weburl} </a></p>
 
 <Divider />
-<h3>country -{this.props.result.country}</h3>
+<p className='details' > industry -  {this.props.result.finnhubIndustry}</p>
+
+
+<Divider />
+<p className='details'> ticker -{this.props.result.ticker}</p>
+
+<Divider />
+<p className='details'>country -{this.props.result.country}</p>
 
 
 <Divider />
 
 
-<h3>phone - {this.props.result.phone}</h3>
+<p className='details'>phone - {this.props.result.phone}</p>
 
 <Divider />
-<h3>currency -{this.props.result.currency}</h3>
+<p className='details'>currency -{this.props.result.currency}</p>
 
 <Divider />
-<h3>ipo - {this.props.result.ipo}</h3>
+<p className='details'>ipo - {this.props.result.ipo}</p>
 
  
 
@@ -101,17 +100,11 @@ export default class Result extends Component {
 
  
 
-</div> */}
+</div> 
 
-</Grid.Column>
+  
  
-<Grid.Column>
  
-
- 
-</Grid.Column>
-</Grid.Row>
-</Grid>
 
 
 </div> : 

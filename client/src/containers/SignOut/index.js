@@ -14,7 +14,7 @@ class SignOut extends Component {
   render() {
     return (
       <Container>
-        <Message negative header="We're sorry to see you go :("/>
+        <Message style={{margin:'100px 0 0 0'}}negative header="We're sorry to see you go :("/>
         <Button as={Link} to='/signup' content='Go back to sign up'/>
       </Container>
     );

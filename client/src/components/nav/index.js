@@ -27,7 +27,7 @@ export default class Nav extends Component {
         <div className='navy' style={{ backgroundColor: '#222222' }}>
           <Container fluid style={{ padding: '5px 30px 5px 30px' }}>
 
-            <Menu secondary    >
+            <Menu secondary  inverted   >
               {this.props.authenticated ? null : <Menu.Item
                 as={Link}
                 to="/"
@@ -36,12 +36,13 @@ export default class Nav extends Component {
                 onClick={this.handleItemClick}
                 // onClick={this.props.noDisplay}
               >
-
-                <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
-                <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> 10/10 Stock Tracker</span> </Menu.Item>}
-
-                 
-
+ 
+                 <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
+                <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> 10/10 Stock Tracker</span>
+                
+  </Menu.Item>}
+ 
+     
               {this.props.authenticated ? <Menu.Item
                 as={Link}
                 to="/winners"
@@ -92,9 +93,13 @@ export default class Nav extends Component {
                 </Menu.Item> : null} */}
                 
 
-                <Menu.Item>
+                <Menu.Item
+                as = {Link}
+                to='/searchstock'
+                >
 
 <Input
+ 
 Input 
     icon={
      
