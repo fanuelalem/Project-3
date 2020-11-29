@@ -11,12 +11,11 @@ import {
 import axios from 'axios';
 
 export const getUserData = () => async (dispatch) => {
-  console.log('hit')
-  try {
+   try {
     const { data } = await axios.get('/api/user/profile', {
       headers: { authorization: localStorage.getItem('token') },
     });
-    dispatch({ type: GET_USER_DATA, payload: data });
+     dispatch({ type: GET_USER_DATA, payload: data });
   } catch (e) {
     dispatch({
       type: GET_USER_DATA_ERROR,
@@ -27,8 +26,7 @@ export const getUserData = () => async (dispatch) => {
 }
 
 export const getOtherUsers = () => async (dispatch) => {
-  console.log('im hitting.other ')
-
+ 
   try {
     const { data } = await axios.get('/api/user/profiles', {
       headers: { authorization: localStorage.getItem('token') },
@@ -39,15 +37,17 @@ export const getOtherUsers = () => async (dispatch) => {
   }
 };
 
-export const getUserStocks = () => async (dispatch) => {
-  try {
-    console.log('im hitting.stocks')
 
-    const { data } = await axios.get('http://localhost:3000/api/user/userStocks', {
-      headers: { authorization: localStorage.getItem('token') },
-    });
-    dispatch({ type: GET_USER_STOCKS, payload: data });
-  } catch (e) {
-    dispatch({ type: GET_USER_STOCKS_ERROR, payload: e });
-  }
-};
+
+// export const getUserStocks = () => async (dispatch) => {
+//   try {
+//     console.log('im hitting.stocks')
+
+//     const { data } = await axios.get('http://localhost:3000/api/user/userStocks', {
+//       headers: { authorization: localStorage.getItem('token') },
+//     });
+//     dispatch({ type: GET_USER_STOCKS, payload: data });
+//   } catch (e) {
+//     dispatch({ type: GET_USER_STOCKS_ERROR, payload: e });
+//   }
+// };

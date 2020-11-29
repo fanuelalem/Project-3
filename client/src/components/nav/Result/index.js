@@ -31,8 +31,8 @@ export default class Result extends Component {
  <Container>
 
  <Message  >
-    <Message.Header>No results to display </Message.Header>
-      <p>Please try again...</p>
+    <Message.Header>this page is currently still in development</Message.Header>
+      <p>Please come back another time...</p>
   </Message> 
   </Container>
 
@@ -51,7 +51,9 @@ export default class Result extends Component {
 <Grid divided='vertically'>
 <Grid.Row columns={2}>
 <Grid.Column>
-<div style={{ margin:'65px 0 0 25px',border:'1px solid black',padding:'22px',borderRadius:'8px',backgroundColor:'transparent'}}>
+
+
+{/* <div style={{ margin:'65px 0 0 25px',border:'1px solid black',padding:'22px',borderRadius:'8px',backgroundColor:'transparent'}}>
 
 <Item.Group  >
 
@@ -60,6 +62,7 @@ export default class Result extends Component {
 <Item.Content verticalAlign='middle'><h2 style={{fontWeight:'500',fontSize:'40px'}}>{this.props.result.name}</h2></Item.Content>
 </Item>
 </Item.Group>
+
 <Divider />
 <h3>Exchange - {this.props.result.exchange}</h3>
 
@@ -98,7 +101,7 @@ export default class Result extends Component {
 
  
 
-</div>
+</div> */}
 
 </Grid.Column>
  

@@ -99,9 +99,10 @@ addWinnerStock = () => {
   render(props) {
     console.log(this.props,'dcsdcsds')
       const {handleSubmit} = this.props;
+      // console.log(this.props.result,'rerfv')
 
       return(
-          <>
+           <>
 <Helmet>
    <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
 
@@ -114,7 +115,11 @@ addWinnerStock = () => {
       <Grid.Column >
 
      
-      <FormContainer/>   
+      <FormContainer 
+      // graphx = {this.props.xvalues} 
+      // graphy = {this.props.yvalues} 
+      // data= {this.props.result} 
+      />   
  
       </Grid.Column>
       <Grid.Column> 

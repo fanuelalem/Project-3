@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Grid,Message } from 'semantic-ui-react';
-import Users from './../Users/index'
+// import Users from './../Users/index'
  
 // import NavBar from './../../components/Navbar';
 import Winners from '../winners';
@@ -14,6 +14,8 @@ import SignOut from '../SignOut';
  import NavBar from '../../components/Navbar';
  import Nav from './../../components/nav'
  import SearchStock from './../../containers/SearchStock'
+ import { getUserData, getOtherUsers } from '../../actions/profile';
+
   
  
  import ScrollToTop from './../../components/scrolltop/index'
@@ -29,6 +31,7 @@ import Home from './../Home/index'
 // import NewHome from './../NewHome/index'
 
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 // import io from 'socket.io-client';
 
@@ -48,6 +51,7 @@ class App extends Component {
     visible:true,
     name:'',
     info:{},
+    currentuser:{}
  }
 
 
@@ -56,6 +60,15 @@ class App extends Component {
 
  
 componentDidMount() {
+
+  axios.get('/api/user/profile',{
+    headers: { authorization: localStorage.getItem('token') },
+  }).then((response)=>{
+    this.setState({currentuser:response.data},()=>{
+      console.log(response.data,'response user data')
+    })
+  })
+
     this.searchMovies('');
    }
 
@@ -151,7 +164,7 @@ noDisplayFunction = () => {
 <ScrollToTop className='scroll'/>
 
  
-            <Nav search ={this.state.search} noDisplay={this.noDisplayFunction} display = {this.goToStockSearch} onsearch={this.handleInputChange} visible={this.state.visible} name='name is fanuel' buttonClick={this.handleFormSubmit} authenticated={this.props.authenticated}/>
+            <Nav search ={this.state.search} profile={this.state.currentuser} noDisplay={this.noDisplayFunction} display = {this.goToStockSearch} onsearch={this.handleInputChange} visible={this.state.visible} name='name is fanuel' buttonClick={this.handleFormSubmit} authenticated={this.props.authenticated}/>
            
            
            <Route exact path='/searchstock' 
@@ -160,6 +173,9 @@ noDisplayFunction = () => {
             visible = {this.state.visible}
             info ={this.state.info}
             />)}/> 
+
+ 
+
 
        <Route exact path='/' 
       //  component={NewHome}
@@ -174,7 +190,7 @@ noDisplayFunction = () => {
  
 
 
-           <Route exact path='/Users' component={Users}/>
+           {/* <Route exact path='/Users' component={Users}/> */}
 
            <Route exact path='/signup' component={SignUp}/>
            <Route exact path='/signin' component={SignIn}/>
@@ -194,9 +210,18 @@ noDisplayFunction = () => {
           <Route exact path='/' component={SignUp}/> */}
         
 
- 
-      <Route exact path='/watchlist' component={UserTodoList}/>
+        <Route exact path='/watchlist'  
+// component={UserTodoList}
+render={(props) => (<UserTodoList {...props} 
+  // result = {this.state.result}
+  // visible = {this.state.visible}
+  // info ={this.state.info}
+  // xvalues={this.state.xvalues}
+  // yvalues={this.state.yvalues}
 
+  />)}
+/>
+ 
  
 
       {/* <Route exact path='/home' component={Home}/> */}

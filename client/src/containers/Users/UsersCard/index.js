@@ -8,8 +8,7 @@ import './../scrollableContainer.css';
 export default (props) => {
 
   
-  console.log(props,'props for users')
-
+ 
    if (props.users.length === 0) {
     return <Header content='No users yet, please wait for new Users' />
   } else {

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { Segment,Form, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
+import { Segment,Form,Dropdown, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../Images/Logo.png'
 import SearchProp from './Prop/index'
@@ -14,20 +14,20 @@ export default class Nav extends Component {
   }
 
   handleItemClick = (e, { name }) => { this.setState({ activeItem: name }) }
-
+  
+   
 
   render() {
     
- 
-
-    const { activeItem } = this.state
+   
+     const { activeItem } = this.state
 
     return (
       <div className="app">
         <div className='navy' style={{ backgroundColor: '#222222' }}>
-          <Container fluid style={{ padding: '0 40px 0 40px' }}>
+          <Container fluid style={{ padding: '5px 30px 5px 30px' }}>
 
-            <Menu secondary size='huge'  >
+            <Menu secondary    >
               {this.props.authenticated ? null : <Menu.Item
                 as={Link}
                 to="/"
@@ -38,16 +38,9 @@ export default class Nav extends Component {
               >
 
                 <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
-                <span className='logo' style={{ color: '#9d9d9d' }}> 10/10 Stock Tracker</span> </Menu.Item>}
+                <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> 10/10 Stock Tracker</span> </Menu.Item>}
 
-                {this.props.authenticated ? <Menu.Item
-                as={Link}
-                to="/Users"
-                name='Users'
-                active={activeItem === 'Users'}
-                onClick={this.handleItemClick}
-              >
-                <Icon style={{ color: '#9d9d9d' }} name='user'></Icon><span style={{ color: '#9d9d9d' }}> Profile</span>  </Menu.Item> : null}
+                 
 
               {this.props.authenticated ? <Menu.Item
                 as={Link}
@@ -56,7 +49,7 @@ export default class Nav extends Component {
                 active={activeItem === 'winners'}
                 onClick={this.handleItemClick}
               >
-                <Icon style={{ color: '#9d9d9d' }} name='trophy'></Icon><span style={{ color: '#9d9d9d' }}> Winners</span>  </Menu.Item> : null}
+                <Icon className='winnermenu'style={{ color: '#9d9d9d' }} name='trophy'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Winners</span>  </Menu.Item> : null}
          
               {this.props.authenticated ? <Menu.Item
                 as={Link}
@@ -64,7 +57,16 @@ export default class Nav extends Component {
                 name='losers'
                 active={activeItem === 'losers'}
                 onClick={this.handleItemClick}
-              > <Icon style={{ color: '#9d9d9d' }} name='sort amount down'></Icon><span style={{ color: '#9d9d9d' }}> Losers</span></Menu.Item> : null}
+              > <Icon style={{ color: '#9d9d9d' }} name='sort amount down'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Losers</span></Menu.Item> : null}
+
+{this.props.authenticated ? <Menu.Item
+                as={Link}
+                to="/popular"
+                name='popular'
+                 active={activeItem === 'popular'}
+                onClick={this.handleItemClick}
+              > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Trending</span></Menu.Item> : null}
+
 
               {this.props.authenticated ? <Menu.Item
                 as={Link}
@@ -72,26 +74,82 @@ export default class Nav extends Component {
                 name='watchlist'
                 active={activeItem === 'watchlist'}
                 onClick={this.handleItemClick}
-              > <Icon style={{ color: '#9d9d9d' }} name='list'></Icon><span style={{ color: '#9d9d9d' }}>Watchlist</span></Menu.Item> : null}
+              > <Icon style={{ color: '#9d9d9d' }} name='book'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>{this.props.profile.email}'s watchlist</span></Menu.Item> : null}
 
-              {this.props.authenticated ? <Menu.Item
-                as={Link}
-                to="/popular"
-                name='popular'
-                 active={activeItem === 'popular'}
-                onClick={this.handleItemClick}
-              > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span style={{ color: '#9d9d9d' }}>Trending</span></Menu.Item> : null}
+   
 
             <Menu.Menu position='right'>
+
+
+            {/* {this.props.authenticated ? <Menu.Item
+                as={Link}
+                to="/Users"
+                name='Users'
+                active={activeItem === 'Users'}
+                onClick={this.handleItemClick}
+              >
+                <Icon style={{ color: '#9d9d9d' }} name='user'></Icon><span className='emailprofile'style={{ color: '#9d9d9d',fontSize:'18px' }}> {this.props.profile.email}</span>  
+                </Menu.Item> : null} */}
                 
 
-                {this.props.authenticated ? <Menu.Item
+                <Menu.Item>
+
+<Input
+Input 
+    icon={
+     
+
+       <Icon 
+   style={{backgroundColor:'black', color:'white'}} 
+   circular size='small' 
+   className='searchlink' 
+   name='search' 
+   link onClick={this.props.buttonClick} 
+   
+
+   />}
+ className='search-tool'
+ onChange={this.props.onsearch}
+ name='search'
+ value={this.value}
+ placeholder='search a stock...'
+ 
+ >
+   
+ </Input>
+
+
+
+{/* <Button
+onClick={this.props.buttonClick}
+ className='searchbutton'
+ name='search'>
+    
+   </Button> */}
+
+
+   {/* {this.props.visible == true ?  */}
+   
+ 
+    
+              
+           </Menu.Item>
+
+                {this.props.authenticated ? 
+
+  
+                
+                <Menu.Item
                   as={Link}
                   to="/signout"
                   name='logout'
                   active={activeItem === 'logout'}
                   onClick={this.handleItemClick}
-                > <Icon style={{ color: '#9d9d9d' }} name='log out'></Icon><span style={{ color: '#9d9d9d' }}> LogOut</span>  </Menu.Item> : <Menu.Item
+                > <Icon style={{ color: '#9d9d9d' }} name='log out'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> LogOut</span>  </Menu.Item> 
+                
+                : 
+                
+                <Menu.Item
                   as={Link}
                   to="/signin"
                   name='signin'
@@ -99,7 +157,12 @@ export default class Nav extends Component {
                   onClick={this.handleItemClick}
                   // onClick={this.props.display}
 
-                > <Icon style={{ color: '#9d9d9d' }} name='sign-in'></Icon><span className='signin-nav' style={{ color: '#9d9d9d' }}>Sign-in</span></Menu.Item>}
+                > <Icon style={{ color: '#9d9d9d' }} name='sign-in'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Sign-in</span>
+                
+                
+                </Menu.Item>
+                
+                }
 
 
 
@@ -113,31 +176,9 @@ export default class Nav extends Component {
                     onClick={this.handleItemClick}
                     // onClick={this.props.display}
 
-                  ><Icon style={{ color: '#9d9d9d' }} name='signup'></Icon> <span className='signup-nav' style={{ color: '#9d9d9d' }}> Sign-Up</span> </Menu.Item>}
+                  ><Icon style={{ color: '#9d9d9d' }} name='signup'></Icon> <span  className='winnermenu'   style={{ color: '#9d9d9d',fontSize:'18px' }}> Sign-Up</span> </Menu.Item>}
 
-              <Menu.Item>
-
- <Input
-  className='search-tool'
-  onChange={this.props.onsearch}
-  name='search'
-  value={this.props.search}
-  placeholder='search a stock...'>
- </Input>
- <Button
- onClick={this.props.buttonClick}
-  className='searchlink'
-  name='search'>
-    button
-    </Button>
-
-
-    {/* {this.props.visible == true ?  */}
-    
-  
-     
-               
-            </Menu.Item>
+             
 
               </Menu.Menu>
             </Menu>
