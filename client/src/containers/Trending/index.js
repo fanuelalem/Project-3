@@ -100,27 +100,31 @@ export default class Trending extends Component {
     </Card.Content>
     <Card.Content extra>
 
-    <Table   selectable    >
+    
+   
+  {item.myStocks.length? 
+<div>
+<Table   selectable    >
   <Table.Header>
     <Table.Row>
        <Table.HeaderCell style={{color:'black'}}>Recent stocks</Table.HeaderCell>
+ 
       <Table.HeaderCell style={{color:'black'}}>Date</Table.HeaderCell>
-       
+ 
 
      
     </Table.Row>
   </Table.Header>
   <Table.Body>
-   
-
-
+ 
     <Table.Row  >
 
  
+      <Table.Cell > <p style={{color:'black'}}>{item.myStocks[0].text}</p></Table.Cell>
+      
 
-      <Table.Cell > <p style={{color:'black'}}> { item.myStocks.length? item.myStocks[0].text : 'user has no stocks'}</p></Table.Cell>
      <Table.Cell> <p>{item.myStocks.length? item.myStocks[0].dateCreated : 'none'} </p>  </Table.Cell>
-    
+ 
 
      </Table.Row>
      <Table.Row  >
@@ -129,13 +133,52 @@ export default class Trending extends Component {
     
 
      </Table.Row>
+
+     </Table.Body>
+ </Table>   
+
+     </div>
+
+
+     :
+<div>  
+
+<Table   selectable    >
+  <Table.Header>
+    <Table.Row>
+       <Table.HeaderCell style={{color:'black'}}>Recent stocks</Table.HeaderCell>
+       <Table.HeaderCell style={{color:'black'}}></Table.HeaderCell>
+
+      <Table.HeaderCell style={{color:'black'}}>Date</Table.HeaderCell>
+       
+
+     
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+ 
+    <Table.Row  >
+
+ 
+      <Table.Cell > <p style={{color:'black'}}>user has no stocks yet..</p></Table.Cell>
+     <Table.Cell> <p>    </p>  </Table.Cell>
+    
+
+     </Table.Row>
+
+     
+     </Table.Body>
+ </Table>   
+
+ 
+
+</div>      }
      
      
  
 
   
-  </Table.Body>
- </Table>     
+     
      </Card.Content>
 
 

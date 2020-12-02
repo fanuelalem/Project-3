@@ -81,7 +81,7 @@ export default class Nav extends Component {
                  active={activeItem === 'trending'}
                 onClick={this.handleItemClick}
                 onClick={this.props.noDisplay}
-                > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Trending</span></Menu.Item> : null}
+                > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>community</span></Menu.Item> : null}
 
 
               {this.props.authenticated ? <Menu.Item
