@@ -15,7 +15,7 @@ export default class Result extends Component {
 
  
             <Helmet>
-   <style>{'body { background-color:'}</style>
+   <style>{'body { background-color: rgba(83,47,140,.6)'}</style>
 
  
          </Helmet>
@@ -52,7 +52,13 @@ export default class Result extends Component {
   
  
 
-<div style={{ margin:'65px 25px 0 25px',border:'1px solid black',padding:'22px',borderRadius:'8px',backgroundColor:'rgb(34, 34, 34)',color:'white'}}>
+<div style={{ margin:'65px 0px 0px 0px',
+// border:'1px solid black',
+padding:'22px',
+// borderRadius:'8px',
+backgroundColor:'white',
+// color:'white'
+}}>
 
 <Item.Group  >
 
