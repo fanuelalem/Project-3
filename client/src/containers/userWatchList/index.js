@@ -104,14 +104,18 @@ addWinnerStock = () => {
       return(
            <>
 <Helmet>
-   <style>{'body { background-Image: ; }'}</style>
+   <style>{'body { background-color: rgba(83,47,140,.6) ; }'}</style>
 
          </Helmet>
-              <div style={{margin:'70px 25px 0px 25px'}}>
+              <div style={{margin:'70px 0px 25px 0px'}}>
 
  
-<Segment style={{backgroundColor:'#222324'}}>
-  <div style={{backgroundColor:'#222324'}}>
+<Segment 
+// style={{backgroundColor:'#222324'}}
+>
+  <div 
+  // style={{backgroundColor:'#222324'}}
+  >
 
      <Grid columns={2} relaxed='very'>
       <Grid.Column >
@@ -134,7 +138,7 @@ addWinnerStock = () => {
 
  
        <Header as="h2"  textAlign="center" >
-         <p style={{color:'white'}}>My WatchList </p> 
+         <p style={{color:'black'}}>My WatchList </p> 
        </Header>
           <Form size='large' onSubmit={handleSubmit(this.onSubmit)}   >
               <Segment   >
@@ -157,7 +161,7 @@ addWinnerStock = () => {
                 handleDelete={this.props.deleteTodoById}
                 />
               </List>
-              {
+              {/* {
                 this.props.todos.length <= 9 ? 
                 null
                 : <Pagination
@@ -167,7 +171,7 @@ addWinnerStock = () => {
                 onPageChange={(event,data)=> this.handlePageChange(event,data)}
                 activePage={this.state.activePage}
                 />
-              }       
+              }        */}
 </div>
 
               </Grid.Column>

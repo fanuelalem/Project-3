@@ -85,15 +85,20 @@ import axios from 'axios'
             y: this.props.graphy,
             type: 'scatter',
             mode: ' ',
-            marker: {color: '#61dafb'},
+            marker: {color: 'red'},
             
           }
         ]}
         layout={{  titlefont: {
           family: 'Arial, sans-serif',
           size: 25,
-          color: 'white',
-        },width: 590, height: 520,title: ` ${this.props.info.name}`,xaxis:{color:'white'},yaxis:{color:'white'},paper_bgcolor:'#222323',plot_bgcolor:'#222323'
+          color: 'black',
+        },width: 590, 
+        height: 520,title: ` ${this.props.info.name}`,
+        // xaxis:{color:'white'},
+        // yaxis:{color:'white'},
+        // paper_bgcolor:'#222323',
+        // plot_bgcolor:'#222323'
       }}
         // newshape:{line:{color:'white'}}, colorway:{colorlist:'white'},
         // xaxis:{color:'white'},yaxis:{color:'white'},paper_bgcolor:'#222323',plot_bgcolor:'#222323' }}

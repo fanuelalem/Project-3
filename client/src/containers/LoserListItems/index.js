@@ -63,10 +63,10 @@ import { Table } from 'semantic-ui-react'
 const LoserListItems = props => (
 <div>
 <Helmet>
-   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
+   <style>{'body { background-color: rgba(83,47,140,.6); }'}</style>
 
          </Helmet>
-   <div style={{margin:'100px 40px 0px 40px'}}>
+   <div style={{margin:'70px 25px 0px 25px'}}>
 
 
     <Table widths={4}>
