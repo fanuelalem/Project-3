@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Grid,Message } from 'semantic-ui-react';
-// import Users from './../Users/index'
- 
-// import NavBar from './../../components/Navbar';
+// import Uploads from './../Uploads'
 import Winners from '../winners';
 import Losers from './../losers'
 import AllTodosList from "../popular"
@@ -15,8 +13,8 @@ import SignOut from '../SignOut';
  import Nav from './../../components/nav'
  import SearchStock from './../../containers/SearchStock'
  import { getUserData, getOtherUsers } from '../../actions/profile';
-
-  
+  import Uploads from './../Upload'
+  import Trending from './../Trending'
  
  import ScrollToTop from './../../components/scrolltop/index'
  import Result from './../../components/nav/Result'
@@ -25,14 +23,14 @@ import './../../index.css'
 import otherUtil from './../APICall/otherutil'
 import API from './../APICall/utils'
 import Info from '../APICall/info'
- 
+  
 // import Chat from '../chatComponent';
 import Home from './../Home/index'
 // import NewHome from './../NewHome/index'
 
 import { connect } from 'react-redux';
 import axios from 'axios';
-
+ 
 // import io from 'socket.io-client';
 
 
@@ -48,7 +46,7 @@ class App extends Component {
     search: "",
     xvalues:[],
     yvalues:[],
-    visible:true,
+    visible:false,
     name:'',
     info:{},
     currentuser:{}
@@ -65,7 +63,7 @@ componentDidMount() {
     headers: { authorization: localStorage.getItem('token') },
   }).then((response)=>{
     this.setState({currentuser:response.data},()=>{
-      console.log(response.data,'response user data')
+      // console.log(response.data,'response user data')
     })
   })
 
@@ -86,7 +84,11 @@ componentDidMount() {
      .then((response)=>{
       console.log(response,'finhubb api')
 
-       this.setState({result:response.data})
+       this.setState({result:response.data},
+        ()=>{
+          // console.log(response.data,'ddddd')
+      
+      })
     })
 
   //   Info.search(query)
@@ -97,19 +99,16 @@ componentDidMount() {
   //  })
     
 
-     API.search(query)
-    .then((response)=>{
-      console.log(response,'alphavantage api')
-      for(var key in response.data['Time Series (Daily)']){
-        xfunction.push(key);
-        yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-      }
-      this.setState({xvalues:xfunction,yvalues:yfunction})
-      })
-    .catch((e)=>{
-        console.log(e)
-    })
-}
+    //  API.search(query)
+    // .then((response)=>{
+    //    for(var key in response.data['Time Series (Daily)']){
+    //     xfunction.push(key);
+    //     yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+    //   }
+    //   this.setState({xvalues:xfunction,yvalues:yfunction})
+    //   console.log(xfunction)
+    //   })
+ }
   
   // handleInputChange = event => {
   //   const value = event.target.value;
@@ -145,6 +144,10 @@ componentDidMount() {
    
 noDisplayFunction = () => {
   this.setState({visible:false})
+}
+
+DisplayFunction = () => {
+  this.setState({visible:true})
 }
 
  
@@ -187,18 +190,19 @@ noDisplayFunction = () => {
            <Route exact path='/winners'  component={Winners}/>
            <Route exact path='/losers' component={Losers}/>
 
- 
+           {/* <Route exact path='/myuploads' component={Uploads}/> */}
+
 
 
            {/* <Route exact path='/Users' component={Users}/> */}
 
-           <Route exact path='/signup' component={SignUp}/>
-           <Route exact path='/signin' component={SignIn}/>
+           <Route exact path='/signup' display={this.DisplayFunction} component={SignUp}/>
+           <Route exact path='/signin' display={this.DisplayFunction} component={SignIn}/>
            <Route exact path='/signout' component={SignOut}/>
 
  
-           <Route exact path='/popular' component={AllTodosList}/>
-
+           {/* <Route exact path='/popular' component={AllTodosList}/> */}
+<Route exact path='/trending' component={Trending}/>
 
           {/* <Navbar isLoggedIn={this.props.authenticated}/>
           <Route exact path='/counter' component={Counter}/>
@@ -213,6 +217,9 @@ noDisplayFunction = () => {
         <Route exact path='/watchlist'  
 // component={UserTodoList}
 render={(props) => (<UserTodoList {...props} 
+  x={this.state.xvalues}
+  y={this.state.yvalues}
+  result={this.state.result}
   // result = {this.state.result}
   // visible = {this.state.visible}
   // info ={this.state.info}
@@ -241,3 +248,9 @@ function mapStateToProps(state) {
 }
 // connect(mapStateToProps)
 export default connect(mapStateToProps)(App);
+
+
+
+// import Users from './../Users/index'
+ 
+// import NavBar from './../../components/Navbar';

@@ -1,4 +1,4 @@
-const { User, Stock } = require('../models/index');
+const { User, Stock, Upload } = require('../models/index');
 
 module.exports = {
   addStock: async (req, res) => {
@@ -16,7 +16,24 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
-
+  
+ addUpload: async (req, res) => {
+    const { name } = req.body;
+    console.log(req.body,'this req.body')
+    
+    try {
+      const newUpload = await new Upload({ name,type, user: req.user._id }).save();
+  console.log(newUpload,'sdsc')
+  
+      // const newStock = await Stock.create({ text, user: req.user._id });
+      req.user.myUploads.push(newUpload);
+      await req.user.save();
+      return res.status(200).json(newUpload);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  }
+  ,
   getUserByEmail: async (req,res)=>{
     try{
       const users = await User.find();
@@ -55,6 +72,17 @@ module.exports = {
       
       const stocks = await Stock.find({ user: req.user._id });
       return res.json(stocks);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  getUserUploads: async (req, res) => {
+    try {
+      // const user = await User.findById(req.user._id).populate('todos','text');
+      // return res.status(200).json(user.stocks)
+      
+      const uploads = await Upload.find({ user: req.user._id });
+      return res.json(uploads);
     } catch (e) {
       return res.status(403).json({ e });
     }
@@ -118,3 +146,7 @@ module.exports = {
       }
     },
 };
+
+
+
+ 

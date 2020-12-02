@@ -61,7 +61,7 @@ to='/searchstock'
 
 >
 <Button 
-// onClick={this.props.onhomeclick} 
+onClick={this.props.onhomeclick} 
 color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
 
 </Link>

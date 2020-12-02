@@ -20,6 +20,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  myUploads: [{
+    type: [Schema.Types.ObjectId],
+    ref: 'Upload',
+  }],
   myStocks: [{
     type: [Schema.Types.ObjectId],
     ref: 'Stock',

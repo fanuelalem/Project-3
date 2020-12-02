@@ -220,12 +220,23 @@ cursor: pointer;
 
 .search-tool{
     padding:0;
-     height:30px;
+     height:35px;
  
 }
 
 .searchlink{
-     height:25px;
+      height:25px;
  }
+
+ .description{
+    font-size: 21px;
+    font-weight: 200;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #d9ccee;
+    max-width: 75%;
+    margin: 1em auto 2em;
+    line-height: 1.42857143;
+ }
+ 
  
   

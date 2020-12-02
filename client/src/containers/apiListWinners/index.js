@@ -74,22 +74,25 @@ class WinnerListItems extends Component {
 
 
 <Helmet>
-   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
+   <style>{
+  //  'body { background-Image: linear-gradient(#928dab,#948e99); }'
+   }</style>
 
          </Helmet>
-     <div style={{margin:'100px 40px 0px 40px'}}>
+     <div style={{margin:'70px 25px 0px 25px'}}>
 
-    <Table widths={4} >
+    <Table widths={4} style={{backgroundColor:'#222323',color:'white'}} inverted   >
+ 
      <Table.Header>
        <Table.Row>
  
-       <Table.HeaderCell><h2 >Company [ticker]</h2></Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222323',color:'white'}}><h2 >Company [ticker]</h2></Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222323',color:'white'}}>percent change</Table.HeaderCell>
 
-       <Table.HeaderCell>Last price</Table.HeaderCell>
-       <Table.HeaderCell>price change</Table.HeaderCell>
+        <Table.HeaderCell style={{backgroundColor:'#222323',color:'white'}}>Last price</Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222323',color:'white'}}>price change</Table.HeaderCell>
 
-         <Table.HeaderCell>percent change</Table.HeaderCell>
-
+ 
        </Table.Row>
      </Table.Header>
      <Table.Body>
@@ -154,15 +157,15 @@ class WinnerListItems extends Component {
           {standardName} [{ticker}]
           
           </span>
-          </Form>
-
+           </Form>
+ 
          </Table.Cell>
+         <Table.Cell style={{color:'#22b945'}} >+{Math.ceil(percentChange *100)/100} % </Table.Cell>
 
         <Table.Cell>${lastPrice} </Table.Cell>
-        <Table.Cell >${priceChange} </Table.Cell>
+        <Table.Cell >$ {  priceChange} </Table.Cell>
 
-        <Table.Cell >+{percentChange}% </Table.Cell>
-
+ 
 
         {/* <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/> */}
  

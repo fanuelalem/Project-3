@@ -104,18 +104,23 @@ addWinnerStock = () => {
       return(
            <>
 <Helmet>
-   <style>{'body { background-Image: linear-gradient(#928dab,#948e99); }'}</style>
+   <style>{'body { background-Image: ; }'}</style>
 
          </Helmet>
-              <div style={{margin:'100px 40px 0px 40px'}}>
+              <div style={{margin:'70px 25px 0px 25px'}}>
 
  
-<Segment    >
-    <Grid columns={2} relaxed='very'>
+<Segment style={{backgroundColor:'#222324'}}>
+  <div style={{backgroundColor:'#222324'}}>
+
+     <Grid columns={2} relaxed='very'>
       <Grid.Column >
 
      
       <FormContainer 
+       graphx={this.props.x}
+      graphy={this.props.y}
+      info={this.props.result}
       // graphx = {this.props.xvalues} 
       // graphy = {this.props.yvalues} 
       // data= {this.props.result} 
@@ -125,11 +130,14 @@ addWinnerStock = () => {
       <Grid.Column> 
           
 
+<div style={{padding:'0 25px 34px 0'}}>
 
-
-       <Header as="h2"  textAlign="center" content="My Watchlist"/>
-          <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
-              <Segment  >
+ 
+       <Header as="h2"  textAlign="center" >
+         <p style={{color:'white'}}>My WatchList </p> 
+       </Header>
+          <Form size='large' onSubmit={handleSubmit(this.onSubmit)}   >
+              <Segment   >
                 <Field
                 name="text"
                 component={this.renderAddTodo}
@@ -142,7 +150,7 @@ addWinnerStock = () => {
                 />
               </Segment>
               </Form>
-              <List animated divided selection>
+              <List animated divided selection >
                 <UserTodoListItems 
                 todos={this.props.todos.slice(this.state.start,this.state.end)}
                 handleUpdate={this.props.updateTodoCompletedById}
@@ -160,90 +168,19 @@ addWinnerStock = () => {
                 activePage={this.state.activePage}
                 />
               }       
+</div>
 
               </Grid.Column>
     </Grid>
 
-    
+    </div>
+
   </Segment>
   </div>
 
           </>
       );
   }
-//     const { handleSubmit } = this.props;
-//     console.log(this.props);
-//     return (
-//       <>
-//         <Header as='h2' color='teal' textAlign='center' content='Welcome to do the todo app'/>
-//         <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
-//           <Segment stacked>
-//             <Field
-//               name='text'
-//               component={this.renderAddTodo}
-//             />
-//             <Button
-//               type='submit'
-//               fluid
-//               color='teal'
-//               content='Add a todo'
-//             />
-//           </Segment>
-//         </Form>
-//         <List animated divided selection>
-//           <UserTodoListItems
-//             todos={this.props.todos.slice(this.state.start, this.state.end)}
-//             handleUpdate={this.props.updateTodoCompletedById}
-//             handleDelete={this.props.deleteTodoById}/>
-//         </List>
-//         {
-//           this.props.todos.length <= 9 ?
-//             null
-//             : <Pagination
-//               totalPages={ Math.ceil( this.props.todos.length / 10) }
-//               onPageChange={ (event, data) =>  this.handlePageChange(event, data) }
-//               activePage={this.state.activePage}
-//             />
-//         }
-//       </>
-//     );
-//   }
-// }
-
-// // function mapStateToProps(state) {
-// //   return {
-// //     todos: state.todos.userTodos,
-// //     clientError: state.todos.getUserTodosClientError,
-// //     serverError: state.todos.getUserTodosServerError
-// //   };
-// // }
-
-
-// function mapStateToProps({ todos: { userTodos, getUserTodosServerError, getUserTodosClientError, deleteTodoByIdError}}) {
-//   return {
-//     todos: userTodos,
-//     clientError: getUserTodosClientError,
-//     serverError: getUserTodosServerError,
-//     deleteTodoByIdError,
-//   };
-// }
-
-// // const composedComponent = connect(mapStateToProps, { getUserTodos })(UserTodoList);
-
-
-// // 1 way
-// // export default reduxForm({ form: 'addTodo' })(connect(mapStateToProps, { getUserTodos })(UserTodoList));
-
-// // 2nd way
-// // const composedComponent = connect(mapStateToProps, { getUserTodos })(UserTodoList);
-// // export default reduxForm({ form: 'addTodo'})(composedComponent);
-
-
-// export default compose(
-//   reduxForm({ form: 'addTodo' }),
-//   requireAuth,
-//   connect(mapStateToProps, { getUserTodos, updateTodoCompletedById, deleteTodoById })
-// )(UserTodoList);
 
 }
 

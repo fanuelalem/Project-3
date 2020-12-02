@@ -5,6 +5,8 @@ const {
   updateStockById,
   getAllUserEmails,
   addStock,
+  getUserUploads,
+  addUpload
 } = require('./../../../controllers/userController');
 
 const { getCurrentUser, getFilteredUsers } = require('./../../../controllers/profileController');
@@ -27,6 +29,12 @@ router.route('/profiles')
 router.route('/stock')
   .get(requireAuth, getUserStocks)
   .post(requireAuth, addStock);
+
+  // /api/user/upload
+
+  router.route('/upload')
+  .get(getUserUploads)
+  .post(addUpload);
 
 // /api/user/emails
 

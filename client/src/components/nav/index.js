@@ -1,4 +1,5 @@
 
+
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Segment,Form,Dropdown, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
@@ -33,14 +34,27 @@ export default class Nav extends Component {
                 to="/"
                 name='home'
                 active={activeItem === 'home'}
-                onClick={this.handleItemClick}
-                // onClick={this.props.noDisplay}
+                 onClick={this.handleItemClick}
+                onClick={this.props.noDisplay}
               >
  
                  <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
                 <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> 10/10 Stock Tracker</span>
                 
   </Menu.Item>}
+   {/* <Menu.Item
+                as={Link}
+                to="/myuploads"
+                name='myuploads'
+                active={activeItem === 'myuploads'}
+                 onClick={this.handleItemClick}
+                onClick={this.props.noDisplay}
+              >
+ 
+                 <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
+                <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> uploads</span>
+                
+  </Menu.Item> */}
  
      
               {this.props.authenticated ? <Menu.Item
@@ -62,11 +76,12 @@ export default class Nav extends Component {
 
 {this.props.authenticated ? <Menu.Item
                 as={Link}
-                to="/popular"
-                name='popular'
-                 active={activeItem === 'popular'}
+                to="/trending"
+                name='trending'
+                 active={activeItem === 'trending'}
                 onClick={this.handleItemClick}
-              > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Trending</span></Menu.Item> : null}
+                onClick={this.props.noDisplay}
+                > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Trending</span></Menu.Item> : null}
 
 
               {this.props.authenticated ? <Menu.Item
@@ -94,18 +109,18 @@ export default class Nav extends Component {
                 
 
                 <Menu.Item
-                as = {Link}
-                to='/searchstock'
+                // as = {Link}
+                // to='/searchstock'
                 >
 
-<Input
+{this.props.visible == true ? <Input
  
-Input 
+style={{width:'255px'}} 
     icon={
      
 
        <Icon 
-   style={{backgroundColor:'black', color:'white'}} 
+   style={{backgroundColor:'black', color:'white',margin:'4px 0 0 0'}} 
    circular size='small' 
    className='searchlink' 
    name='search' 
@@ -113,15 +128,40 @@ Input
    
 
    />}
- className='search-tool'
- onChange={this.props.onsearch}
- name='search'
- value={this.value}
- placeholder='search a stock...'
+   className='search-tool'
+   onChange={this.props.onsearch}
+   name='search'
+   value={this.props.search}
+   placeholder='search a stock...'
  
  >
    
- </Input>
+ </Input>:null}
+
+ {this.props.authenticated? <Input
+ 
+ style={{width:'255px'}} 
+     icon={
+      
+ 
+        <Icon 
+    style={{backgroundColor:'black', color:'white',margin:'4px 0 0 0'}} 
+    circular size='small' 
+    className='searchlink' 
+    name='search' 
+    link onClick={this.props.buttonClick} 
+    
+ 
+    />}
+    className='search-tool'
+    onChange={this.props.onsearch}
+    name='search'
+    value={this.props.search}
+    placeholder='search a stock...'
+  
+  >
+    
+  </Input> : null }
 
 
 
@@ -160,6 +200,8 @@ onClick={this.props.buttonClick}
                   name='signin'
                   active={activeItem === 'signin'}
                   onClick={this.handleItemClick}
+                  onClick={this.props.noDisplay}
+
                   // onClick={this.props.display}
 
                 > <Icon style={{ color: '#9d9d9d' }} name='sign-in'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Sign-in</span>
@@ -174,11 +216,12 @@ onClick={this.props.buttonClick}
                 {this.props.authenticated ? null :
                   <Menu.Item
                     as={Link}
-
                     to="/signup"
                     name='signup'
                     active={activeItem === 'signup'}
                     onClick={this.handleItemClick}
+                    onClick={this.props.noDisplay}
+
                     // onClick={this.props.display}
 
                   ><Icon style={{ color: '#9d9d9d' }} name='signup'></Icon> <span  className='winnermenu'   style={{ color: '#9d9d9d',fontSize:'18px' }}> Sign-Up</span> </Menu.Item>}
@@ -195,15 +238,6 @@ onClick={this.props.buttonClick}
     )
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -117,13 +117,14 @@ class SignUp extends Component {
           ]}
           />
           <Button
+ 
           content="Sign Up"
           color="purple"
           fluid
           size="large"
           type="submit"
           disabled={ invalid || submitting || submitFailed }
-          />
+           />
         </Segment>
       </Form>
       </Grid.Column>

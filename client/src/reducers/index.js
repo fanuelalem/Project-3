@@ -8,7 +8,7 @@ import authReducer from './authReducer';
 import filteredReducer from './filteredReducer';
  
 import usersReducer from './usersReducer';
-
+ 
  
  
 //  import resultReducer from './resultReducer'
@@ -18,7 +18,7 @@ export default combineReducers({
   // result: resultReducer,
   auth: authReducer,
   todos: todosReducer,
-   currentUser: profileReducer,
+  currentUser: profileReducer,
   filteredUsers: filteredReducer,
   users: usersReducer,
   counter: counterReducer,

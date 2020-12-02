@@ -7,7 +7,6 @@ const APIKEY = "&apikey=7WYQWLQBUMPFGGK2";
  
 export default {
    search: function(query) {
- 
-    return axios.get(BASEURL + query + APIKEY);
+     return axios.get(BASEURL + query + APIKEY);
   }
 };

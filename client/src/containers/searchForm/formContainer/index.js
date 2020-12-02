@@ -44,18 +44,18 @@ import axios from 'axios'
      
         
 
-         API.search(query)
-        .then((response)=>{
-          for(var key in response.data['Time Series (Daily)']){
-            xfunction.push(key);
-            yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-          }
-          this.setState({xvalues:xfunction,yvalues:yfunction})
+        //  API.search(query)
+        // .then((response)=>{
+        //   for(var key in response.data['Time Series (Daily)']){
+        //     xfunction.push(key);
+        //     yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+        //   }
+        //   this.setState({xvalues:xfunction,yvalues:yfunction})
            
-         })
-        .catch((e)=>{
-            console.log(e)
-        })
+        //  })
+        // .catch((e)=>{
+        //     console.log(e)
+        // })
     }
 
     handleInputChange = event => {
@@ -73,21 +73,73 @@ import axios from 'axios'
       };
 
     render() {
-      
+      console.log(this.props,'this props')
         return (
-            <div>
+ 
+<div style={{margin:'15px 0 0 0'}}> 
+<Plot 
 
-<div>
+         data={[
+          {
+            x: this.props.graphx,
+            y: this.props.graphy,
+            type: 'scatter',
+            mode: ' ',
+            marker: {color: '#61dafb'},
+            
+          }
+        ]}
+        layout={{  titlefont: {
+          family: 'Arial, sans-serif',
+          size: 25,
+          color: 'white',
+        },width: 590, height: 520,title: ` ${this.props.info.name}`,xaxis:{color:'white'},yaxis:{color:'white'},paper_bgcolor:'#222323',plot_bgcolor:'#222323'
+      }}
+        // newshape:{line:{color:'white'}}, colorway:{colorlist:'white'},
+        // xaxis:{color:'white'},yaxis:{color:'white'},paper_bgcolor:'#222323',plot_bgcolor:'#222323' }}
+         
+       />
+
+ 
+
+ </div>
+ 
+      
+        )
+    }
+}
+
+// function mapStateToProps(state){
+//   return {allResult:state.result.allResult,resultError:state.result.allResult}
+// }
+// export default connect(mapStateToProps,{getResult})(FormContainer)
+
+// function mapStateToProps(state){
+//   return{allResult:state.result.allResult,resultError:state.result.resultError}
+// }
+// export default connect(mapStateToProps,{searchMovies})(FormContainer)
+
+
+
+
+
+
+
+
+
+
+
+
 {/* <Grid padded='horizontally'textAlign='center' verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 700 }}> */}
 
  
-          <SearchBar
+          {/* <SearchBar
  value={this.state.search}
  handleInputChange={this.handleInputChange}
  handleFormSubmit={this.handleFormSubmit}
-/>
-<Card
+/> */}
+{/* <Card
 exchange={this.state.result.exchange}
 weburl={this.state.result.weburl}
 ticker={this.state.result.ticker}
@@ -113,33 +165,16 @@ heading={this.state.result.name ||
  ) : (
   <h3> </h3>
 ) }
-</Card> 
+</Card>  */}
 
 {/* <UserTodoList/> */}
-<div>
 
 
 
-  
-<Plot 
-        data={[
-          {
-            x: this.state.xvalues,
-            y: this.state.yvalues,
-            type: 'scatter',
-            mode: ' ',
-            marker: {color: 'red'},
-            
-          }
-        ]}
-        layout={{width: 630, height: 450,background:'yellow',title:`${this.state.result.name}` }}
-         
-       />
 
-<div style={{textAlign:'center'}}>
 
-        
-<List>
+
+{/* <List>
 <Grid>
   
  <Grid.Row columns={4}>
@@ -168,44 +203,4 @@ heading={this.state.result.name ||
       </h5>
      </List.Item>      </Grid.Column>
     </Grid.Row>
-    </Grid>
-
-
-    
-
-     
-
-  
-
-   
-
-
-  </List>
-
-  </div>
-
- </div>
- 
-
-{/* </Grid.Column>
-</Grid> */}
-       </div>
-
-
-
-
-
-            </div>
-        )
-    }
-}
-
-// function mapStateToProps(state){
-//   return {allResult:state.result.allResult,resultError:state.result.allResult}
-// }
-// export default connect(mapStateToProps,{getResult})(FormContainer)
-
-// function mapStateToProps(state){
-//   return{allResult:state.result.allResult,resultError:state.result.resultError}
-// }
-// export default connect(mapStateToProps,{searchMovies})(FormContainer)
+    </Grid> */}
