@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import API from "./../utils"
 import Detail from './../details'
 import SearchBar from './../search'
-import { Grid,Message,List,Image,Icon } from 'semantic-ui-react'
+import { Grid,Message,List,Image,Icon,Container,Loader,Segment } from 'semantic-ui-react'
 import Card from './../Card'
 import Plot from 'react-plotly.js';
 import {connect} from 'react-redux'
@@ -76,7 +76,20 @@ import axios from 'axios'
       console.log(this.props,'this props')
         return (
  
-<div style={{margin:'15px 0 0 0'}}> 
+<div style={{margin:'15px 0 0 0'}}>
+<Container>
+  <div style={{margin:'0 0 0 70px'}}>
+  <h1 > {this.props.qoute? `$${this.props.qoute.c}`   : 
+  <Segment>
+  <Loader disabled />
+
+  <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+</Segment>
+  }</h1>
+ <h3> hello</h3>
+  </div>
+  </Container>
+
 <Plot 
 
          data={[

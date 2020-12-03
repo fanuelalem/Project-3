@@ -124,6 +124,7 @@ addWinnerStock = () => {
       <FormContainer 
        graphx={this.props.x}
       graphy={this.props.y}
+      qoute={this.props.qoute}
       info={this.props.result}
       // graphx = {this.props.xvalues} 
       // graphy = {this.props.yvalues} 

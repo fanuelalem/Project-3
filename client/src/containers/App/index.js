@@ -30,6 +30,7 @@ import Home from './../Home/index'
 
 import { connect } from 'react-redux';
 import axios from 'axios';
+import finhubData from '../APICall/finhubData';
  
 // import io from 'socket.io-client';
 
@@ -49,7 +50,8 @@ class App extends Component {
     visible:false,
     name:'',
     info:{},
-    currentuser:{}
+    currentuser:{},
+    quotes:{}
  }
 
 
@@ -67,7 +69,7 @@ componentDidMount() {
     })
   })
 
-    this.searchMovies('tsla');
+    this.searchMovies('aapl');
    }
 
    
@@ -78,15 +80,19 @@ componentDidMount() {
     let yfunction=[];
 
     
+otherUtil.search(query).then((response)=>{
+this.setState({qoute:response.data})
+})
 
+    
 
-    otherUtil.search(query)
+    finhubData.search(query)
      .then((response)=>{
       console.log(response,'finhubb api')
 
        this.setState({result:response.data},
         ()=>{
-          // console.log(response.data,'ddddd')
+          console.log(response.data,'ddddd')
       
       })
     })
@@ -99,15 +105,15 @@ componentDidMount() {
   //  })
     
 
-     API.search(query)
-    .then((response)=>{
-       for(var key in response.data['Time Series (Daily)']){
-        xfunction.push(key);
-        yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-      }
-      this.setState({xvalues:xfunction,yvalues:yfunction})
-      console.log(xfunction)
-      })
+    //  API.search(query)
+    // .then((response)=>{
+    //    for(var key in response.data['Time Series (Daily)']){
+    //     xfunction.push(key);
+    //     yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+    //   }
+    //   this.setState({xvalues:xfunction,yvalues:yfunction})
+    //   console.log(xfunction)
+    //   })
  }
   
   // handleInputChange = event => {
@@ -219,6 +225,7 @@ DisplayFunction = () => {
 render={(props) => (<UserTodoList {...props} 
   x={this.state.xvalues}
   y={this.state.yvalues}
+  qoute={this.state.qoute}
   result={this.state.result}
   // result = {this.state.result}
   // visible = {this.state.visible}
