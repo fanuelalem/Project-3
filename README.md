@@ -5,7 +5,10 @@ Add stocks to your watchList with the 10/10 stock tracking app. It will give use
 
 <!-- ![Project Image](stock.png) -->
 
+<!-- ![Project Image](stock1.png) -->
+
 ![Project Image](stock1.png)
+
 
 
 ## Motivation
