@@ -3,7 +3,10 @@
 Add stocks to your watchList with the 10/10 stock tracking app. It will give users insight on top 10 daily stock gainers and losers, Allow you to search for any stock in the market, as well as share and connect with a community. 
 
 
-![Project Image](stock.png)
+<!-- ![Project Image](stock.png) -->
+
+![Project Image](stock1.png)
+
 
 ## Motivation
 
