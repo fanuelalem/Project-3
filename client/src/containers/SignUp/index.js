@@ -84,7 +84,7 @@ class SignUp extends Component {
       <div  >
 {/* background-Image: linear-gradient(#1F1C2C,#928DAB); */}
 <Helmet>
-   <style>{'body { background-Image: linear-gradient(#928dab,#948e99);  }'}</style>
+   <style>{'body { background-color:#532f8c;  }'}</style>
 
          </Helmet>
          <Grid textAlign="center" style={{ height: '75vh',margin:'0px 0 99px 0' }} verticalAlign="middle">

@@ -80,19 +80,24 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
          <Container>
 
           <Grid>
-         <Grid.Row columns={2}>
-         <Grid.Column>
-         <Header as='h3' style={{ fontSize: '2em' }}>
+         <Grid.Row >
+         <Grid.Column width={6}>
+
+           <div className='div-info'>
+
+          <Header textAlign='center'  as='h3' style={{ fontSize: '2em' }}>
           
          View the top 10 stock Market daily winners and losers, and lookup any stock.
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
-             Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you may search stocks by their ticker to find extra information and details about the company.
+        <p style={{ fontSize: '1.33em',textAlign:'center' }}>
+             Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you can search stocks by their ticker to find extra information and details about the company.
            
         </p>
+        </div>
+
   </Grid.Column>
-  <Grid.Column>
-<Image src={pic1}/>
+  <Grid.Column   floated='right' width={9}>
+<Image  style={{borderRadius:'4px'}} src={pic1}/>
 
   </Grid.Column>
 
@@ -113,31 +118,42 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
 <br></br>
 
         <Grid>
-         <Grid.Row columns={2}>
-         <Grid.Column>
-         <Header as='h3' style={{ fontSize: '2em' }}>
+         <Grid.Row >
+         <Grid.Column width={9}>
+  <Image src={pic2}  />
+  </Grid.Column>
+         <Grid.Column floated='right'width={6}>
+
+         <div className='div-info2' >
+
+ 
+         <Header as='h3' textAlign='center'  style={{ fontSize: '2em' }}>
           
-         Save stocks onto a watchlist and join the 10/10 stock community to view trends.
+         Create your personal stocks watchlist and join the 10/10 stock community to view trends.
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
-        You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
+        <p style={{ fontSize: '1.33em',textAlign:'center' }} >
+        You can also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
 
         </p>
+
+         
+        </div>
+  
+
   </Grid.Column>
-  <Grid.Column>
-  <Image src={pic2}/>
-  </Grid.Column>
+ 
   </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
+                 
           <Link
+         
  as ={Link}
  
  to="/signup">
  {/* <button className='buttn2' style={{color:'white',padding:'10px 16px'}}> <Icon name='signup'></Icon> Register</button> */}
-<Button color='purple'> <Icon name='signup'></Icon><span className='buttn2'> Register</span>  </Button>
- </Link>          
- 
+<Button  style={{margin:'30px 0 0 0'}} color='purple'> <Icon name='signup'></Icon><span className='buttn2'> Register</span>  </Button>
+ </Link>   
  </Grid.Column>
         </Grid.Row>
 
@@ -159,12 +175,24 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
      <Grid divided='vertically'>
 <Grid.Row columns={2}>
 <Grid.Column>
-<h1 className='how-it-works'style={{fontSize:'2.5rem'}}>How This simple app works</h1>     
-<p className='how-it-works'style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure website with authentication and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
+
+<Header as='h3' style={{ fontSize: '2em' }}>
+          
+How This simple app works        
+ </Header>
+
+
+ <p className='how-it-works'style={{fontSize:'1.33em',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure website with authentication and free to join. simply create your own personalized list of stocks that you can have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
 </Grid.Column>
 <Grid.Column>
-<h1 className='mission'className='motiv'style={{fontSize:'2.5rem'}}>Mission </h1>     
-<p style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
+
+<Header as='h3' style={{ fontSize: '2em' }}>
+          
+Mission           </Header>
+
+
+{/* <h1 className='mission'className='motiv'style={{fontSize:'2.5rem'}}>Mission </h1>      */}
+<p style={{fontSize:'1.33em',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
 Our motivation when building this application was to empower investors with valuable information about the stock market, and to also create an engaging experience for people with any background. Our group focused on an intuitive design, vibrant colors, and convenience for users.</p>      </Grid.Column>
 </Grid.Row>
 </Grid>

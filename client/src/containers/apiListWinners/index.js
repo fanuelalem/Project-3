@@ -75,22 +75,21 @@ class WinnerListItems extends Component {
 
 <Helmet>
    <style>{
-   'body { background-color: rgba(83,47,140,.6); }'
+   'body { background-color:#532f8c    ; }'
    }</style>
 
          </Helmet>
-     <div style={{margin:'70px 25px 0px 25px'}}>
-
-    <Table widths={4} style={{color:'black'}}    >
+     <div style={{margin:'80px 20px 0px 20px'}}>
+     <Table  inverted widths={4} style={{backgroundColor:'#222222',color:'white'}}    >
  
      <Table.Header>
        <Table.Row>
  
-       <Table.HeaderCell style={{}}><h2 >Company [ticker]</h2></Table.HeaderCell>
-       <Table.HeaderCell style={{}}>percent change</Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}}><h2 >Company [ticker]</h2></Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}}>percent change</Table.HeaderCell>
 
-        <Table.HeaderCell >Last price</Table.HeaderCell>
-       <Table.HeaderCell >price change</Table.HeaderCell>
+        <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}} >Last price</Table.HeaderCell>
+       <Table.HeaderCell  style={{backgroundColor:'#222222',color:'white'}}>price change</Table.HeaderCell>
 
  
        </Table.Row>

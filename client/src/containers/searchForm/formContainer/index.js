@@ -6,6 +6,7 @@ import { Grid,Message,List,Image,Icon,Container,Loader,Segment } from 'semantic-
 import Card from './../Card'
 import Plot from 'react-plotly.js';
 import {connect} from 'react-redux'
+import {Line} from 'react-chartjs-2'
  
 
 import otherUtil from './../otherutil'
@@ -19,8 +20,8 @@ import axios from 'axios'
         result: {},
         search: "",
         xvalues:[],
-        yvalues:[]
-       };
+        yvalues:[],
+        };
       componentDidMount() {
         this.searchMovies('aapl');
   
@@ -73,52 +74,75 @@ import axios from 'axios'
       };
 
     render() {
-      console.log(this.props,'this props')
+
+      
+
+      // const data={x:this.props.graphx,y:this.props.graphy}
+      
+
+      // console.log(this.props,'this props')
+
+
+
         return (
  
 <div style={{margin:'15px 0 0 0'}}>
 <Container>
   <div style={{margin:'0 0 0 70px'}}>
-  <h1 > {this.props.qoute? `$${this.props.qoute.c}`   : 
+  {/* <h1 > {this.props.qoute? `$${this.props.qoute.c}`   : 
   <Segment>
   <Loader disabled />
 
   <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
 </Segment>
-  }</h1>
- <h3> hello</h3>
+  }</h1> */}
+ 
   </div>
   </Container>
 
 <Plot 
 
-         data={[
+
+          data={[
           {
             x: this.props.graphx,
             y: this.props.graphy,
             type: 'scatter',
             mode: ' ',
-            marker: {color: 'red'},
+            marker: {color: '#b01303'},
             
           }
         ]}
-        layout={{  titlefont: {
+        style={{width:'100%',height:'100%'}}
+        useResizeHandler= {true}
+
+        responsive={true}
+         layout={{  titlefont: {
           family: 'Arial, sans-serif',
           size: 25,
-          color: 'black',
-        },width: 590, 
-        height: 520,title: ` ${this.props.info.name}`,
-        // xaxis:{color:'white'},
-        // yaxis:{color:'white'},
-        // paper_bgcolor:'#222323',
-        // plot_bgcolor:'#222323'
+          color: 'white',
+          
+        },xaxis:{color:'white'},
+        yaxis:{color:'white'},
+        paper_bgcolor:'#222323',
+        plot_bgcolor:'#222323',title: ` ${this.props.info.name? this.props.info.name : `no stock ...`}`,
+
+        autosize: true
+         
       }}
         // newshape:{line:{color:'white'}}, colorway:{colorlist:'white'},
         // xaxis:{color:'white'},yaxis:{color:'white'},paper_bgcolor:'#222323',plot_bgcolor:'#222323' }}
-         
+        
        />
 
+
+       
+
  
+
+
+ 
+
 
  </div>
  

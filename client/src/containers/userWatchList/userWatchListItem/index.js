@@ -8,11 +8,11 @@ export default (props) => {
   
   return(
  <div>
-     <Table   selectable   >
+     <Table   selectable   inverted>
     <Table.Header>
       <Table.Row>
-         <Table.HeaderCell style={{color:'black'}}>Stock Name</Table.HeaderCell>
-        <Table.HeaderCell style={{color:'black'}}>Date</Table.HeaderCell>
+         <Table.HeaderCell style={{color:'white'}}>Stock Name</Table.HeaderCell>
+        <Table.HeaderCell style={{color:'white'}}>Date</Table.HeaderCell>
         <Table.HeaderCell> </Table.HeaderCell>
         
 
@@ -26,8 +26,8 @@ export default (props) => {
 
  
     <Table.Row key={_id}>
-       <Table.Cell > <h5 style={{color:'black'}}>{text}</h5></Table.Cell>
-       <Table.Cell style={{color:'black'}}>{moment(dateCreated).fromNow()} </Table.Cell>
+       <Table.Cell > <h5 style={{color:'white'}}>{text}</h5></Table.Cell>
+       <Table.Cell style={{color:'white'}}>{moment(dateCreated).fromNow()} </Table.Cell>
        <Table.Cell>        <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/>
 </Table.Cell>
  

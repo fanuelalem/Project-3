@@ -51,10 +51,10 @@ export default class Trending extends Component {
  };
   render() {
     return (
-      <div style={{margin:'70px 0 0 0'}}>
+      <div style={{margin:'80px 20px 0px 20px'}}>
 
 <Helmet>
-   <style>{'body { background-color: rgba(83,47,140,.6)'}</style>
+   <style>{'body { background-color: #532f8c'}</style>
 
  
          </Helmet>
@@ -120,16 +120,37 @@ export default class Trending extends Component {
     <Table.Row  >
 
  
-      <Table.Cell > <p style={{color:'black'}}>{item.myStocks[0].text}</p></Table.Cell>
+      <Table.Cell > 
+        {/* {console.log(item.myStocks[0].text,'item')} */}
+
+       
+        <p style={{color:'black'}}>{item.myStocks[0].text}</p>
+        
+        </Table.Cell>
       
 
-     <Table.Cell> <p>{item.myStocks.length? item.myStocks[0].dateCreated : 'none'} </p>  </Table.Cell>
+     <Table.Cell> 
+       <p style={{color:'black'}}>{item.myStocks[0].dateCreated } </p>  
+       </Table.Cell>
  
 
      </Table.Row>
      <Table.Row  >
-      <Table.Cell > <p style={{color:'black'}}> { item.myStocks.length? item.myStocks[1].text : 'user has no stocks'}</p></Table.Cell>
-     <Table.Cell> <p>{item.myStocks.length? item.myStocks[1].dateCreated : 'none'} </p>  </Table.Cell>
+
+       <Table.Cell>
+{console.log(item,'item show me')}
+
+<p style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].text:'none'}</p>
+
+
+       </Table.Cell>
+     
+     <Table.Cell> 
+     <p style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].dateCreated:'none'}</p>
+
+       {/* <p>{item.myStocks.length? item.myStocks[1].dateCreated : 'none'} </p>  */}
+       
+        </Table.Cell>
     
 
      </Table.Row>

@@ -104,24 +104,25 @@ addWinnerStock = () => {
       return(
            <>
 <Helmet>
-   <style>{'body { background-color: rgba(83,47,140,.6) ; }'}</style>
+   <style>{'body { background-color: #532f8c ; }'}</style>
 
          </Helmet>
-              <div style={{margin:'70px 0px 25px 0px'}}>
+              <div style={{margin:'80px 20px 0px 20px'}}>
 
  
 <Segment 
-// style={{backgroundColor:'#222324'}}
+style={{backgroundColor:'#222222'}}
 >
   <div 
-  // style={{backgroundColor:'#222324'}}
+  // style={{backgroundColor:'#222222'}}
   >
 
      <Grid columns={2} relaxed='very'>
       <Grid.Column >
 
-     
-      <FormContainer 
+     <div className='div-info '>
+
+       <FormContainer 
        graphx={this.props.x}
       graphy={this.props.y}
       qoute={this.props.qoute}
@@ -130,7 +131,8 @@ addWinnerStock = () => {
       // graphy = {this.props.yvalues} 
       // data= {this.props.result} 
       />   
- 
+      </div>
+
       </Grid.Column>
       <Grid.Column> 
           
@@ -139,10 +141,10 @@ addWinnerStock = () => {
 
  
        <Header as="h2"  textAlign="center" >
-         <p style={{color:'black'}}>My WatchList </p> 
+         <p style={{color:'white'}}>My WatchList </p> 
        </Header>
           <Form size='large' onSubmit={handleSubmit(this.onSubmit)}   >
-              <Segment   >
+              <Segment  style={{backgroundColor:'#333333'}} >
                 <Field
                 name="text"
                 component={this.renderAddTodo}

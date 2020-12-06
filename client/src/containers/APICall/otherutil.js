@@ -18,8 +18,8 @@ const token = "&token=bv44e1v48v6tcp17g8p0";
  
  
 export default {
+   search: function(query) {
  
-  search: function(query) {
      return axios.get(finhubUrl + query + token);
   }
 };

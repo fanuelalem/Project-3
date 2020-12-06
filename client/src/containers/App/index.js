@@ -80,9 +80,13 @@ componentDidMount() {
     let yfunction=[];
 
     
-otherUtil.search(query).then((response)=>{
-this.setState({qoute:response.data})
-})
+ 
+
+
+// otherUtil.search(query).then((response)=>{
+//   this.setState({qoute:response.data})
+//   console.log(response,'asxa')
+// })
 
     
 
@@ -90,11 +94,8 @@ this.setState({qoute:response.data})
      .then((response)=>{
       console.log(response,'finhubb api')
 
-       this.setState({result:response.data},
-        ()=>{
-          console.log(response.data,'ddddd')
-      
-      })
+       this.setState({result:response.data})
+      //  console.log(response.data,'edas')
     })
 
   //   Info.search(query)
@@ -105,15 +106,15 @@ this.setState({qoute:response.data})
   //  })
     
 
-    //  API.search(query)
-    // .then((response)=>{
-    //    for(var key in response.data['Time Series (Daily)']){
-    //     xfunction.push(key);
-    //     yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-    //   }
-    //   this.setState({xvalues:xfunction,yvalues:yfunction})
-    //   console.log(xfunction)
-    //   })
+     API.search(query)
+    .then((response)=>{
+       for(var key in response.data['Time Series (Daily)']){
+        xfunction.push(key);
+        yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+      }
+      this.setState({xvalues:xfunction,yvalues:yfunction})
+      console.log(xfunction)
+      })
  }
   
   // handleInputChange = event => {

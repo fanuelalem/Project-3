@@ -63,22 +63,22 @@ import { Table } from 'semantic-ui-react'
 const LoserListItems = props => (
 <div>
 <Helmet>
-   <style>{'body { background-color: rgba(83,47,140,.6); }'}</style>
+   <style>{'body { background-color:#532f8c; }'}</style>
 
          </Helmet>
-   <div style={{margin:'70px 25px 0px 25px'}}>
+   <div style={{margin:'80px 20px 0px 20px'}}>
 
 
-    <Table widths={4}>
+    <Table inverted style={{backgroundColor:'#222222',color:'white'}}widths={4} >
     <Table.Header >
        <Table.Row  >
 
-       <Table.HeaderCell  ><h2> Company [ticker]</h2></Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}} ><h2> Company [ticker]</h2></Table.HeaderCell>
 
-       <Table.HeaderCell  >Last price</Table.HeaderCell>
-       <Table.HeaderCell >price change</Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}} >Last price</Table.HeaderCell>
+       <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}}>price change</Table.HeaderCell>
 
-         <Table.HeaderCell >percent change</Table.HeaderCell>
+         <Table.HeaderCell style={{backgroundColor:'#222222',color:'white'}}>percent change</Table.HeaderCell>
 
        </Table.Row>
      </Table.Header>
@@ -90,9 +90,9 @@ const LoserListItems = props => (
 
        <Table.Cell > <h3>{standardName} [{ticker}]</h3></Table.Cell>
        <Table.Cell>${lastPrice} </Table.Cell>
-       <Table.Cell >${priceChange} </Table.Cell>
+       <Table.Cell  >${priceChange} </Table.Cell>
 
-       <Table.Cell >{percentChange}% </Table.Cell> 
+       <Table.Cell style={{color:'red'}}>{percentChange}% </Table.Cell> 
 
 
        {/* <DeleteTodoModal handleDelete={props.handleDelete} id={_id} text={text}/> */}

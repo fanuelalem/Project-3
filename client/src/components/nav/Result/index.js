@@ -11,18 +11,25 @@ import { Helmet } from 'react-helmet';
 export default class Result extends Component {
     render() {
          return (
-             <div>
+             <div style={{margin:'80px 20px 0px 20px'}}>
+
+
+ 
+
 
  
             <Helmet>
-   <style>{'body { background-color: rgba(83,47,140,.6)'}</style>
+   <style>{'body { background-color: #532f8c'}</style>
 
  
          </Helmet>
  
  <Container fluid >
+
+
+  
  
-{this.props.result.name || 
+{/* {this.props.result.name || 
 
 
 
@@ -40,7 +47,7 @@ export default class Result extends Component {
   
   </div>
   
-}
+} */}
    
 
  {this.props.result.name? 
@@ -56,7 +63,8 @@ export default class Result extends Component {
 // border:'1px solid black',
 padding:'22px',
 // borderRadius:'8px',
-backgroundColor:'white',
+backgroundColor:'#222222',
+color:'white',
 // color:'white'
 }}>
 
@@ -115,7 +123,10 @@ backgroundColor:'white',
 
 </div> : 
 
-<h3> </h3>
+<Message  >
+<Message.Header>Cannot Find this stock</Message.Header>
+  <p>Please try again another time...</p>
+</Message> 
 }
              
 
@@ -123,22 +134,22 @@ backgroundColor:'white',
 
         <div style={{ padding: '6em 0em' }}>
 
-<Container >
+{/* <Container >
 
      <Grid divided='vertically'>
 <Grid.Row columns={2}>
 <Grid.Column>
-<h1 className='how-it-works'style={{fontSize:'2.5rem'}}>How This simple app works</h1>     
-<p className='how-it-works'style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure website with authentication and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
+<h1 className='how-it-works'style={{fontSize:'2.5rem',color:'white'}}>How This simple app works</h1>     
+<p className='how-it-works'style={{fontSize:'1.25rem',color:'white',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure website with authentication and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
 </Grid.Column>
 <Grid.Column>
-<h1 className='mission'className='motiv'style={{fontSize:'2.5rem'}}>Mission </h1>     
-<p style={{fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
+<h1 className='mission'className='motiv'style={{fontSize:'2.5rem',color:'white'}}>Mission </h1>     
+<p style={{fontSize:'1.25rem',color:'white',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
 Our motivation when building this application was to empower investors with valuable information about the stock market, and to also create an engaging experience for people with any background. Our group focused on an intuitive design, vibrant colors, and convenience for users.</p>      </Grid.Column>
 </Grid.Row>
 </Grid>
 
- </Container>
+ </Container> */}
 
  
 </div>

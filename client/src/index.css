@@ -154,7 +154,7 @@ cursor: pointer;
     /* border-color: #845ac7; */
     cursor: pointer;
     /* background-color:#845ac7; */
-    color:white
+    color:white;
 }
 .signing-in{
      margin-top:25px;
@@ -223,7 +223,15 @@ cursor: pointer;
      height:35px;
  
 }
+.div-info{
+    padding: 30px 0;
 
+}
+
+.div-info2{
+    padding: 35px 0;
+
+}
 .searchlink{
       height:25px;
  }
