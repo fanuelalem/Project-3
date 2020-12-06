@@ -109,7 +109,7 @@ import axios from 'axios'
             y: this.props.graphy,
             type: 'scatter',
             mode: ' ',
-            marker: {color: '#b01303'},
+            marker: {color: 'red'},
             
           }
         ]}

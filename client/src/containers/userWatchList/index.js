@@ -111,7 +111,7 @@ addWinnerStock = () => {
 
  
 <Segment 
-style={{backgroundColor:'#222222'}}
+style={{backgroundColor:'#222324'}}
 >
   <div 
   // style={{backgroundColor:'#222222'}}
