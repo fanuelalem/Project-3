@@ -125,7 +125,7 @@ color:'white',
 
 <Message  >
 <Message.Header>Cannot Find this stock</Message.Header>
-  <p>Please try again another time...</p>
+  <p>:/ this page is still in progress...</p>
 </Message> 
 }
              

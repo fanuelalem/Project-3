@@ -92,8 +92,8 @@ export default class Trending extends Component {
         size='mini'
         src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
       />
-      <Card.Header>
-        <h1 style={{textAlign:'center'}}> {item.email}</h1> 
+      <Card.Header >
+        <h1 style={{textAlign:'left'}}> {item.email}</h1> 
        </Card.Header>
     {/* <Card.Meta>{item.email} has {item.myStocks.length} stocks...</Card.Meta> */}
       
@@ -109,7 +109,7 @@ export default class Trending extends Component {
     <Table.Row>
        <Table.HeaderCell style={{color:'black'}}>Recent stocks</Table.HeaderCell>
  
-      <Table.HeaderCell style={{color:'black'}}>Date</Table.HeaderCell>
+      <Table.HeaderCell  style={{color:'black'}}>Date</Table.HeaderCell>
  
 
      

@@ -90,7 +90,7 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
          View the top 10 stock Market daily winners and losers, and lookup any stock.
         </Header>
         <p style={{ fontSize: '1.33em',textAlign:'center' }}>
-             Open the winners or losers tab to check the daily stock market winners and losers. In the search-stock tab, you can search stocks by their ticker to find extra information and details about the company.
+             Open the winners or losers tab to check the daily stock market winners and losers. In the search bar, you can search stocks by their ticker to find extra information and details about the company.
            
         </p>
         </div>
@@ -120,7 +120,7 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
         <Grid>
          <Grid.Row >
          <Grid.Column width={9}>
-  <Image src={pic2}  />
+  <Image style={{borderRadius:'4px'}}src={pic2}  />
   </Grid.Column>
          <Grid.Column floated='right'width={6}>
 
