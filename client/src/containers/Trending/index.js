@@ -46,7 +46,7 @@ export default class Trending extends Component {
    axios.get('/api/user/profiles', {
     headers: { authorization: localStorage.getItem('token') },
   }).then((response)=>{
-    this.setState({filteredUsers:response.data},()=>{
+    this.setState({filteredUsers:response.data.reverse()},()=>{
       console.log(response.data, 'other users')
      })
    })
@@ -89,12 +89,12 @@ export default class Trending extends Component {
 
     <Card.Content >
       <Image
-         floated='left'
-        size='mini'
+      
+        size='tiny'
         src={item.myImages.length? item.myImages[0].filePath : twitter}
       />
       <Card.Header >
-        <h1 style={{textAlign:'left'}}> {item.email}</h1> 
+        <h1 style={{textAlign:'left',margin:'15px 0 0 0'}}> {item.email}</h1> 
        </Card.Header>
     {/* <Card.Meta>{item.email} has {item.myStocks.length} stocks...</Card.Meta> */}
       
