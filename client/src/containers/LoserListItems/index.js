@@ -69,7 +69,7 @@ const LoserListItems = props => (
    <div style={{margin:'80px 20px 0px 20px'}}>
 
 
-    <Table inverted selectable style={{color:'white'}}widths={4} >
+    <Table inverted selectable style={{border:'1px solid white',color:"white"}}widths={4} >
     <Table.Header >
        <Table.Row  >
 

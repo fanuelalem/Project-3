@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { List, Header,Table, Message,Button,Image,Pagination,Container,Grid,Responsive,Card,Icon } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
+import twitter from './../../components/Images/twitteravi.jpg'
+
 
 
  
@@ -45,8 +47,8 @@ export default class Trending extends Component {
     headers: { authorization: localStorage.getItem('token') },
   }).then((response)=>{
     this.setState({filteredUsers:response.data},()=>{
-      console.log(response.data)
-    })
+      console.log(response.data, 'other users')
+     })
    })
  };
   render() {
@@ -68,12 +70,11 @@ export default class Trending extends Component {
        </Grid.Column>
       <Grid.Column width={14} className='customScroll'>
 
-       {console.log(this.state.filteredUsers,'filtered users')}
- 
-      {  this.state.filteredUsers.map((item)=>(
+  
+      {  this.state.filteredUsers.map((item,id)=>(
 
 
-         <div style={{margin:'0 0 20px 0'}}>
+         <div key={item.id} style={{margin:'0 0 20px 0'}}>
 
  
  
@@ -81,16 +82,16 @@ export default class Trending extends Component {
 
   
 
-     <div>
+     <div  >
 
    
-    <Card fluid style={{border:"none"}}  >
+    <Card  fluid style={{border:"none"}}  >
 
     <Card.Content >
       <Image
          floated='left'
         size='mini'
-        src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
+        src={item.myImages.length? item.myImages[0].filePath : twitter}
       />
       <Card.Header >
         <h1 style={{textAlign:'left'}}> {item.email}</h1> 
@@ -138,8 +139,7 @@ export default class Trending extends Component {
      <Table.Row  >
 
        <Table.Cell>
-{console.log(item,'item show me')}
-
+ 
 <p style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].text:'none'}</p>
 
 

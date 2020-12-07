@@ -71,6 +71,9 @@
     font-weight: 400;
  
 }
+
+ 
+
 .header1{
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
@@ -169,6 +172,8 @@ cursor: pointer;
     border-radius:50%
 }
 .div-tag{
+    text-align: center;
+
     padding-bottom:15px
 }
 
@@ -223,15 +228,15 @@ cursor: pointer;
      height:35px;
  
 }
-.div-info{
+/* .div-info{
     padding: 20px 0;
 
-}
+} */
 
-.div-info2{
+/* .div-info2{
     padding: 35px 0;
 
-}
+} */
 .searchlink{
       height:25px;
  }
@@ -247,4 +252,8 @@ cursor: pointer;
  }
  
  
-  
+ .axiosRequestImages{
+     display:flex;
+     justify-content:center;
+     margin-left:46.5%
+ }

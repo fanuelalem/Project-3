@@ -11,11 +11,12 @@ import {
 import axios from 'axios';
 
 export const getUserData = () => async (dispatch) => {
+
    try {
     const { data } = await axios.get('/api/user/profile', {
       headers: { authorization: localStorage.getItem('token') },
     });
-     dispatch({ type: GET_USER_DATA, payload: data });
+      dispatch({ type: GET_USER_DATA, payload: data });
   } catch (e) {
     dispatch({
       type: GET_USER_DATA_ERROR,

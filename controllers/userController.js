@@ -1,8 +1,9 @@
-const { User, Stock, Upload } = require('../models/index');
-
+const { User, Stock, Image } = require('../models/index');
+  
 module.exports = {
   addStock: async (req, res) => {
     const { text } = req.body;
+    console.log(req.body,'text??')
     if (!text) {
       return res.status(400).json({ error: 'You must provide text' });
     }
@@ -17,23 +18,23 @@ module.exports = {
     }
   },
   
- addUpload: async (req, res) => {
-    const { name } = req.body;
-    console.log(req.body,'this req.body')
+//  addUpload: async (req, res) => {
+//     const { name } = req.body;
+//     console.log(req.body,'this req.body')
     
-    try {
-      const newUpload = await new Upload({ name,type, user: req.user._id }).save();
-  console.log(newUpload,'sdsc')
+//     try {
+//       const newUpload = await new Upload({ name,type, user: req.user._id }).save();
+//   console.log(newUpload,'sdsc')
   
-      // const newStock = await Stock.create({ text, user: req.user._id });
-      req.user.myUploads.push(newUpload);
-      await req.user.save();
-      return res.status(200).json(newUpload);
-    } catch (e) {
-      return res.status(403).json({ e });
-    }
-  }
-  ,
+//       // const newStock = await Stock.create({ text, user: req.user._id });
+//       req.user.myUploads.push(newUpload);
+//       await req.user.save();
+//       return res.status(200).json(newUpload);
+//     } catch (e) {
+//       return res.status(403).json({ e });
+//     }
+//   }
+  
   getUserByEmail: async (req,res)=>{
     try{
       const users = await User.find();
@@ -76,17 +77,58 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
-  getUserUploads: async (req, res) => {
+  getMyImages: async (req, res) => {
     try {
-      // const user = await User.findById(req.user._id).populate('todos','text');
-      // return res.status(200).json(user.stocks)
-      
-      const uploads = await Upload.find({ user: req.user._id });
-      return res.json(uploads);
+      const images = await Image.find({ user: req.user._id });
+      return res.json(images);
     } catch (e) {
       return res.status(403).json({ e });
     }
+    // const user = await User.findById(req.user._id).populate('todos','text');
+      // return res.status(200).json(user.stocks)
   },
+  postMyImages: async (req, res) => {
+    const { fileName,filePath } = req.body;
+    console.log(req.files)
+
+if(req.files === null) {
+      return res.status(400).json({msf:'no file uploaded'})
+    }
+
+     
+
+    try {
+
+      const file = req.files.file
+
+      file.mv(`${__dirname}/../client/public/images/${file.name}`,async (err)=>{
+        if(err){
+          console.error(err)
+          return res.status(500).send(err)
+        }
+        
+        const newImage = await new Image({ fileName:file.name,filePath:`/images/${file.name}`, user: req.user._id }).save();
+        req.user.myImages.push(newImage);
+        await req.user.save();
+        return res.status(200).json(newImage);
+
+
+
+        // res.json({fileName:file.name,filePath:`./images/${file.name}`})
+      })}catch (e) {
+      return res.status(403).json({ e });
+    }
+
+
+      // const newImage = await new Image({ fileName, user: req.user._id }).save();
+      // const newStock = await Stock.create({ text, user: req.user._id });
+      // req.user.myImages.push(newImage);
+     
+  },
+  
+   
+
+
   deleteUserStockById: async (req, res) => {
     // grab stockId from req.params
     const { stockId } = req.params;
@@ -150,3 +192,22 @@ module.exports = {
 
 
  
+
+
+//  const {file}=req.file
+    //  console.log(req.file,'image info')
+    //  const {file}=req.file
+    //  const {data} = req.file
+    //  console.log(req.body)
+     // if (!fileName) {
+    //   return res.status(400).json({ error: 'You must provide name' });
+    // }
+    // try {
+    //   const newImage = await new Image({ data, user: req.user._id }).save();
+    //   // const newStock = await Stock.create({ text, user: req.user._id });
+    //   req.user.myImages.push(newImage);
+    //   await req.user.save();
+    //   return res.status(200).json({newImage});
+    // } catch (e) {
+    //   return res.status(403).json({ e });
+    // }

@@ -6,9 +6,9 @@ import { compose } from 'redux';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-import { getUserTodos, updateTodoCompletedById, deleteTodoById } from '../../actions/stocks';
+import { getUserStocks, updateStocksCompletedById, deleteStockById } from '../../actions/stocks';
 import { Link } from "react-router-dom"
-import { ADD_TODO_ERROR, ADD_TODO} from '../../actions/types';
+import { ADD_STOCKS_ERROR, ADD_STOCK} from '../../actions/types';
 import { numericality } from 'redux-form-validators';
 
 class WinnerListItems extends Component {
@@ -40,17 +40,17 @@ class WinnerListItems extends Component {
      const {title} = formValues
     try {
      await axios.post('/api/user/stock', {text:this.state.title}, { headers: { 'authorization': localStorage.getItem('token')}} );
-     dispatch({ type: ADD_TODO });
-     this.props.getUserTodos();
+     dispatch({ type: ADD_STOCK });
+     this.props.getUserStocks();
    } catch (e) {
-     dispatch({ type: ADD_TODO_ERROR, payload: e });
+     dispatch({ type: ADD_STOCKS_ERROR, payload: e });
    }
  }
 
 
 
  componentDidMount() {
-  this.props.getUserTodos();
+  this.props.getUserStocks();
 }
 
 
@@ -80,7 +80,7 @@ class WinnerListItems extends Component {
 
          </Helmet>
      <div style={{margin:'80px 20px 0px 20px'}}>
-     <Table inverted selectable  widths={4} style={{color:'white'}}    >
+     <Table inverted selectable  widths={4}style={{border:'1px solid white',color:'white'}}    >
  
      <Table.Header>
        <Table.Row>
@@ -187,17 +187,17 @@ class WinnerListItems extends Component {
   }
 }
 
-function mapStateToProps({ todos: { userTodos, getUserTodosServerError, getUserTodosClientError, deleteTodoByIdError}}) {
+function mapStateToProps({ stocks: { userStocks, getUserStocksServerError, getUserStockClientError, deleteStockByIdError}}) {
   return {
-    todos: userTodos,
-    clientError: getUserTodosClientError,
-    serverError: getUserTodosServerError,
-    deleteTodoByIdError,
+    stocks: userStocks,
+    clientError: getUserStockClientError,
+    serverError: getUserStocksServerError,
+    deleteStockByIdError,
   };
 }
  export default compose(
   reduxForm({ form: 'addTodo' }),
-  connect(mapStateToProps, { getUserTodos,updateTodoCompletedById, deleteTodoById })
+  connect(mapStateToProps, { getUserStocks,updateStocksCompletedById, deleteStockById })
 )(WinnerListItems);
 
 

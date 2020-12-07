@@ -1,10 +1,12 @@
 const Stock = require('./Stock');
-const Upload = require('./Upload');
-
+ 
 const User = require('./User');
+
+const Image = require('./Image')
 
 module.exports = {
   Stock,
   User,
-  Upload
+  Image
+   
 };

@@ -5,14 +5,18 @@ const {
   updateStockById,
   getAllUserEmails,
   addStock,
-  getUserUploads,
-  addUpload
+  getMyImages,
+  postMyImages
 } = require('./../../../controllers/userController');
 
+
+ 
 const { getCurrentUser, getFilteredUsers } = require('./../../../controllers/profileController');
 
 
 const { requireAuth } = require('./../../../middlewares/authMiddlewares');
+
+const multer = require('multer')
 
 // /api/user/emails
 router.get('/emails', getAllUserEmails);
@@ -30,11 +34,17 @@ router.route('/stock')
   .get(requireAuth, getUserStocks)
   .post(requireAuth, addStock);
 
-  // /api/user/upload
+  // /api/user/myimages
 
-  router.route('/upload')
-  .get(getUserUploads)
-  .post(addUpload);
+const upload = multer({dest:''}) 
+
+
+  router.route('/myimages')
+ .get(requireAuth,getMyImages)
+ .post(requireAuth,upload.single('file'),postMyImages)
+
+
+  
 
 // /api/user/emails
 

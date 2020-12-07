@@ -3,8 +3,7 @@ import { Grid, Header, Button } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { increment, decrement } from '../../actions/counter';
-import axios from 'axios';
+ import axios from 'axios';
  import LoserListItems from './../LoserListItems';
 
 // import requireAuth from '../../hoc/requireAuth';

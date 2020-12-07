@@ -21,7 +21,7 @@ export default (props) => {
     </Table.Header>
     <Table.Body>
      
-{props.todos.map(({_id,completed,text,dateCreated})=>(
+{props.stocks.map(({_id,completed,text,dateCreated})=>(
 
 
  

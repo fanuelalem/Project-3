@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { Grid,Divider,Header, Form, Segment, Message, List, Pagination, Button, Icon } from 'semantic-ui-react';
+import { Grid,Divider,Header, Form, Segment, Message,Table, List, Pagination, Button, Icon } from 'semantic-ui-react';
 import FormContainer from './../searchForm/formContainer/index'
 import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
@@ -16,9 +16,9 @@ import UserTodoListItems from './userWatchListItem';
 // import requireAuth from '../../hoc/requireAuth';
 
 
-import { getUserTodos, updateTodoCompletedById, deleteTodoById } from '../../actions/stocks';
+import { getUserStocks, updateStocksCompletedById, deleteStockById } from '../../actions/stocks';
 
-import { ADD_TODO_ERROR, ADD_TODO} from '../../actions/types';
+import { ADD_STOCKS_ERROR, ADD_STOCK} from '../../actions/types';
 
 class UserTodoList extends Component {
 
@@ -50,10 +50,10 @@ state={
 
       try {
       await axios.post('/api/user/stock', formValues, { headers: { 'authorization': localStorage.getItem('token')}} );
-      dispatch({ type: ADD_TODO });
-      this.props.getUserTodos();
+      dispatch({ type: ADD_STOCK });
+      this.props.getUserStocks();
     } catch (e) {
-      dispatch({ type: ADD_TODO_ERROR, payload: e });
+      dispatch({ type: ADD_STOCKS_ERROR, payload: e });
     }
   }
 
@@ -64,7 +64,7 @@ addWinnerStock = () => {
  
 
   componentDidMount() {
-     this.props.getUserTodos();
+     this.props.getUserStocks();
    }
 
   renderAddTodo = ({ input, meta }) => {
@@ -111,7 +111,7 @@ addWinnerStock = () => {
 
  
 <Segment 
-style={{backgroundColor:'#222324'}}
+style={{backgroundColor:'#222324',border:'1px solid white'}}
 >
   <div 
   // style={{backgroundColor:'#222222'}}
@@ -159,22 +159,25 @@ style={{backgroundColor:'#222324'}}
               </Form>
               <List animated divided selection >
                 <UserTodoListItems 
-                todos={this.props.todos.slice(this.state.start,this.state.end)}
-                handleUpdate={this.props.updateTodoCompletedById}
-                handleDelete={this.props.deleteTodoById}
+                stocks={this.props.stocks.slice(this.state.start,this.state.end)}
+                handleUpdate={this.props.updateStocksCompletedById}
+                handleDelete={this.props.deleteStockById}
                 />
               </List>
-              {/* {
-                this.props.todos.length <= 9 ? 
+
+ 
+               {
+                this.props.stocks.length <= 9 ? 
                 null
                 : <Pagination
                 pointing
                 secondary
-                totalPages={Math.ceil(this.props.todos.length / 10)}
+                totalPages={Math.ceil(this.props.stocks.length / 10)}
                 onPageChange={(event,data)=> this.handlePageChange(event,data)}
                 activePage={this.state.activePage}
-                />
-              }        */}
+                 />
+              }   
+     
 </div>
 
               </Grid.Column>
@@ -183,6 +186,11 @@ style={{backgroundColor:'#222324'}}
     </div>
 
   </Segment>
+
+ 
+     
+  
+ 
   </div>
 
           </>
@@ -191,17 +199,17 @@ style={{backgroundColor:'#222324'}}
 
 }
 
-function mapStateToProps({ todos: { userTodos, getUserTodosServerError, getUserTodosClientError, deleteTodoByIdError}}) {
+function mapStateToProps({ stocks: { userStocks, getUserStocksServerError, getUserStockClientError, deleteStockByIdError}}) {
   return {
-    todos: userTodos,
-    clientError: getUserTodosClientError,
-    serverError: getUserTodosServerError,
-    deleteTodoByIdError,
+    stocks: userStocks,
+    clientError: getUserStockClientError,
+    serverError: getUserStocksServerError,
+    deleteStockByIdError,
   };
 }
  export default compose(
   reduxForm({ form: 'addTodo' }),
-  connect(mapStateToProps, { getUserTodos,updateTodoCompletedById, deleteTodoById,getUserData, getOtherUsers })
+  connect(mapStateToProps, { getUserStocks,updateStocksCompletedById, deleteStockById,getUserData, getOtherUsers })
 )(UserTodoList);
 
 

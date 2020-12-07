@@ -67,7 +67,7 @@ export default class Result extends Component {
  
 
 <div style={{ margin:'65px 0px 0px 0px',
-// border:'1px solid black',
+border:'1px solid white',
 padding:'22px',
 borderRadius:'3px',
 // borderRadius:'8px',

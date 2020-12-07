@@ -2,74 +2,56 @@ import React, { Component } from 'react'
 import {Container,Header,Image,Segment,Grid,Button,Divider,Form,Icon } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../../components/Images/Logo.png'
- 
-import axios from 'axios';
- import { Link } from 'react-router-dom';
+ import axios from 'axios';
+import { Link } from 'react-router-dom';
 import fanuel from './../../components/Images/fanuel.jpg'
 import ganesh from './../../components/Images/ganesh.png'
 import vanessa from './../../components/Images/vanessa.jpeg'
 import husam from './../../components/Images/husam.jpeg'
-
-
- import pic1 from './../../components/Images/topgainers.png'
- import pic2 from './../../components/Images/watchlist.png'
+import pic1 from './../../components/Images/topgainers.png'
+import pic2 from './../../components/Images/watchlist.png'
 
 
 
 export default class Home extends Component {
 
- 
-     
-
-    render() {
- 
-          return (
-            <div>
-
-           
-   <div className="background"style={{minHeight:'606px'}}>
-
-<div className="info">
- 
- 
-<Container >
-
- <div className='j'>
- <Image style={{backgroundColor:'white'}} className='im'src={logo}/>
+ render() {
+   
+  return (
   
- </div>
- <h1 className='node'> Getting Started on your 10/10 stock tracker account </h1>
-  
- <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and become a smarter investor with our amazing tools.</p>
- 
-   <Link
-   as ={Link}
- 
-   to="/signup"
-   >
-   <button className='buttn' style={{color:'#333',padding:'10px 16px'}}> <Icon name='lightning'></Icon>Get Started on your own account</button>
-
-   </Link>
- <Link
- as ={Link}
- 
- to="/search-stock">
- {/* <button className='buttn2' style={{color:'white',padding:'10px 16px'}}> <Icon name='download'></Icon> Sign-in</button> */}
-<Link
-as={Link}
-to='/searchstock'
-
->
-<Button 
-onClick={this.props.onhomeclick} 
-color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
-
-</Link>
-
-  </Link>
-  
-     
-    </Container>
+  <div>
+    <div className="background"style={{minHeight:'606px'}}>
+      <div className="info">
+        
+        <Container >
+          <div className='j'>
+            <Image style={{backgroundColor:'white'}} className='im'src={logo}/>
+            </div>
+            
+            <h1 className='node'> Getting Started on your 10/10 stock tracker account </h1>
+            <p className='description'>Add stocks to your watchList with the 10/10 stock tracking app and 
+            become a smarter investor with our amazing tools.</p>
+            <Link
+            as ={Link}
+            to="/signup"
+            >
+              <button className='buttn' style={{color:'#333',padding:'10px 16px'}}> 
+              <Icon name='lightning'></Icon>Get Started on your own account
+              </button>
+              </Link>
+              <Link
+              as ={Link}
+              to="/search-stock">
+                <Link
+                as={Link}
+                to='/searchstock'
+                >
+                  <Button 
+                  onClick={this.props.onhomeclick} 
+                  color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stocks</span>  </Button>
+                  </Link>
+                </Link>
+        </Container>
  
 
     </div>
@@ -81,7 +63,7 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
 
           <Grid>
          <Grid.Row >
-         <Grid.Column width={6}>
+         <Grid.Column width={5}>
 
            <div className='div-info'>
 
@@ -96,8 +78,8 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
         </div>
 
   </Grid.Column>
-  <Grid.Column   floated='right' width={9}>
-<Image  style={{borderRadius:'4px'}} src={pic1}/>
+  <Grid.Column   floated='right' width={10}>
+<Image  style={{borderRadius:'4px',height:'350px'}} src={pic1}/>
 
   </Grid.Column>
 
@@ -119,10 +101,10 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
 
         <Grid>
          <Grid.Row >
-         <Grid.Column width={9}>
+         <Grid.Column width={10}>
   <Image style={{borderRadius:'4px'}}src={pic2}  />
   </Grid.Column>
-         <Grid.Column floated='right'width={6}>
+         <Grid.Column floated='right'width={5}>
 
          <div className='div-info2' >
 
@@ -151,8 +133,7 @@ color='purple'> <Icon name='search'></Icon><span className='buttn2'> Search Stoc
  as ={Link}
  
  to="/signup">
- {/* <button className='buttn2' style={{color:'white',padding:'10px 16px'}}> <Icon name='signup'></Icon> Register</button> */}
-<Button  style={{margin:'30px 0 0 0'}} color='purple'> <Icon name='signup'></Icon><span className='buttn2'> Register</span>  </Button>
+ <Button  style={{margin:'30px 0 0 0'}} color='purple'> <Icon name='signup'></Icon><span className='buttn2'> Register</span>  </Button>
  </Link>   
  </Grid.Column>
         </Grid.Row>
@@ -191,8 +172,7 @@ How This simple app works
 Mission           </Header>
 
 
-{/* <h1 className='mission'className='motiv'style={{fontSize:'2.5rem'}}>Mission </h1>      */}
-<p style={{fontSize:'1.33em',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
+ <p style={{fontSize:'1.33em',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
 Our motivation when building this application was to empower investors with valuable information about the stock market, and to also create an engaging experience for people with any background. Our group focused on an intuitive design, vibrant colors, and convenience for users.</p>      </Grid.Column>
 </Grid.Row>
 </Grid>

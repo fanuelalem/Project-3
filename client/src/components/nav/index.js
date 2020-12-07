@@ -5,18 +5,28 @@ import { Link } from 'react-router-dom';
 import { Segment,Form,Dropdown, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../Images/Logo.png'
-import SearchProp from './Prop/index'
-
+import twitter from './../Images/twitteravi.jpg'
+import axios from 'axios'
+ 
 
 export default class Nav extends Component {
   state = {
-    activeItem: 'home'
+    activeItem: 'home',
+    myImages:[]
 
   }
-
+componentDidMount = () => {
+  this.getMyImage()
+}
   handleItemClick = (e, { name }) => { this.setState({ activeItem: name }) }
   
-   
+  getMyImage = () => {
+    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
+    .then((response)=>{
+        this.setState({myImages:response.data.reverse()})
+        console.log(response,'nav object')
+    })
+}
 
   render() {
     
@@ -26,9 +36,9 @@ export default class Nav extends Component {
     return (
       <div className="app">
         <div className='navy' style={{ backgroundColor: '#222222' }}>
-          <Container fluid style={{ padding: '5px 30px 5px 30px' }}>
+          <Container fluid style={{ padding: '5px 90px 5px 90px' }}>
 
-            <Menu secondary  inverted   >
+            <Menu secondary      >
               {this.props.authenticated ? null : <Menu.Item
                 as={Link}
                 to="/"
@@ -64,7 +74,7 @@ export default class Nav extends Component {
                 active={activeItem === 'winners'}
                 onClick={this.handleItemClick}
               >
-                <Icon className='winnermenu'style={{ color: '#9d9d9d' }} name='trophy'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Winners</span>  </Menu.Item> : null}
+                <Icon className='winnermenu'style={{ color: '#9d9d9d' }} name='plus square'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Winners</span>  </Menu.Item> : null}
          
               {this.props.authenticated ? <Menu.Item
                 as={Link}
@@ -72,7 +82,7 @@ export default class Nav extends Component {
                 name='losers'
                 active={activeItem === 'losers'}
                 onClick={this.handleItemClick}
-              > <Icon style={{ color: '#9d9d9d' }} name='sort amount down'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Losers</span></Menu.Item> : null}
+              > <Icon style={{ color: '#9d9d9d' }} name='minus square'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Losers</span></Menu.Item> : null}
 
 {this.props.authenticated ? <Menu.Item
                 as={Link}
@@ -81,7 +91,7 @@ export default class Nav extends Component {
                  active={activeItem === 'trending'}
                 onClick={this.handleItemClick}
                 onClick={this.props.noDisplay}
-                > <Icon style={{ color: '#9d9d9d' }} name='fire'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>community</span></Menu.Item> : null}
+                > <Icon style={{ color: '#9d9d9d' }} name='hashtag'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>trending</span></Menu.Item> : null}
 
 
               {this.props.authenticated ? <Menu.Item
@@ -90,9 +100,14 @@ export default class Nav extends Component {
                 name='watchlist'
                 active={activeItem === 'watchlist'}
                 onClick={this.handleItemClick}
-              > <Icon style={{ color: '#9d9d9d' }} name='book'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>{this.props.profile.email}'s watchlist</span></Menu.Item> : null}
+              > <Icon style={{ color: '#9d9d9d' }} name='edit'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>watchlist</span></Menu.Item> : null}
 
    
+
+
+
+
+
 
             <Menu.Menu position='right'>
 
@@ -179,6 +194,22 @@ onClick={this.props.buttonClick}
     
               
            </Menu.Item>
+
+           {this.props.authenticated ? <Menu.Item
+                as={Link}
+                to="/updateprofile"
+                name='updateprofile'
+                active={activeItem === 'watchlist'}
+                onClick={this.handleItemClick}
+              > 
+              {/* <Icon style={{ color: '#9d9d9d' }} name='user'></Icon> */}
+               
+              <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>
+              my profile                
+                </span>
+                <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={this.state.myImages.length? this.state.myImages[0].filePath : twitter}avatar />
+
+                </Menu.Item> : null}
 
                 {this.props.authenticated ? 
 
