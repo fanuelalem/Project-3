@@ -71,15 +71,15 @@ class App extends Component {
     })
 
 
-    // API.search(query)
-    //   .then((response) => {
-    //     for (var key in response.data['Time Series (Daily)']) {
-    //       xfunction.push(key);
-    //       yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-    //     }
-    //     this.setState({ xvalues: xfunction, yvalues: yfunction })
-    //     console.log(xfunction)
-    //   })
+    API.search(query)
+      .then((response) => {
+        for (var key in response.data['Time Series (Daily)']) {
+          xfunction.push(key);
+          yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+        }
+        this.setState({ xvalues: xfunction, yvalues: yfunction })
+        console.log(xfunction)
+      })
   }
 
   // handleInputChange = event => {
