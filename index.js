@@ -4,7 +4,7 @@ const fileUpload = require('express-fileupload')
 
 
  
- // const cors = require('cors');
+ const cors = require('cors');
 
 
 const app = express();
@@ -17,6 +17,7 @@ app.use(express.json());
 
 app.use(fileUpload())
 
+app.use(cors())
 // app.use(methodOverride('_method'))
 
  if (process.env.NODE_ENV === 'production') {
