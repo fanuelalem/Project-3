@@ -135,12 +135,18 @@ export default class Home extends Component {
  to="/signup">
  <Button  style={{margin:'30px 0 0 0'}} color='purple'> <Icon name='signup'></Icon><span className='buttn2'> Register</span>  </Button>
  </Link>   
+
+
+
  </Grid.Column>
         </Grid.Row>
 
           
            
          </Grid>
+
+
+         
          </Container>
 
      </Segment>

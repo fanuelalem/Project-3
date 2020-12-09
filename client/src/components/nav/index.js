@@ -73,6 +73,8 @@ componentDidMount = () => {
                 name='winners'
                 active={activeItem === 'winners'}
                 onClick={this.handleItemClick}
+ 
+
               >
                 <Icon className='winnermenu'style={{ color: '#9d9d9d' }} name='plus square'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Winners</span>  </Menu.Item> : null}
          
@@ -82,6 +84,7 @@ componentDidMount = () => {
                 name='losers'
                 active={activeItem === 'losers'}
                 onClick={this.handleItemClick}
+ 
               > <Icon style={{ color: '#9d9d9d' }} name='minus square'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> Losers</span></Menu.Item> : null}
 
 {this.props.authenticated ? <Menu.Item

@@ -72,45 +72,77 @@ export default class Trending extends Component {
 
   
       {  this.state.filteredUsers.map((item,id)=>(
-
-
+ 
          <div key={item.id} style={{margin:'0 0 20px 0'}}>
 
  
  
-
-
+ 
   
 
-     <div  >
+     <div>
 
+
+     
    
     <Card  fluid style={{border:"none"}}  >
 
-    <Card.Content >
-      <Image
-      
-        size='tiny'
-        src={item.myImages.length? item.myImages[0].filePath : twitter}
-      />
-      <Card.Header >
-        <h1 style={{textAlign:'left',margin:'15px 0 0 0'}}> {item.email}</h1> 
-       </Card.Header>
-    {/* <Card.Meta>{item.email} has {item.myStocks.length} stocks...</Card.Meta> */}
-      
-    </Card.Content>
-    <Card.Content extra>
 
-    
+    <Grid celled='internally'>
+    <Grid.Row>
+      <Grid.Column width={7} >
+
+
+      <Card.Content >
+
+      
+<Image
+floated='left'
+   size='small'
+      style={{borderRadius:'10px',height:'145px'}}
+     src={item.myImages.length? item.myImages[0].filePath : twitter}
+   />
+
+
+<a style={{color:'#999999'}} href={`mailto:${item.email}`} >
+ 
+ <h2 style={{textAlign:'left',margin:'15px 0 0 0'}}> <Icon name='mail'></Icon>{item.email}</h2>
+
+  
+ 
    
-  {item.myStocks.length? 
-<div>
+       </a>
+   <Card.Header  >
+    
+
+    </Card.Header>
+     {item.myStocks.length?
+    <Card.Content>
+      <h3 style={{color:'green',margin:'12px 0 0 0',fontSize:"35px"}}  > <Icon name='pie chart'> </Icon>{item.myStocks.length} stocks... </h3   >
+    </Card.Content>
+  :
+  <h3 style={{margin:'15px 0 0 0'}}> this user does not have any stocks yet</h3>
+  }
+
+
+
+
+ </Card.Content >
+ 
+
+      </Grid.Column>
+      <Grid.Column width={9}>
+
+      <Card.Content extra style={{padding:"15px 0 0 0"}}>
+      
+      {item.myStocks.length? 
+      <div>
 <Table   selectable    >
   <Table.Header>
     <Table.Row>
-       <Table.HeaderCell style={{color:'black'}}>Recent stocks</Table.HeaderCell>
- 
-      <Table.HeaderCell  style={{color:'black'}}>Date</Table.HeaderCell>
+       <Table.HeaderCell style={{color:'black'}}> <h2> Recent stocks</h2> </Table.HeaderCell>
+  
+      <Table.HeaderCell  style={{color:'black'}} > <h2> Date</h2> </Table.HeaderCell>
  
 
      
@@ -121,17 +153,15 @@ export default class Trending extends Component {
     <Table.Row  >
 
  
-      <Table.Cell > 
-        {/* {console.log(item.myStocks[0].text,'item')} */}
-
+      <Table.Cell style={{width:"400px"}} > 
        
-        <p style={{color:'black'}}>{item.myStocks[0].text}</p>
+        <h4 style={{color:'black'}}>{item.myStocks[0].text}</h4>
         
         </Table.Cell>
       
 
-     <Table.Cell> 
-       <p style={{color:'black'}}>{item.myStocks[0].dateCreated } </p>  
+     <Table.Cell > 
+       <h4 style={{color:'black'}}>{item.myStocks[0].dateCreated } </h4>  
        </Table.Cell>
  
 
@@ -140,13 +170,13 @@ export default class Trending extends Component {
 
        <Table.Cell>
  
-<p style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].text:'none'}</p>
+<h4 style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].text:'none'}</h4>
 
 
        </Table.Cell>
      
      <Table.Cell> 
-     <p style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].dateCreated:'none'}</p>
+     <h4 style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].dateCreated:'none'}</h4>
 
        {/* <p>{item.myStocks.length? item.myStocks[1].dateCreated : 'none'} </p>  */}
        
@@ -201,6 +231,13 @@ export default class Trending extends Component {
   
      
      </Card.Content>
+      </Grid.Column>
+      
+    </Grid.Row>
+    </Grid>
+
+  
+    
 
 
      </Card>      

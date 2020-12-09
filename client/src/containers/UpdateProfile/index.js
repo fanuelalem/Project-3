@@ -191,7 +191,7 @@ handleRequest = (event) => {
            
 
  
-<button className='axiosRequestImages'   onClick={this.handleRequest}> axios request</button>
+<button className='axiosRequestImages'   onClick={this.handleRequest}> add a picture</button>
 
 {/* {this.state.uploadedFile? 
 <div>
@@ -205,16 +205,28 @@ handleRequest = (event) => {
 
 
 
-<h2 style={{textAlign:'center'}}> my images</h2>
+<h2 style={{textAlign:'center'}}> my profile picture</h2>
 <hr></hr>
 <br></br>
+
+ 
 
 {this.state.myImages.map((item)=>(
     <div>
         {/* <p>{item.fileName}</p> */}
-        <img style={{width:'200px',height:'200px',float:'left',margin:"20px",borderRadius:'9px',backgroundColor:'white'}}src={item.filePath}/>
+        <img 
+        style={{width:'200px',
+        height:'200px',
+        float:'left',margin:"20px",
+        borderRadius:'9px',backgroundColor:'white'}}
+        src={item.filePath}
+        />
     </div>
-))}
+ ))
+ }
+
+
+
     </Container>
 </div>
                 
