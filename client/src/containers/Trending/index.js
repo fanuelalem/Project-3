@@ -3,6 +3,8 @@ import axios from 'axios'
 import { List, Header,Table, Message,Button,Image,Pagination,Container,Grid,Responsive,Card,Icon } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
 import twitter from './../../components/Images/twitteravi.jpg'
+import moment from 'moment'
+
 
 
 
@@ -106,7 +108,7 @@ floated='left'
 
 <a style={{color:'#999999'}} href={`mailto:${item.email}`} >
  
- <h2 style={{textAlign:'left',margin:'15px 0 0 0'}}> <Icon name='mail'></Icon>{item.email}</h2>
+ <h3 style={{textAlign:'left',margin:'15px 0 0 0'}}> <Icon name='mail'></Icon>{item.email}</h3>
 
   
  
@@ -118,7 +120,7 @@ floated='left'
     </Card.Header>
      {item.myStocks.length?
     <Card.Content>
-      <h3 style={{color:'green',margin:'12px 0 0 0',fontSize:"35px"}}  > <Icon name='pie chart'> </Icon>{item.myStocks.length} stocks... </h3   >
+      <h3 style={{color:'green',margin:'12px 0 0 0'}}  > <Icon name='pie chart'> </Icon>{item.myStocks.length} stocks </h3   >
     </Card.Content>
   :
   <h3 style={{margin:'15px 0 0 0'}}> this user does not have any stocks yet</h3>
@@ -161,7 +163,19 @@ floated='left'
       
 
      <Table.Cell > 
-       <h4 style={{color:'black'}}>{item.myStocks[0].dateCreated } </h4>  
+
+
+       <h4 style={{color:'black'}}>
+         
+         
+         {
+         
+         moment(item.myStocks[0].dateCreated).format('ll')
+         
+         }
+       
+       
+        </h4>  
        </Table.Cell>
  
 
@@ -176,7 +190,11 @@ floated='left'
        </Table.Cell>
      
      <Table.Cell> 
-     <h4 style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].dateCreated:'none'}</h4>
+     <h4 style={{color:'black'}}>{
+            item.myStocks[1]?  
+            moment(item.myStocks[1].dateCreated).format('ll')
+       
+     :'none'}</h4>
 
        {/* <p>{item.myStocks.length? item.myStocks[1].dateCreated : 'none'} </p>  */}
        
