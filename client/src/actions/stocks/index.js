@@ -25,7 +25,7 @@ export const getAllStocks = () => async dispatch => {
 export const getUserStocks = () => async dispatch => {
   try {
    const { data } = await axios.get('/api/user/stock', { headers: { 'authorization': localStorage.getItem('token')} } );
-   dispatch({ type: GET_USER_STOCKS, payload: data });
+   dispatch({ type: GET_USER_STOCKS, payload: data.reverse() });
  } catch (e) {
    dispatch({ type: GET_USER_STOCKS_ERROR, serverError: e, userError: 'Please refresh the page and try again' });
  }
@@ -35,7 +35,7 @@ export const getUserStocks = () => async dispatch => {
   try {
     await axios.put(`/api/user/stock/${id}`, {text, completed: !completed }, { headers: { 'authorization': localStorage.getItem('token')} } );
     const { data } = await axios.get('/api/user/stock', { headers: { 'authorization': localStorage.getItem('token')} } );
-    dispatch({ type: GET_USER_STOCKS, payload: data });
+    dispatch({ type: GET_USER_STOCKS, payload: data.reverse() });
   } catch (e) {
     dispatch({ type: UPDATE_STOCK_BY_ID_ERROR, payload: e });
   }
@@ -45,7 +45,7 @@ export const deleteStockById = id => async dispatch => {
   try {
     await axios.delete(`/api/user/stock/${id}`, { headers: { 'authorization': localStorage.getItem('token')} } );
     const { data } = await axios.get('/api/user/stock', { headers: { 'authorization': localStorage.getItem('token')} } );
-    dispatch({ type: GET_USER_STOCKS, payload: data });
+    dispatch({ type: GET_USER_STOCKS, payload: data.reverse() });
   } catch (e) {
     dispatch({ type: DELETE_STOCK_BY_ID_ERROR, payload: e });
   }

@@ -66,16 +66,16 @@ componentDidMount = () => {
                 
   </Menu.Item> */}
  
-     
-              {this.props.authenticated ? <Menu.Item
+              {this.props.authenticated  ? <Menu.Item
                 as={Link}
                 to="/winners"
                 name='winners'
                 active={activeItem === 'winners'}
                 onClick={this.handleItemClick}
- 
+                onClick={this.props.noDisplay}
 
-              >
+ 
+                >
                 <Icon className='winnermenu'
                       style={{ color: '#9d9d9d' }} 
                       name='plus square'></Icon>
