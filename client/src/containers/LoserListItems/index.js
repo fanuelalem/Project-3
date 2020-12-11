@@ -83,8 +83,7 @@ const LoserListItems = props => (
        </Table.Row>
      </Table.Header>
      <Table.Body>
-      
-
+ 
  {props.losers.map(({performanceId,standardName,lastPrice,priceChange,percentChange,ticker})=>(
        <Table.Row key={performanceId}>
 

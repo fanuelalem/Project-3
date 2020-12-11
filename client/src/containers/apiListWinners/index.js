@@ -16,7 +16,8 @@ class WinnerListItems extends Component {
     title:'',
     visible:false,
     isOpen: false,
-    rank:1
+    rank:1,
+    ticker:''
     
   }
    
@@ -39,7 +40,7 @@ class WinnerListItems extends Component {
    onSubmit = async (formValues, dispatch) => {
      const {title} = formValues
     try {
-     await axios.post('/api/user/stock', {text:this.state.title}, { headers: { 'authorization': localStorage.getItem('token')}} );
+     await axios.post('/api/user/stock', {text:`${this.state.title} (${this.state.ticker})`}, { headers: { 'authorization': localStorage.getItem('token')}} );
      dispatch({ type: ADD_STOCK });
      this.props.getUserStocks();
    } catch (e) {
@@ -119,7 +120,7 @@ class WinnerListItems extends Component {
       // const a = this.handleClose()
       // const b = this.handleOpen()
        this.setState
-    ({title:standardName},()=>{console.log(standardName)})
+    ({title:standardName,ticker:ticker},()=>{console.log(standardName)})
     
   }
     

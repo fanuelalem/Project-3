@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { Segment,Form,Dropdown, Input, Menu, Container, Icon, Image, Button } from 'semantic-ui-react'
+import { Segment,Form,Dropdown,Grid, Input, Menu, Container, Icon, Image, Button, MenuItem } from 'semantic-ui-react'
 import './../../index.css'
 import logo from './../Images/Logo.png'
 import twitter from './../Images/twitteravi.jpg'
@@ -12,7 +12,8 @@ import axios from 'axios'
 export default class Nav extends Component {
   state = {
     activeItem: 'home',
-    myImages:[]
+    myImages:[],
+    visible:true
 
   }
 componentDidMount = () => {
@@ -32,26 +33,28 @@ componentDidMount = () => {
     
    
      const { activeItem } = this.state
-
-    return (
+     return (
       <div className="app">
         <div className='navy' style={{ backgroundColor: '#222222' }}>
           <Container fluid style={{ padding: '5px 90px 5px 90px' }}>
 
-            <Menu secondary      >
-              {this.props.authenticated ? null : <Menu.Item
+        
+
+            <Menu   secondary>
+              {this.props.authenticated ? null :<span >  <Menu.Item
                 as={Link}
                 to="/"
                 name='home'
-                active={activeItem === 'home'}
+                 active={activeItem === 'home'}
                  onClick={this.handleItemClick}
                 onClick={this.props.noDisplay}
               >
  
-                 <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
+                  <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
                 <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> 10/10 Stock Tracker</span>
-                
-  </Menu.Item>}
+            
+     
+  </Menu.Item></span>}
    {/* <Menu.Item
                 as={Link}
                 to="/myuploads"
@@ -107,7 +110,7 @@ componentDidMount = () => {
                 name='trending'
                  active={activeItem === 'trending'}
                 onClick={this.handleItemClick}
-                onClick={this.props.noDisplay}
+                onClick={(this.props.noDisplay)}
                 > <Icon style={{ color: '#9d9d9d' }} name='hashtag'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>trending</span></Menu.Item> : null}
 
 
@@ -139,7 +142,7 @@ componentDidMount = () => {
                 // to='/searchstock'
                 >
 
-{this.props.visible == true ? <Input
+{this.props.visible ? <Input
  
 style={{width:'255px'}} 
     icon={
@@ -206,6 +209,8 @@ onClick={this.props.buttonClick}
               
            </Menu.Item>
 
+
+{/* 
            {this.props.authenticated ? <Menu.Item
                 as={Link}
                 to="/updateprofile"
@@ -213,15 +218,133 @@ onClick={this.props.buttonClick}
                 active={activeItem === 'watchlist'}
                 onClick={this.handleItemClick}
               > 
-              {/* <Icon style={{ color: '#9d9d9d' }} name='user'></Icon> */}
+              <Icon style={{ color: '#9d9d9d' }} name='user'></Icon> 
                
               <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>
               my profile                
                 </span>
-                <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={this.state.myImages.length? this.state.myImages[0].filePath : twitter}avatar />
+                <Image style={{ backgroundColor: 'white' }} className='im' className='logo' 
+                src={this.state.myImages.length? this.state.myImages[0].filePath : twitter}avatar />
 
-                </Menu.Item> : null}
+ */}
 
+
+
+                {/* </Menu.Item> : null}   */}
+
+                {this.props.authenticated? 
+                
+                <Menu.Item
+        onClick={this.handleItemClick}>
+        
+
+
+      <Dropdown secondary 
+      icon='bars'
+      style={{color:"#9d9d9d"}}
+      text={
+        <div>
+        {/* <Icon style={{ color: '#9d9d9d' }} name='user'></Icon>  */}
+               
+               <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>
+               my profile                
+                 </span>
+                 <Image style={{ backgroundColor: 'white' }} className='im' className='logo' 
+                 src={this.state.myImages.length? this.state.myImages[0].filePath : twitter}avatar />
+                 
+                 </div>  
+  
+  }
+  
+  > 
+  
+ 
+  
+      <Dropdown.Menu style={{backgroundColor:"#222323"}}>
+         
+        <Dropdown.Item  >
+
+     
+
+
+<Link
+          to="/updateprofile"
+         name='updateprofile'
+         active={activeItem === 'watchlist'}
+          >
+ 
+           <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'16px'}}>
+<Grid >
+    <Grid.Row>
+      <Grid.Column width={5}>
+
+      <Icon style={{ color: '#9d9d9d' }} name='setting'></Icon>
+
+        
+      </Grid.Column>
+      <Grid.Column width={11}>
+      <p>  Settings </p>               
+      </Grid.Column>
+    </Grid.Row>
+    </Grid>
+  
+    </span>
+       </Link> 
+          </Dropdown.Item>
+          <Dropdown.Item>
+          
+         
+         
+         
+          <Link
+          as={Link}
+          to="/signout"
+          name='logout'
+          active={activeItem === 'logout'}
+          // onClick={this.handleItemClick}>
+          >
+           
+          <span className='winnermenu' 
+                style={{ color: '#9d9d9d',fontSize:'16px' }}> 
+
+          <Grid >
+    <Grid.Row>
+      <Grid.Column width={5}>
+      <Icon style={{ color: '#9d9d9d' }} name='log out'></Icon>
+      </Grid.Column>
+      <Grid.Column width={11}>
+      <p>LogOut </p>   
+      </Grid.Column>
+    </Grid.Row>
+    </Grid>
+
+    </span>
+           </Link>
+          
+        </Dropdown.Item>
+        
+      </Dropdown.Menu>
+    </Dropdown>
+    
+ </Menu.Item>
+ :
+ <Menu.Item
+ as={Link}
+ to="/signin"
+ name='signin'
+ active={activeItem === 'signin'}
+ onClick={this.handleItemClick}
+ onClick={this.props.noDisplay}
+
+ // onClick={this.props.display}
+
+> <Icon style={{ color: '#9d9d9d' }} name='sign-in'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}>Sign-in</span>
+
+
+</Menu.Item>}
+
+                
+{/* 
                 {this.props.authenticated ? 
 
   
@@ -232,7 +355,14 @@ onClick={this.props.buttonClick}
                   name='logout'
                   active={activeItem === 'logout'}
                   onClick={this.handleItemClick}
-                > <Icon style={{ color: '#9d9d9d' }} name='log out'></Icon><span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> LogOut</span>  </Menu.Item> 
+
+
+                > 
+                
+                <Icon style={{ color: '#9d9d9d' }} name='log out'></Icon><span className='winnermenu' 
+                style={{ color: '#9d9d9d',fontSize:'18px' }}> LogOut</span> 
+                
+                 </Menu.Item> 
                 
                 : 
                 
@@ -251,7 +381,7 @@ onClick={this.props.buttonClick}
                 
                 </Menu.Item>
                 
-                }
+                } */}
 
 
 
