@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet';
 import ImageUploader from 'react-images-upload';
-import { List, Header,Table, Message,Button,Image,Pagination,Container,Grid,Responsive,Card,Icon } from 'semantic-ui-react';
+import { List, Header,Input,Table, Message,Button,Image,Pagination,Container,Grid,Responsive,Card,Icon } from 'semantic-ui-react';
 
    
 
@@ -13,26 +13,15 @@ state={
     file:"",
     fileName:"",
     uploadedFile:{},
-    myImages:[]
+    myImages:[],
      
 }
-// handleChange = (event) => {
-// const files = event.target.files[0]
-//  this.setState({pictures:files})
- 
-// }  
+
 componentDidMount = () => {
     this.getMyImage()
 }
 
  
-// onDrop = (picture) => {
-//         this.setState({
-//             pictures: this.state.pictures.concat(picture),
-//         },()=>{
-//             console.log(this.state.pictures,'hello')
-//         });
-//     }
 
 
 getMyImage = () => {
@@ -49,9 +38,6 @@ handleRequest = (event) => {
     const {file} = this.state
      data.append('file',file)
       
-    // axios.post('https://httpbin.org/anything',data).then((response)=>{
-    //     console.log(response)
-    // })
 
     axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
@@ -63,14 +49,7 @@ handleRequest = (event) => {
      
    
  
-    //  axios.post('/api/user/myimages', {fileName:this.state.file.name},{ headers: { 'authorization': localStorage.getItem('token')}})
-    // .then((response)=>{
-    //     console.log(response, 'image item')
-    // })
-    // .catch((error)=>{
-    //     console.log(error)
-    // })
-
+   
    
 }
 
@@ -80,90 +59,7 @@ handleRequest = (event) => {
         return (
             <div>
 
-{/* <Helmet>
-   <style>{'body { background-color:#532f8c;  }'}</style>
 
-         </Helmet>
-
-
-         <div style={{margin:'80px 20px 0px 20px',backgroundColor:"whitesmoke"}}>
-             
-             <h2 style={{display:'flex',justifyContent:"center",padding:"40px 0 0 0"}}>
-                 
-                  upload file
-                  
-                  </h2>
-<form  >
-
-  <input onChange={(event)=>{
- const file = event.target.files[0]
- this.setState({file:file})
- }}
- type='file'>
- </input>
-
-           
-
- 
-<button className='axiosRequestImages' onClick={this.handleRequest}> axios request</button>
-</form>
-
-<div style={{}}>
-  */}
-
-{/* 
-{this.state.uploadedFile?
- <div style={{backgroundColor:'red'}}>
-{console.log(this.state.uploadedFile,'uploaded file')
-}
-
-<h3> {this.state.uploadedFile.fileName}</h3>
-<img style={{width:'20%'}} src={this.state.uploadedFile.filePath}>
-    
-</img>
-
-
-<div>
-
-    <h3> my pics</h3>
-    <button onClick={this.getMyImage}> trigger get</button>
-    
-    
-    {this.state.myImages.map((item)=>(
-
-<Container>
-
- 
-        <div style={{margin:"40px 0 0 0",float:'left'}}>
-                <h3>{item.fileName}</h3>
-                <img style={{width:'350px',height:'300px'}} src={item.filePath}/>
-
-                
-            </div>
-            </Container>
-
-        ))}
-    </div>
- 
- 
- 
-
-</div>
- 
-
-
-:null}
-
-
-
-
-
-</div>
-
-
-
-
-         </div> */}
 
 
 <Helmet>
@@ -171,44 +67,24 @@ handleRequest = (event) => {
 
          </Helmet>
 
-<div>
+ 
 
     <Container>
 
-    <h2 style={{display:'flex',justifyContent:"center",padding:"90px 0 0 0"}}>
-                 
-                 upload file
-                 
-                 </h2>
+    
 
-                 <input onChange={(event)=>{
+ <div style={{margin:'70px 0 0 0'}}>
+ <Input onChange={(event)=>{
  const file = event.target.files[0]
  this.setState({file:file})
  }}
  type='file'>
- </input>
+ </Input>
 
            
 
  
-<button className='axiosRequestImages'   onClick={this.handleRequest}> add a picture</button>
-
-{/* {this.state.uploadedFile? 
-<div>
-
- <p> {this.state.uploadedFile.fileName}</p>  <img style={{width:"200px"}}src={this.state.uploadedFile.filePath}></img>
-
- </div>
-
-: null} */}
-
-
-
-
-<h2 style={{textAlign:'center'}}> my profile picture</h2>
-<hr></hr>
-<br></br>
-
+<Button className='axiosRequestImages'   onClick={this.handleRequest}> add a picture</Button>
  
 
 {this.state.myImages.map((item)=>(
@@ -226,9 +102,12 @@ handleRequest = (event) => {
  }
 
 
-
-    </Container>
 </div>
+    </Container>
+   
+ 
+
+ 
                 
             </div>
         )

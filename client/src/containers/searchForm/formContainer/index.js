@@ -125,7 +125,8 @@ import axios from 'axios'
         },xaxis:{color:'white'},
         yaxis:{color:'white'},
         paper_bgcolor:'#222323',
-        plot_bgcolor:'#222323',title: ` ${this.props.info.name? this.props.info.name : `no stock ...`}`,
+        plot_bgcolor:'#222323',title: `
+         ${this.props.info.name? this.props.info.name : `no stock ...`}`,
 
         autosize: true
          
@@ -135,14 +136,39 @@ import axios from 'axios'
         
        />
 
-
-       
-
- 
-
+<div style={{backgroundColor:'#333333',margin:'15px 0 20px 0px',borderRadius:'9px'}}>
 
  
+       <Grid>
 
+<Grid.Row columns={5} style={{textAlign:'center'}}>
+<Grid.Column  >
+         <h3 style={{color:'white',fontWeight:'500'}}>Current</h3>
+     <h4 style={{color:'white'}}>{this.props.qoute.c}</h4>
+      </Grid.Column>
+      <Grid.Column>
+<h3 style={{color:'white',fontWeight:'500'}}> High</h3>  
+     <h4 style={{color:'white',fontWeight:'500'}}>{this.props.qoute.h}</h4>   
+
+ </Grid.Column>
+      <Grid.Column>
+      <h3 style={{color:'white',fontWeight:'500'}}> Low</h3>
+     <h4 style={{color:'white',fontWeight:'500'}}>{this.props.qoute.l}</h4>      
+      </Grid.Column>
+      
+      <Grid.Column>
+      <h3 style={{color:'white',fontWeight:'500'}}> Open</h3> 
+     <h4 style={{color:'white',fontWeight:'500'}}>{this.props.qoute.o}</h4>       
+      </Grid.Column>
+      <Grid.Column>
+      <h3 style={{color:'white',fontWeight:'500'}}> PC</h3>
+     <h4 style={{color:'white',fontWeight:'500'}}>{this.props.qoute.pc}</h4>         
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
+  </div>
+
+ 
 
  </div>
  

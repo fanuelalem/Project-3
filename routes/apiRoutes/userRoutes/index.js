@@ -43,6 +43,7 @@ const upload = multer({dest:''})
  .get(requireAuth,getMyImages)
  .post(requireAuth,upload.single('file'),postMyImages)
 
+ 
 
   
 

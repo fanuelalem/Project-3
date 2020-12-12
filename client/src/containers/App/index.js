@@ -35,7 +35,7 @@ class App extends Component {
     name: '',
     info: {},
     currentuser: {},
-    quotes: {}
+    qoute: []
   }
 
   componentDidMount() {
@@ -46,7 +46,7 @@ class App extends Component {
         // console.log(response.data,'response user data')
       })
     })
-    this.searchMovies('aapl');
+    this.searchMovies('AAPL');
   }
 
 
@@ -54,10 +54,11 @@ class App extends Component {
     let xfunction = [];
     let yfunction = [];
 
-    // otherUtil.search(query).then((response)=>{
-    //   this.setState({qoute:response.data})
-    //   console.log(response,'asxa')
-    // })
+    otherUtil.search(query).then((response)=>{
+      this.setState({qoute:response.data})
+      console.log(response,'asxa')
+    })
+
     //   Info.search(query)
     //   .then((response)=>{
     //    console.log(response,'data api')
@@ -93,7 +94,7 @@ class App extends Component {
 
   handleInputChange = event => {
     const { value } = event.target
-    this.setState({ search: value })
+    this.setState({ search: value.toUpperCase() })
   };
 
   goToStockSearch = () => {
