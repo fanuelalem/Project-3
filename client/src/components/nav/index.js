@@ -186,7 +186,7 @@ style={{width:'255px'}}
     onChange={this.props.onsearch}
     name='search'
     value={this.props.search}
-    placeholder='search a stock...'
+    placeholder='Ex: AAPL'
   
   >
     
