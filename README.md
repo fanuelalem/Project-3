@@ -9,6 +9,9 @@ Add stocks to your watchList with the 10/10 stock tracking app. It will give use
 
 <!-- ![Project Image](readmeImage.png) -->
 
+# app tutorial
+
+
 ![Project Image](topgainers.png)
 View the top 10 stock Market daily winners and losers, and lookup any stock.
 Open the winners or losers tab to check the daily stock market winners and losers. In the search bar, you can search stocks by their ticker to find extra information and details about the company.
