@@ -3,14 +3,21 @@
 Add stocks to your watchList with the 10/10 stock tracking app. It will give users insight on top 10 daily stock gainers and losers, Allow you to search for any stock in the market, as well as share and connect with a community. 
 
 
-<!-- ![Project Image](stock.png) -->
+## Motivation
 
-<!-- ![Project Image](stock1.png) -->
+Our motivation when building this application was to provide users with informative insight on the stock market, and to encourage people from all backgrounds to become an informed investor. Our group focused on creating an inviting atmosphere for people unfamiliar with the stock market.
 
-<!-- ![Project Image](readmeImage.png) -->
 
-# app tutorial
+## Installation 
 
+To install all necessary dependencies, open the terminal inside youre root folder and run 'npm i'. 
+
+## Getting Started
+
+Run 'npm start' inside your root terminal.
+
+
+# App Tutorial
 
 ![Project Image](topgainers.png)
 View the top 10 stock Market daily winners and losers, and lookup any stock.
@@ -20,21 +27,6 @@ Open the winners or losers tab to check the daily stock market winners and loser
 Create your personal stocks watchlist and join the 10/10 stock community to view trends.
 You can also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
 
-
-
-
-## Motivation
-
-Our motivation when building this application was to provide users with informative insight on the stock market, and to encourage people from all backgrounds to become an informed investor. Our group focused on creating an inviting atmosphere for people unfamiliar with the stock market.
-
-## Installation 
-
-To install all necessary dependencies, open the terminal inside youre root folder and run 'npm i'. 
-
-## Getting Started
-Run 'npm start' inside your root terminal.
-
-Open the winners or losers tab to check the daily stock market winners and losers. In the watchlist tab, you may search stocks by their ticker to find extra information and details about the company. You May also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
 
 ## Technologies
 
