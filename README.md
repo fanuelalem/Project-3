@@ -19,13 +19,14 @@ Run 'npm start' inside your root terminal.
 
 ## App Tutorial
 
-![Project Image](topgainers.png)
 View the top 10 stock Market daily winners and losers, and lookup any stock.
 Open the winners or losers tab to check the daily stock market winners and losers. In the search bar, you can search stocks by their ticker to find extra information and details about the company.
-
-![Project Image](watchL.png)
+![Project Image](topgainers.png)
+ 
 Create your personal stocks watchlist and join the 10/10 stock community to view trends.
 You can also enter stocks onto the watchlist to manage and keep track of your favorite stocks. The community tab will allow you to view popular stocks among other users.
+![Project Image](watchL.png)
+ 
 
 
 ## Technologies
