@@ -17,7 +17,7 @@ To install all necessary dependencies, open the terminal inside youre root folde
 Run 'npm start' inside your root terminal.
 
 
-# App Tutorial
+## App Tutorial
 
 ![Project Image](topgainers.png)
 View the top 10 stock Market daily winners and losers, and lookup any stock.
