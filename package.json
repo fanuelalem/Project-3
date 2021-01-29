@@ -43,9 +43,11 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "plotly.js": "^1.54.2",
+    "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
     "react-helmet": "^6.1.0",
     "react-images-upload": "^1.2.8",
+    "react-live-clock": "^5.0.13",
     "react-plotly.js": "^2.4.0",
     "react-sound": "^1.2.0",
     "validator": "^13.1.1"

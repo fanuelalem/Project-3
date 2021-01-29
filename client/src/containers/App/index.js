@@ -20,6 +20,7 @@ import './../../index.css'
 import { connect } from 'react-redux';
 import axios from 'axios';
 import finhubData from '../APICall/finhubData';
+import Peers from './../APICall/peers'
 
 // import io from 'socket.io-client';
 
@@ -35,7 +36,9 @@ class App extends Component {
     name: '',
     info: {},
     currentuser: {},
-    qoute: []
+    qoute: [],
+    peers:[],
+    getSearch:''
   }
 
   componentDidMount() {
@@ -59,12 +62,12 @@ class App extends Component {
       console.log(response,'asxa')
     })
 
-    //   Info.search(query)
-    //   .then((response)=>{
-    //    console.log(response,'data api')
+      Info.search(query)
+      .then((response)=>{
+       console.log(response,'data api')
 
-    //     this.setState({info:response.data})
-    //  })
+        this.setState({info:response.data})
+     })
 
     finhubData.search(query).then((response) => {
       console.log(response, 'finhubb api')
@@ -72,38 +75,37 @@ class App extends Component {
     })
 
 
-    API.search(query)
-      .then((response) => {
-        for (var key in response.data['Time Series (Daily)']) {
-          xfunction.push(key);
-          yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
-        }
-        this.setState({ xvalues: xfunction, yvalues: yfunction })
-        console.log(xfunction)
-      })
+    Peers.search(query)
+    .then((response)=>{
+      this.setState({peers:response.data})
+    })
+
+    // API.search(query)
+    //   .then((response) => {
+    //     for (var key in response.data['Time Series (Daily)']) {
+    //       xfunction.push(key);
+    //       yfunction.push(response.data['Time Series (Daily)'][key]['1. open'])
+    //     }
+    //     this.setState({ xvalues: xfunction, yvalues: yfunction })
+    //     console.log(xfunction)
+    //   })
   }
 
-  // handleInputChange = event => {
-  //   const value = event.target.value;
-  //   const name = event.target.name;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-
+ 
+ 
 
   handleInputChange = event => {
     const { value } = event.target
     this.setState({ search: value.toUpperCase() })
   };
 
-  goToStockSearch = () => {
-    this.setState({ visible: true })
-  }
+  
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchMovies(this.state.search);
+     
+   this.searchMovies(this.state.search);
+    
     this.setState({ search: '' })
   };
 
@@ -111,10 +113,22 @@ class App extends Component {
     this.setState({ visible: false })
   }
 
+  goToStockSearch = () => {
+    this.setState({ visible: true })
+  }
+
   DisplayFunction = () => {
     this.setState({ visible: true })
   }
 
+
+    // handleInputChange = event => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   render() {
     return (
@@ -128,6 +142,11 @@ class App extends Component {
             result={this.state.result}
             visible={this.state.visible}
             info={this.state.info}
+            qoute={this.state.qoute}
+            peer= {this.state.peers}
+            search={this.state.search}
+            buttonClick={this.handleFormSubmit}
+ 
           />)} />
 
         <Route exact path='/'

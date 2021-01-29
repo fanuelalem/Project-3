@@ -1,15 +1,59 @@
 import React, { Component } from 'react'
-import {Container,List,Message,Item,Header,Image,Segment,Grid,Button,Divider,Form,Icon } from 'semantic-ui-react'
+import {Container,List,Card,Message,Item,Header,Image,Segment,Grid,Button,Divider,Form,Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import fanuel from './../../../components/Images/fanuel.jpg'
 import ganesh from './../../../components/Images/ganesh.png'
 import vanessa from './../../../components/Images/vanessa.jpeg'
 import husam from './../../../components/Images/husam.jpeg'
+import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import Axios from 'axios';
+import moment from 'moment'
+import finhubData from '../../../containers/APICall/finhubData';
+
+// import finhubData from './../../../containers/APICall/finhubData';
+// import Peers from './../../../containers/APICall/peers'
+// import otherUtil from './../../../containers/APICall/otherutil'
+
+// import Info from './../../../containers/APICall/info'
+ 
+
 
 
 export default class Result extends Component {
+
+ 
+ state={
+   newSearch:'',
+   result:{}
+ }
+
+ searchMovies = async (query) => {
+  
+
+  finhubData.search(query).then((response) => {
+     this.setState({ result: response.data },()=>{
+           console.log(response, 'results page api finhub')
+
+     })
+  })
+
+  
+}
+
+handleFormSubmit = event => {
+  event.preventDefault();
+ 
+ 
+  this.searchMovies(this.state.newSearch);
+   
+  
+};
+
+
+
     render() {
+  
          return (
           
           <div>
@@ -29,107 +73,140 @@ export default class Result extends Component {
  
           
  
-   <Container fluid >
+   <Container  fluid >
 
   <div className='wrapper' style={{minHeight:'80vh'}}>
 
- 
+
   
+ { 
  
-{/* {this.props.result.name || 
-
-
-
-<div style={{margin:'120px 0 0 0'}}>
-
- <Container>
-
- <Message  >
-    <Message.Header>Cannot Find this stock</Message.Header>
-      <p>Please try again another time...</p>
-  </Message> 
-  </Container>
-
-   
+ this.props.result.name?
   
-  </div>
-  
-} */}
-   
 
- {this.props.result.name? 
- 
- 
- <div >
+<div >
 
- 
-  
- 
+<Grid >
+    <Grid.Row>
+     
+      <Grid.Column width={10}>
 
-<div style={{ margin:'65px 0px 0px 0px',
+
+      
+  <div style={{ 
 border:'1px solid white',
 padding:'22px',
 borderRadius:'3px',
-// borderRadius:'8px',
-backgroundColor:'#222222',
+ backgroundColor:'#222222',
 color:'white',
-// color:'white'
-}}>
+ }}>
 
-<Item.Group  >
+ 
+ 
+ 
+<Grid divided='vertically'>
+    <Grid.Row  >
+      <Grid.Column width={10}>
+
+      <Item.Group  >
 
 <Item>
-<Item.Image style={{width:'60px',height:'60px',border:'1px solid #eaecef'}} src={this.props.result.logo} />
-<Item.Content verticalAlign='middle'><h2 style={{fontWeight:'500',fontSize:'35px'}}>{this.props.result.name}</h2></Item.Content>
+<Image style={{width:'60px',height:'60px',border:'1px solid #eaecef'}} src={this.props.result.logo} />
+<Item.Content verticalAlign='middle'><h2 style={{fontWeight:'500',fontSize:'35px'}}>{this.props.result.name? 'a': this.state.result.name? !this.props.result.name : 'b' }</h2></Item.Content>
 </Item>
 </Item.Group>
 
-<Divider />
-<p className='details'>Exchange - {this.props.result.exchange}</p>
+<h2 style={{fontWeight:"500"}}> {this.props.qoute.c} <span style={{color:'gray'}}> {this.props.result.currency}</span> </h2> 
 
-<Divider />
-<p className='details' >Shares Outstanding - {this.props.result.shareOutstanding}</p>
-
-
-<Divider />
-<p className='details'> website - <a href={this.props.result.weburl} target='_blank'> {this.props.result.weburl} </a></p>
-
-<Divider />
-<p className='details' > industry -  {this.props.result.finnhubIndustry}</p>
-
-
-<Divider />
-<p className='details'> ticker -{this.props.result.ticker}</p>
-
-<Divider />
-<p className='details'>country -{this.props.result.country}</p>
-
-
-<Divider />
-
-
-<p className='details'>phone - {this.props.result.phone}</p>
-
-<Divider />
-<p className='details'>currency -{this.props.result.currency}</p>
-
-<Divider />
-<p className='details'>ipo - {this.props.result.ipo}</p>
+      </Grid.Column>
+      <Grid.Column width={6}>
+<div >
+ </div>
+    
+      </Grid.Column>
+    </Grid.Row>
+    </Grid>
 
  
 
+ </div>        
+   
+
+       </Grid.Column>
+       <Grid.Column width={6}>
+       
+       <div style={{ 
+border:'1px solid white',
+padding:'22px',
+borderRadius:'3px',
+ backgroundColor:'#222222',
+color:'white',
+ }}>
+ 
+       
+
+<h2 style={{fontWeight:"500",textAlign:'center'}}>  Peers  </h2> 
+ <div style={{textAlign:'center'}}>
+   
+ 
+
+
+   {this.props.peer.map((item)=>(
+
+     
+     <div>
+      
+<Form >
+
+           <Link 
+          onClick={()=>{
+            this.searchMovies(item);
+            
+
+          }}
+           >
+           
+         
+       
+    <Segment style={{backgroundColor:"transparent",border:'1px solid white',margin:"0 0 10px 0"}}    >
+    <List divided relaxed>
+      <List.Item>
+        <List.Content>
+          <List.Header>
+ 
+     <span style={{fontSize:"20px",fontWeight:"600",color:'white'}}> {item}</span>
+      
+
+      </List.Header>
+         </List.Content>
+      </List.Item>
+      
+    </List>
+  </Segment>
+  </Link>
+  </Form>
+
+       </div>
+   ))}
+
+ 
+</div>
+</div>
+
+       </Grid.Column>
+    </Grid.Row>
+    </Grid>
 
 
  
-
-</div> 
-
-  
- 
- 
-
 
 </div> : 
+
+this.state.result.name?
+<div>
+   </div>
+
+  :
 
 <Message negative >
 <Message.Header  >This stock is currently unavailable</Message.Header>
@@ -140,24 +217,11 @@ color:'white',
 
  
 
+
+
         <div style={{ padding: '6em 0em' }}>
 
-{/* <Container >
-
-     <Grid divided='vertically'>
-<Grid.Row columns={2}>
-<Grid.Column>
-<h1 className='how-it-works'style={{fontSize:'2.5rem',color:'white'}}>How This simple app works</h1>     
-<p className='how-it-works'style={{fontSize:'1.25rem',color:'white',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>Fully secure website with authentication and free to join. simply create your own personalized list of stocks that you may have in mind. If not, this app will provide everything you need to keep you competitvely informed, no matter your experience level.</p>
-</Grid.Column>
-<Grid.Column>
-<h1 className='mission'className='motiv'style={{fontSize:'2.5rem',color:'white'}}>Mission </h1>     
-<p style={{fontSize:'1.25rem',color:'white',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
-Our motivation when building this application was to empower investors with valuable information about the stock market, and to also create an engaging experience for people with any background. Our group focused on an intuitive design, vibrant colors, and convenience for users.</p>      </Grid.Column>
-</Grid.Row>
-</Grid>
-
- </Container> */}
+ 
 
  
 </div>
@@ -166,7 +230,7 @@ Our motivation when building this application was to empower investors with valu
 </div>
 
         
- 
+{/* https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=bva10en48v6t3lvcm170 */}
 
  
             </Container >
@@ -184,7 +248,8 @@ Our motivation when building this application was to empower investors with valu
   <Grid.Column>
       <h1 style={{color:'white'}}className='how-it-works'>10/10 Stock Tracker</h1>
       <div><p style={{color:'white',fontSize:'1.25rem',fontFamily:'"Helvetica Neue",Helvetica,Arial,sans-serif'}}>
-      This application is a helpful tool to save stocks onto a personal watchlist. It provides information on the stock markets top 10 winners and losers of the day. Users can also search and track any stock in the market and view stocks that are trending among other users.
+      This application is a helpful tool to save stocks onto a personal watchlist. It provides information on the stock markets 
+      top 10 winners and losers of the day. Users can also search and track any stock in the market and view stocks that are trending among other users.
 
 </p></div>
   </Grid.Column>
@@ -230,6 +295,10 @@ as={Link} to='/signup'>
        
 
   </Grid.Column>
+  <Grid.Column width={6}>
+     
+
+     </Grid.Column>
 </Grid.Row>
 </Grid>
  
@@ -245,3 +314,48 @@ as={Link} to='/signup'>
         )
     }
 }
+
+
+ 
+
+ 
+
+
+
+
+
+
+// <div style={{ 
+//   border:'1px solid white',
+//   padding:'22px',
+//   borderRadius:'3px',
+//    backgroundColor:'#222222',
+//   color:'white',
+//    }}>
+  
+   
+  
+    
+   
+//   {this.state.news.map((item)=>(
+//     <div style={{textAlign:'center',color:'white'}}>
+  
+//      <a target='_blank'href={item.url}style={{color:"white"}}> 
+//         <p style={{fontSize:'18px'}}>{item.headline} </p> 
+  
+  
+//         </a>   
+//         <br></br>
+  
+   
+//       <Card fluid style={{margin:'0 0 15px 0'}}>
+//         <Card.Content>
+//          <Image src={item.image}/>
+        
+//       </Card.Content>
+      
+//     </Card>
+//       </div>
+//   ))}
+  
+// </div>      
