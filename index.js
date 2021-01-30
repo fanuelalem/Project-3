@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload')
-// const cors = require('cors');
+const cors = require('cors');
 
 const app = express();
 const routes = require('./routes');
@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(fileUpload())
 
-// app.use(cors())
+app.use(cors())
 // app.use(methodOverride('_method'))
 
  if (process.env.NODE_ENV === 'production') {
