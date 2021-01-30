@@ -4,7 +4,7 @@ const fileUpload = require('express-fileupload')
 
 
  
- const cors = require('cors');
+const cors = require('cors');
 
 
 const app = express();
