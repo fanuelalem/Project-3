@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(fileUpload())
 
-app.use(cors())
+// app.use(cors())
 // app.use(methodOverride('_method'))
 
  if (process.env.NODE_ENV === 'production') {
