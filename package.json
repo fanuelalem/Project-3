@@ -16,7 +16,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "proxy":"https://thawing-bastion-89215.herokuapp.com",
   "keywords": [],
   "author": "",
   "license": "ISC",
