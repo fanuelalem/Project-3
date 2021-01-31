@@ -25,7 +25,7 @@ componentDidMount = () => {
 
 
 getMyImage = () => {
-    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token'),'Access-Control-Allow-Origin': 'https://thawing-bastion-89215.herokuapp.com','Vary': 'Origin'}})
+    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         this.setState({myImages:response.data.reverse()})
         console.log(response)
