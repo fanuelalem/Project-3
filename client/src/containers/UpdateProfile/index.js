@@ -25,7 +25,7 @@ componentDidMount = () => {
 
 
 getMyImage = () => {
-    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token'),'mode':'cors'}})
+    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         this.setState({myImages:response.data.reverse()})
         console.log(response)
