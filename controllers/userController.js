@@ -48,7 +48,42 @@ module.exports = {
     }
   },
 
-  
+  postMyImages: async (req, res) => {
+    const { fileName,filePath } = req.body;
+    console.log(req.files)
+
+if(req.files === null) {
+      return res.status(400).json({msf:'no file uploaded'})
+    }
+
+     
+
+    try {
+
+      const file = req.files.file
+
+      file.mv(`${__dirname}/../client/public/images/${file.name}`,async (err)=>{
+        if(err){
+          console.error(err)
+          return res.status(500).send(err)
+        }
+        
+        const newImage = await new Image({fileName:file.name,filePath:`/images/${file.name}`, user: req.user._id}).save();
+        req.user.myImages.push(newImage);
+        await req.user.save();
+         return res.status(200).json(newImage);
+
+        // res.json({fileName:file.name,filePath:`./images/${file.name}`})
+      })}catch (e) {
+      return res.status(403).json({ e });
+    }
+
+
+      // const newImage = await new Image({ fileName, user: req.user._id }).save();
+      // const newStock = await Stock.create({ text, user: req.user._id });
+      // req.user.myImages.push(newImage);
+     
+  },
 
   getAllUserEmails: async (req, res) => {
     try {
@@ -87,46 +122,6 @@ module.exports = {
     // const user = await User.findById(req.user._id).populate('todos','text');
       // return res.status(200).json(user.stocks)
   },
-  postMyImages: async (req, res) => {
-    const { fileName,filePath } = req.body;
-    console.log(req.files)
-
-if(req.files === null) {
-      return res.status(400).json({msf:'no file uploaded'})
-    }
-
-     
-
-    try {
-
-      const file = req.files.file
-
-      file.mv(`${__dirname}/../client/public/images/${file.name}`,async (err)=>{
-        if(err){
-          console.error(err)
-          return res.status(500).send(err)
-        }
-        
-        const newImage = await new Image({fileName:file.name,filePath:`images/${file.name}`, user: req.user._id}).save();
-        req.user.myImages.push(newImage);
-        await req.user.save();
-         return res.status(200).json(newImage);
-
-
-
-        // res.json({fileName:file.name,filePath:`./images/${file.name}`})
-      })}catch (e) {
-      return res.status(403).json({ e });
-    }
-
-
-      // const newImage = await new Image({ fileName, user: req.user._id }).save();
-      // const newStock = await Stock.create({ text, user: req.user._id });
-      // req.user.myImages.push(newImage);
-     
-  },
-  
-   
 
 
   deleteUserStockById: async (req, res) => {
