@@ -71,7 +71,7 @@ if(req.files === null) {
         const newImage = await new Image({fileName:file.name,filePath:`/images/${file.name}`, user: req.user._id}).save();
         req.user.myImages.push(newImage);
         await req.user.save();
-         return res.status(200).json(newImage);
+        return res.status(200).json(newImage);
 
         // res.json({fileName:file.name,filePath:`./images/${file.name}`})
       })}catch (e) {

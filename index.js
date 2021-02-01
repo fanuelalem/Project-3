@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload')
- 
+const cors = require('cors')
+
  
 const app = express();
 const routes = require('./routes');
@@ -12,7 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(fileUpload())
- // app.use(methodOverride('_method'))
+app.use(cors())
+// app.use(methodOverride('_method'))
 
  if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
