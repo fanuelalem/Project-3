@@ -52,7 +52,7 @@ module.exports = {
     const { fileName,filePath } = req.body;
     console.log(req.files)
 
-if(req.files === null) {
+    if(req.files === null) {
       return res.status(400).json({msf:'no file uploaded'})
     }
 
@@ -112,9 +112,11 @@ if(req.files === null) {
       return res.status(403).json({ e });
     }
   },
+
   getMyImages: async (req, res) => {
     try {
       const images = await Image.find({ user: req.user._id });
+      console.log("this i the getImages", req , res, images)
       return res.json(images);
     } catch (e) {
       return res.status(403).json({ e });

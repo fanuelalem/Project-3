@@ -125,8 +125,8 @@ import axios from 'axios'
         },xaxis:{color:'white'},
         yaxis:{color:'white'},
         paper_bgcolor:'#222323',
-        plot_bgcolor:'#222323',title: `
-         ${this.props.info.name? this.props.info.name : `no stock ...`}`,
+        plot_bgcolor:'#222323',
+        title: `${this.props.info.name? this.props.info.name : `no stock ...`}`,
 
         autosize: true
          

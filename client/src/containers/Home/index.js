@@ -224,7 +224,7 @@ as={Link} to='/signup'>
        Developed By
        </h1>  
        <div> 
-           <Grid>
+           {/* <Grid>
 
             <Grid.Row columns={4}>
       <Grid.Column>
@@ -240,8 +240,12 @@ as={Link} to='/signup'>
         <Image className='img'src={ganesh} />
       </Grid.Column>
     </Grid.Row>
-    </Grid>
+    </Grid> */}
+    <div >
+    <Image size='tiny' centered className='img'src={fanuel} />
 
+    </div>
+  
     </div>
            
 

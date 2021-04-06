@@ -59,7 +59,7 @@ handleFormSubmit = event => {
           <div>
 
 <Helmet>
-   <style>{'body { background-color: #532f8c'}</style>
+   <style>{'body { background-image: linear-gradient(to bottom right, #30496b, #30b8d2)'}</style>
 
  
          </Helmet>
@@ -85,128 +85,42 @@ handleFormSubmit = event => {
   
 
 <div >
-
-<Grid >
-    <Grid.Row>
-     
-      <Grid.Column width={10}>
-
-
-      
-  <div style={{ 
-border:'1px solid white',
-padding:'22px',
-borderRadius:'3px',
- backgroundColor:'#222222',
-color:'white',
- }}>
-
- 
- 
- 
-<Grid divided='vertically'>
-    <Grid.Row  >
-      <Grid.Column width={10}>
-
-      <Item.Group  >
-
-<Item>
-<Image style={{width:'60px',height:'60px',border:'1px solid #eaecef'}} src={this.props.result.logo} />
-<Item.Content verticalAlign='middle'><h2 style={{fontWeight:'500',fontSize:'35px'}}>{this.props.result.name? 'a': this.state.result.name? !this.props.result.name : 'b' }</h2></Item.Content>
-</Item>
-</Item.Group>
-
-<h2 style={{fontWeight:"500"}}> {this.props.qoute.c} <span style={{color:'gray'}}> {this.props.result.currency}</span> </h2> 
-
-      </Grid.Column>
-      <Grid.Column width={6}>
-<div >
- </div>
-    
-      </Grid.Column>
-    </Grid.Row>
-    </Grid>
-
  
 
- </div>        
+
+ <Container>
+   <p className='construction' style={{display:"flex",justifyContent:'center',padding:"120px 0 0 0",fontSize:"18px",fontWeight:"200"}}>  
    
+   This part of the website is   
+   </p>
+   <div style={{margin:"0 140px 0 140px",padding:"10px 20px 10px 20px",border:"6px solid white"}}>
+    <p  className='construction' style={{textAlign:"center",fontSize:'80px',fontWeight:"600"}}>
+   Under Construction
+     </p>
 
-       </Grid.Column>
-       <Grid.Column width={6}>
-       
-       <div style={{ 
-border:'1px solid white',
-padding:'22px',
-borderRadius:'3px',
- backgroundColor:'#222222',
-color:'white',
- }}>
- 
-       
+     </div>
+<br></br>
+<br></br>
 
-<h2 style={{fontWeight:"500",textAlign:'center'}}>  Peers  </h2> 
- <div style={{textAlign:'center'}}>
-   
- 
+     <p className='construction' style={{textAlign:"center",fontSize:'18px',fontWeight:"200"}}>In the meantime, you can browse the rest of the site or 
+     <br>
+     </br>check out our other channels!</p>
+     <br></br>
+     <br></br>
 
+     <br></br>
+     <div style={{textAlign:"center",color:"white"}}>
+       <a style={{color:"white"}} href='mailto:fanuelnalem@outlook.com' >
 
-   {this.props.peer.map((item)=>(
+      <Icon size='large' name='mail'/>
+      </a>
 
-     
-     <div>
-      
-<Form >
-
-           <Link 
-          onClick={()=>{
-            this.searchMovies(item);
-            
-
-          }}
-           >
-           
-         
-       
-    <Segment style={{backgroundColor:"transparent",border:'1px solid white',margin:"0 0 10px 0"}}    >
-    <List divided relaxed>
-      <List.Item>
-        <List.Content>
-          <List.Header>
- 
-     <span style={{fontSize:"20px",fontWeight:"600",color:'white'}}> {item}</span>
-      
-
-      </List.Header>
-         </List.Content>
-      </List.Item>
-      
-    </List>
-  </Segment>
-  </Link>
-  </Form>
-
-       </div>
-   ))}
-
- 
-</div>
-</div>
-
-       </Grid.Column>
-    </Grid.Row>
-    </Grid>
-
-
- 
+     </div>
+  </Container>
 
 </div> : 
 
-this.state.result.name?
-<div>
-   </div>
-
-  :
+ 
 
 <Message negative >
 <Message.Header  >This stock is currently unavailable</Message.Header>
@@ -219,7 +133,7 @@ this.state.result.name?
 
 
 
-        <div style={{ padding: '6em 0em' }}>
+        <div style={{ padding: '4em 0em' }}>
 
  
 
@@ -273,9 +187,9 @@ as={Link} to='/signup'>
    Developed By
    </h1>  
    <div> 
-       <Grid>
+       {/* <Grid>
 
-        <Grid.Row columns={4}>
+        <Grid.Row columns={1}>
   <Grid.Column>
     <Image className='img' src={vanessa} />
   </Grid.Column>
@@ -289,7 +203,10 @@ as={Link} to='/signup'>
     <Image className='img'src={ganesh} />
   </Grid.Column>
 </Grid.Row>
-</Grid>
+</Grid> */}
+
+<Image size='tiny' centered className='img'src={fanuel} />
+
 
 </div>
        

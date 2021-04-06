@@ -169,7 +169,14 @@ cursor: pointer;
 }
 
 .img{
-    border-radius:50%
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+
+}
+.construction{
+    font-family: 'Poppins', sans-serif;    
+    color:white
 }
 .div-tag{
     text-align: center;

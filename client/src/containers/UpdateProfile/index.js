@@ -36,7 +36,7 @@ handleRequest = (event) => {
     event.preventDefault()
     const data = new FormData();
     const {file} = this.state
-     data.append('file',file)
+     data.append('file', file)
       
 
     axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
@@ -94,7 +94,7 @@ handleRequest = (event) => {
         style={{width:'200px',
         height:'200px',
         float:'left',margin:"20px",
-        borderRadius:'9px',backgroundColor:'white'}}
+        borderRadius:'9px', backgroundColor:'white'}}
         src={item.filePath}
         />
     </div>
