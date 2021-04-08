@@ -51,7 +51,7 @@ componentDidMount = () => {
               >
  
                   <Image style={{ backgroundColor: 'white' }} className='im' className='logo' src={logo} avatar />
-                <span className='winnermenu' style={{ color: '#9d9d9d',fontSize:'18px' }}> 10/10 Stock Tracker</span>
+                <span className='winnermenu' style={{ fontSize:'18px' }}> 10/10 Stock Tracker</span>
             
      
   </Menu.Item></span>}
@@ -128,30 +128,33 @@ componentDidMount = () => {
                 <Menu.Item
                 
                 >
- <Input
+                  {this.props.authenticated?
+                  <Input
  
-style={{width:'255px'}} 
-    icon={
-     
-
-       <Icon 
-   style={{backgroundColor:'black', color:'white',margin:'4px 0 0 0'}} 
-   circular size='small' 
-   className='searchlink' 
-   name='search' 
-   link onClick={this.props.buttonClick} 
-   
-
-   />}
-   className='search-tool'
-   onChange={this.props.onsearch}
-   name='search'
-   value={this.props.search}
-   placeholder='search a stock...'
- 
- >
-   
- </Input> 
+                  style={{width:'255px'}} 
+                      icon={
+                       
+                  
+                         <Icon 
+                     style={{backgroundColor:'black', color:'white',margin:'4px 0 0 0'}} 
+                     circular size='small' 
+                     className='searchlink' 
+                     name='search' 
+                     link onClick={this.props.buttonClick} 
+                     
+                  
+                     />}
+                     className='search-tool'
+                     onChange={this.props.onsearch}
+                     name='search'
+                     value={this.props.search}
+                     placeholder='search a stock...'
+                   
+                   >
+                     
+                   </Input> : null
+                  }
+  
 
    
     
