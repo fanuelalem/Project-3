@@ -25,7 +25,7 @@ componentDidMount = () => {
 
 
 getMyImage = () => {
-    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
+    axios.get('/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         this.setState({myImages:response.data.reverse()})
         console.log("this is the response from get in the edit profile", response)
@@ -39,7 +39,7 @@ handleRequest = (event) => {
      data.append('file', file)
       
 
-    axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
+    axios.post('/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         const {fileName,filePath} = response.data
         this.setState({uploadedFile:response.data})
