@@ -28,7 +28,7 @@ getMyImage = () => {
     axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         this.setState({myImages:response.data.reverse()})
-        console.log("this is the response from get", response)
+        console.log("this is the response from get in the edit profile", response)
     })
 }
 
