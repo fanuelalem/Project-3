@@ -39,18 +39,14 @@ handleRequest = (event) => {
      data.append('file', file)
       
 
-    axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
+    axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data','Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         const {fileName,filePath} = response.data
         this.setState({uploadedFile:response.data})
         this.getMyImage()
         console.log(response,'postfdsv')
     })
-     
-   
- 
-   
-   
+       
 }
 
 

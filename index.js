@@ -17,7 +17,6 @@ app.use(cors())
 // app.use(methodOverride('_method'))
 
  if (process.env.NODE_ENV === 'production') {
-   console.log("we are using ", app.name , app)
   app.use(express.static('client/build'));
 }
 

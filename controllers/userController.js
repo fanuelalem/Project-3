@@ -50,16 +50,13 @@ module.exports = {
 
   postMyImages: async (req, res) => {
     const { fileName,filePath } = req.body;
-    console.log(req.files)
+    console.log(req.files,'req files data postMyImages')
 
     if(req.files === null) {
       return res.status(400).json({msf:'no file uploaded'})
     }
 
-     
-
     try {
-
       const file = req.files.file
 
       file.mv(`${__dirname}/../client/public/images/${file.name}`,async (err)=>{
