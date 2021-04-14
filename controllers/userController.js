@@ -59,13 +59,13 @@ module.exports = {
     try {
       const file = req.files.file
 
-      file.mv(`/${file.name}`,async (err)=>{
+      file.mv(`${__dirname}/../client/public/images/${file.name}`,async (err)=>{
         if(err){
           console.error(err)
           return res.status(500).send(err)
         }
         
-        const newImage = await new Image({fileName:file.name,filePath:`/images/${file.name}`, user: req.user._id}).save();
+        const newImage = await new Image({fileName:file.name,filePath:`/${file.name}`, user: req.user._id}).save();
         req.user.myImages.push(newImage);
         await req.user.save();
         return res.status(200).json(newImage);
