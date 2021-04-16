@@ -57,13 +57,14 @@ module.exports = {
     }
     try {
       const file = req.files.file
+      console.log('im hit before photo has been moved')
 
       file.mv(`${__dirname}/../client/public/images/${file.name}`,async (err)=>{
         if(err){
           console.error(err)
           return res.status(500).send(err)
         }
-        
+        console.log('im hit after photo has been moved')
         const newImage = await new Image({fileName:file.name,filePath:`/images/${file.name}`, user: req.user._id}).save();
         req.user.myImages.push(newImage);
         await req.user.save();
