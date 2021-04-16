@@ -19,9 +19,8 @@ state={
 
 componentDidMount = () => {
     this.getMyImage()
+    console.log('getting images....')
 }
-
- 
 
 
 getMyImage = () => {
@@ -36,16 +35,15 @@ handleRequest = (event) => {
     event.preventDefault()
     const data = new FormData();
     const {file} = this.state
-     data.append('file', file)
-      
-
+    data.append('file', file)
+    
     axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         const {fileName,filePath} = response.data
+        console.log(response.data,'response.data filename and filepath')
         this.setState({uploadedFile:response.data})
         this.getMyImage()
-        console.log(response,'postfdsv')
-    })
+     })
      
      
 }

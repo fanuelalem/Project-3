@@ -50,8 +50,8 @@ module.exports = {
 
   postMyImages: async (req, res) => {
     const { fileName,filePath } = req.body;
-    console.log(req.files,'req files data postMyImages')
-
+    console.log(req.body,'console.log filename and filepath')
+ 
     if(req.files === null) {
       return res.status(400).json({msf:'no file uploaded'})
     }

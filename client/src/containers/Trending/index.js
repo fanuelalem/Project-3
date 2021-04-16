@@ -6,9 +6,6 @@ import twitter from './../../components/Images/twitteravi.jpg'
 import moment from 'moment'
 
 
-
-
- 
 export default class Trending extends Component {
 
 
@@ -23,11 +20,8 @@ export default class Trending extends Component {
   
 
   componentDidMount() {
-
- 
      this.getOtherUsers()
      this.getUserData()
-   
   }
   getUserData = () => {
     axios.get('/api/user/profile', {
@@ -38,7 +32,6 @@ export default class Trending extends Component {
         console.log(response.data,'sdcs')
       })
 
- 
     })
 
  
