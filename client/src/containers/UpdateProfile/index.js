@@ -92,6 +92,7 @@ handleRequest = (event) => {
         borderRadius:'9px', backgroundColor:'white'}}
         src={item.filePath}
         />
+        {console.log(item.filePath,'filepath console.log src')}
     </div>
  ))
  }
