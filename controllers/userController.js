@@ -65,14 +65,14 @@ module.exports = {
         }
          const newImage = await new Image({fileName:file.name,filePath:`/images/${file.name}`, user: req.user._id}).save();
         req.user.myImages.push(newImage);
+        console.log(newImage,'new image')
         await req.user.save();
-
-        console.log(filePath,'this is the filePath ')
-
+         
         return res.status(200).json(newImage);
 
         // res.json({fileName:file.name,filePath:`./images/${file.name}`})
       })}catch (e) {
+      console.log('error not hitting ')
       return res.status(403).json({ e });
     }
 
@@ -114,7 +114,6 @@ module.exports = {
   getMyImages: async (req, res) => {
     try {
       const images = await Image.find({ user: req.user._id });
-      console.log("this i the getImages", req , res, images)
       return res.json(images);
     } catch (e) {
       return res.status(403).json({ e });
