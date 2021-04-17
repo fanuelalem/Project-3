@@ -23,7 +23,7 @@ componentDidMount = () => {
 }
 
 getMyImage = () => {
-    axios.get('http://localhost:3001/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
+    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         this.setState({myImages:response.data.reverse()})
         console.log("myImages:response.data ", response.data)
@@ -36,7 +36,7 @@ handleRequest = (event) => {
     const {file} = this.state
     data.append('file', file)
     
-    axios.post('http://localhost:3001/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
+    axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
     .then((response)=>{
         const {fileName,filePath} = response.data
         console.log(response.data,'response.data filename and filepath')
