@@ -57,34 +57,34 @@ handleRequest = (event) => {
 
 
 <Helmet>
-   <style>{'body { background-color:#532f8c;  }'}</style>
+   <style>{'body { background-image: linear-gradient(to bottom right, #30496b, #30b8d2) }'}</style>
 
          </Helmet>
 
  
 
-    <Container>
+    {/* <Container> */}
 
     
 
- <div style={{margin:'70px 0 0 0'}}>
- <Input onChange={(event)=>{
+ {/* <div style={{margin:'70px 0 0 0'}}> */}
+ {/* <Input onChange={(event)=>{
  const file = event.target.files[0]
  this.setState({file:file})
  }}
  type='file'>
- </Input>
+ </Input> */}
 
            
 
  
-<Button className='axiosRequestImages'   onClick={this.handleRequest}> add a picture</Button>
+{/* <Button className='axiosRequestImages'   onClick={this.handleRequest}> add a picture</Button> */}
  
 
-{this.state.myImages.map((item)=>(
-    <div>
+{/* {this.state.myImages.map((item)=>(
+    <div> */}
         {/* <p>{item.fileName}</p> */}
-        <img 
+        {/* <img 
         style={{width:'200px',
         height:'200px',
         float:'left',margin:"20px",
@@ -92,16 +92,51 @@ handleRequest = (event) => {
         src={item.filePath}
         />
         {console.log(item.filePath,'filepath console.log src')}
-    </div>
- ))
- }
+    </div> */}
+ {/* ))
+ } */}
 
-
+{/* 
 </div>
+
     </Container>
    
+  */}
+<div >
  
 
+
+ <Container>
+   <p className='construction' style={{display:"flex",justifyContent:'center',padding:"120px 0 0 0",fontSize:"18px",fontWeight:"200"}}>  
+   
+   This part of the website is   
+   </p>
+   <div style={{margin:"0 140px 0 140px",padding:"10px 20px 10px 20px",border:"6px solid white"}}>
+    <p  className='construction' style={{textAlign:"center",fontSize:'80px',fontWeight:"600"}}>
+   Under Construction
+     </p>
+
+     </div>
+<br></br>
+<br></br>
+
+     <p className='construction' style={{textAlign:"center",fontSize:'18px',fontWeight:"200"}}>In the meantime, you can browse the rest of the site or 
+     <br>
+     </br>check out our other channels!</p>
+     <br></br>
+     <br></br>
+
+     <br></br>
+     <div style={{textAlign:"center",color:"white"}}>
+       <a style={{color:"white"}} href='mailto:fanuelnalem@outlook.com' >
+
+      <Icon size='large' name='mail'/>
+      </a>
+
+     </div>
+  </Container>
+
+</div> 
  
                 
             </div>

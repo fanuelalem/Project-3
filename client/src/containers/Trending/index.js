@@ -4,6 +4,7 @@ import { List, Header,Table, Message,Button,Image,Pagination,Container,Grid,Resp
 import { Helmet } from 'react-helmet';
 import twitter from './../../components/Images/twitteravi.jpg'
 import moment from 'moment'
+import placeholderImage from './../../components/Images/avatar-placeholder.png'
 
 
 export default class Trending extends Component {
@@ -95,7 +96,8 @@ export default class Trending extends Component {
 floated='left'
    size='small'
       style={{borderRadius:'10px',height:'145px'}}
-     src={item.myImages.length? item.myImages[0].filePath : twitter}
+      src={placeholderImage}
+    //  src={item.myImages.length? item.myImages[0].filePath : twitter}
    />
 
 

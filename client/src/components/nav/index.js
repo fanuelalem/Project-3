@@ -7,6 +7,7 @@ import './../../index.css'
 import logo from './../Images/Logo.png'
 import twitter from './../Images/twitteravi.jpg'
 import axios from 'axios'
+import imageplaceholder from './../Images/avatar-placeholder.png'
  
 
 export default class Nav extends Component {
@@ -182,7 +183,10 @@ componentDidMount = () => {
                  </span> */}                                  <Icon size='large' name='bars'></Icon>
 
                   <Image style={{ backgroundColor: 'white',margin:"0 0px 0 10px" }} size='mini'
-                 src={this.state.myImages.length? this.state.myImages[0].filePath : twitter}avatar />
+                //  src={this.state.myImages.length? this.state.myImages[0].filePath : twitter} 
+                src={imageplaceholder}
+                 avatar
+                  />
  
                  </div>  
                  }
