@@ -53,7 +53,7 @@ module.exports = {
     console.log(req.body,'console.log filename and filepath')
  
     if(req.files === null) {
-      return res.status(400).json({msf:'no file uploaded'})
+      return res.status(400).json({msg:'no file uploaded'})
     }
     try {
       const file = req.files.file
