@@ -215,7 +215,7 @@ floated='left'
             item.myStocks[1]?  
             moment(item.myStocks[1].dateCreated).format('ll')
        
-     :'none'}</h4>
+     :'N/A'}</h4>
 
        {/* <p>{item.myStocks.length? item.myStocks[1].dateCreated : 'none'} </p>  */}
        
