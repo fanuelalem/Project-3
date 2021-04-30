@@ -10,6 +10,7 @@ import vanessa from './../../components/Images/vanessa.jpeg'
 import husam from './../../components/Images/husam.jpeg'
 import pic1 from './../../components/Images/topgainers.png'
 import pic2 from './../../components/Images/watchlist.png'
+import pic3 from './../../components/Images/livefeed.png'
 
 
 
@@ -58,7 +59,7 @@ export default class Home extends Component {
 
        </div>
        
-       <Segment style={{ padding: '8em 0em' }} vertical>
+       <Segment style={{ padding: '6em 0em' }} vertical>
          <Container>
 
           <Grid>
@@ -95,7 +96,7 @@ export default class Home extends Component {
 
         <Divider/>
 
-        <br></br>
+<br></br>
 <br></br>
 <br></br>
 
@@ -125,7 +126,57 @@ export default class Home extends Component {
   </Grid.Column>
  
   </Grid.Row>
-        <Grid.Row>
+        {/* <Grid.Row>
+          <Grid.Column textAlign='center'>
+                 
+          <Link
+         
+ as ={Link}
+ 
+ to="/signup">
+ <Button  style={{margin:'30px 0 0 0'}} color='purple'> <Icon name='signup'></Icon><span className='buttn2'> Register</span>  </Button>
+ </Link>   
+
+
+
+ </Grid.Column>
+        </Grid.Row> */}
+
+          
+           
+         </Grid>
+
+<br></br>
+<br></br>
+<br></br>
+
+<hr></hr>
+
+<br></br>
+<br></br>
+<br></br>
+<Grid>
+         <Grid.Row >
+         <Grid.Column width={5}>
+
+           <div className='div-info'>
+
+          <Header textAlign='center'  as='h3' style={{ fontSize: '2em' }}>
+Network with other Stock Investors        
+</Header>
+        <p style={{ fontSize: '1.33em',textAlign:'center' }}>
+View a live feed where you can find active users and connect with them to grow your network and stay informed on trending stocks.
+        </p>
+        </div>
+
+  </Grid.Column>
+  <Grid.Column   floated='right' width={10}>
+<Image  style={{borderRadius:'4px',height:'350px'}} src={pic3}/>
+
+  </Grid.Column>
+
+         </Grid.Row>
+         <Grid.Row>
           <Grid.Column textAlign='center'>
                  
           <Link
@@ -140,12 +191,9 @@ export default class Home extends Component {
 
  </Grid.Column>
         </Grid.Row>
-
-          
            
          </Grid>
-
-
+         
          
          </Container>
 
