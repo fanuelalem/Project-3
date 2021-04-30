@@ -8,7 +8,7 @@ import logo from './../Images/Logo.png'
 import twitter from './../Images/twitteravi.jpg'
 import axios from 'axios'
 import imageplaceholder from './../Images/avatar-placeholder.png'
- 
+import userprofileimage from './../Images/images.png'
 
 export default class Nav extends Component {
   state = {

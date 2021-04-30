@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import twitter from './../../components/Images/twitteravi.jpg'
 import moment from 'moment'
 import placeholderImage from './../../components/Images/avatar-placeholder.png'
-
+import userprofileimage from './../../components/Images/images.png'
 
 export default class Trending extends Component {
 
@@ -59,17 +59,43 @@ export default class Trending extends Component {
 
 <Grid  >
     <Grid.Row>
-      <Grid.Column >
- 
- 
+      <Grid.Column width={4} style={{display:"flex",justifyContent:"center"}}>
+ <div style={{position:"fixed",margin:"20px 0 0 0"}}>
+
+ <Card style={{padding:"15px"}}>
+  {console.log(this.state.userData,'current profile')}
+   <Image src={userprofileimage} size='tiny'   ></Image>
+   <h3 style={{padding:"20px 0 5px 0",margin:"0 0 0 0"}}>{this.state.userData.email}</h3>
+   <h4 style={{margin:"0 0 0 0"}}>{this.state.userData.myStocks? this.state.userData.myStocks.length: 'this user has no stocks'}
+   <span style={{fontWeight:"300"}}> Stocks </span></h4>
+
+
+</Card>
+<Card style={{padding:"15px"}}>
+  {console.log(this.state.userData,'current profile')}
+   <h2> My Stocks </h2>
+
+
+
+
+{this.state.userData.myStocks? this.state.userData.myStocks.reverse().map((item)=>(
+  <div>
+    <h4 style={{margin:"5px 0 5px 0",fontWeight:"300"}}>{item.text}</h4>
+  </div>
+)):'user has no stocks...'}
+
+
+
+</Card>
+</div>
 
        </Grid.Column>
-      <Grid.Column width={14} className='customScroll'>
+      <Grid.Column width={12} className='customScroll'>
 
   
       {  this.state.filteredUsers.map((item,id)=>(
  
-         <div key={item.id} style={{margin:'0 0 20px 0'}}>
+         <div key={item.id} style={{margin:'10px 0 20px 0'}}>
 
  
  
