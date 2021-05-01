@@ -144,8 +144,12 @@ floated='left'
       <h3 style={{color:'green',margin:'12px 0 0 0'}}  > <Icon name='pie chart'> </Icon>{item.myStocks.length} stocks </h3   >
     </Card.Content>
   :
-  <h3 style={{margin:'15px 0 0 0',fontWeight:'300'}}> This user does not have any stocks yet</h3>
-  }
+ 
+   <h3 style={{margin:'15px 0 0 0'}}> This user does not have any stocks yet</h3>
+
+   
+
+   }
 
 
 
@@ -250,7 +254,7 @@ floated='left'
     <Table.Row  >
 
  
-      <Table.Cell > <p style={{color:'black'}}>user has no stocks yet..</p></Table.Cell>
+      <Table.Cell > <h4 style={{color:'black'}}>user has no stocks yet..</h4></Table.Cell>
      <Table.Cell> <p>    </p>  </Table.Cell>
     
 
