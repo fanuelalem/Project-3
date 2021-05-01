@@ -67,7 +67,7 @@ export default class Trending extends Component {
    <Image src={userprofileimage} size='tiny'   ></Image>
    <h3 style={{padding:"20px 0 5px 0",margin:"0 0 0 0"}}>{this.state.userData.email}</h3>
    <h4 style={{margin:"0 0 0 0"}}>{this.state.userData.myStocks? this.state.userData.myStocks.length: 'this user has no stocks'}
-   <span style={{fontWeight:"300"}}> Stocks </span></h4>
+   <span style={{fontWeight:"300",color:'gray'}}> Stocks </span></h4>
 
 
 </Card>
@@ -127,7 +127,7 @@ floated='left'
    />
 
 
-<a style={{color:'#999999'}} href={`mailto:${item.email}`} >
+<a style={{color:'black'}} href={`mailto:${item.email}`} >
  
  <h3 style={{textAlign:'left',margin:'15px 0 0 0'}}> <Icon name='mail'></Icon>{item.email}</h3>
 
@@ -141,11 +141,11 @@ floated='left'
     </Card.Header>
      {item.myStocks.length?
     <Card.Content>
-      <h3 style={{color:'green',margin:'12px 0 0 0'}}  > <Icon name='pie chart'> </Icon>{item.myStocks.length} stocks </h3   >
+      <h3 style={{color:'green',margin:'12px 0 0 0'}}  > <Icon name='pie chart'> </Icon>{item.myStocks.length} stock(s) </h3   >
     </Card.Content>
   :
  
-   <h3 style={{margin:'15px 0 0 0'}}> This user does not have any stocks yet</h3>
+   <h3 style={{margin:'15px 0 0 0',color:"gray"}}> This user does not have any stocks yet</h3>
 
    
 
@@ -207,9 +207,9 @@ floated='left'
      </Table.Row>
      <Table.Row  >
 
-       <Table.Cell>
+       <Table.Cell >
  
-<h4 style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].text:'none'}</h4>
+<h4 style={{color:'black'}}>{item.myStocks[1]? item.myStocks[1].text:'None'}</h4>
 
 
        </Table.Cell>
@@ -240,10 +240,10 @@ floated='left'
 <Table   selectable    >
   <Table.Header>
     <Table.Row>
-       <Table.HeaderCell style={{color:'black'}}>Recent stocks</Table.HeaderCell>
+       <Table.HeaderCell style={{color:'black'}}><h2> Recent stocks</h2></Table.HeaderCell>
        <Table.HeaderCell style={{color:'black'}}></Table.HeaderCell>
 
-      <Table.HeaderCell style={{color:'black'}}>Date</Table.HeaderCell>
+      <Table.HeaderCell style={{color:'black'}}><h2> Date</h2></Table.HeaderCell>
        
 
      
@@ -254,7 +254,8 @@ floated='left'
     <Table.Row  >
 
  
-      <Table.Cell > <h4 style={{color:'black'}}>user has no stocks yet..</h4></Table.Cell>
+    <Table.Cell  > 
+        <h4 style={{color:'black'}}>None</h4></Table.Cell>
      <Table.Cell> <p>    </p>  </Table.Cell>
     
 
