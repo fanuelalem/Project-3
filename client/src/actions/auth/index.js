@@ -4,6 +4,6 @@ export const signOut = () => {
   localStorage.removeItem('token');
   return {
     type: AUTH_USER,
-    payload: ''
+    payload: '',
   };
-}
+};

@@ -1,145 +1,129 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import ImageUploader from 'react-images-upload';
-import { List, Header,Input,Table, Message,Button,Image,Pagination,Container,Grid,Responsive,Card,Icon } from 'semantic-ui-react';
-
-   
+import {
+  Container,
+  Icon,
+} from 'semantic-ui-react';
 
 export default class UpdateProfile extends Component {
+  state = {
+    pictures: [],
+    file: '',
+    fileName: '',
+    uploadedFile: {},
+    myImages: [],
+  };
 
-state={
-    pictures:[],
-    file:"",
-    fileName:"",
-    uploadedFile:{},
-    myImages:[],
-     
-}
+  componentDidMount = () => {
+    this.getMyImage();
+    console.log('getting images....');
+  };
 
-componentDidMount = () => {
-    this.getMyImage()
-    console.log('getting images....')
-}
+  getMyImage = () => {
+    axios
+      .get('/api/user/myimages', {
+        headers: { authorization: localStorage.getItem('token') },
+      })
+      .then(response => {
+        this.setState({ myImages: response.data.reverse() });
+        console.log('myImages:response.data ', response.data);
+      });
+  };
 
-getMyImage = () => {
-    axios.get('/api/user/myimages',{headers: { 'authorization': localStorage.getItem('token')}})
-    .then((response)=>{
-        this.setState({myImages:response.data.reverse()})
-        console.log("myImages:response.data ", response.data)
-    })
-}
-
-handleRequest = (event) => {
-    event.preventDefault()
+  handleRequest = event => {
+    event.preventDefault();
     const data = new FormData();
-    const {file} = this.state
-    data.append('file', file)
-    
-    axios.post('/api/user/myimages',data,{ 'Content-Type':'multipart/form-data',headers: { 'authorization': localStorage.getItem('token')}})
-    .then((response)=>{
-        const {fileName,filePath} = response.data
-        console.log(response.data,'response.data filename and filepath')
-        this.setState({uploadedFile:response.data})
-        this.getMyImage()
-     })
-     
-     
-}
+    const { file } = this.state;
+    data.append('file', file);
 
+    axios
+      .post('/api/user/myimages', data, {
+        'Content-Type': 'multipart/form-data',
+        headers: { authorization: localStorage.getItem('token') },
+      })
+      .then(response => {
+        const { fileName, filePath } = response.data;
+        console.log(response.data, 'response.data filename and filepath');
+        this.setState({ uploadedFile: response.data });
+        this.getMyImage();
+      });
+  };
 
-    render() {
-        console.log(this.state,'console')
-        return (
-            <div>
-
-
-
-
-<Helmet>
-   <style>{'body { background-image: linear-gradient(to bottom right, #30496b, #30b8d2) }'}</style>
-
-         </Helmet>
-
- 
-
-    {/* <Container> */}
-
-    
-
- {/* <div style={{margin:'70px 0 0 0'}}> */}
- {/* <Input onChange={(event)=>{
- const file = event.target.files[0]
- this.setState({file:file})
- }}
- type='file'>
- </Input> */}
-
-           
-
- 
-{/* <Button className='axiosRequestImages'   onClick={this.handleRequest}> add a picture</Button> */}
- 
-
-{/* {this.state.myImages.map((item)=>(
-    <div> */}
-        {/* <p>{item.fileName}</p> */}
-        {/* <img 
-        style={{width:'200px',
-        height:'200px',
-        float:'left',margin:"20px",
-        borderRadius:'9px', backgroundColor:'white'}}
-        src={item.filePath}
-        />
-        {console.log(item.filePath,'filepath console.log src')}
-    </div> */}
- {/* ))
- } */}
-
-{/* 
-</div>
-
-    </Container>
-   
-  */}
-<div >
- 
-
-
- <Container>
-   <p className='construction' style={{display:"flex",justifyContent:'center',padding:"120px 0 0 0",fontSize:"18px",fontWeight:"200"}}>  
-   
-   This part of the website is   
-   </p>
-   <div style={{margin:"0 140px 0 140px",padding:"10px 20px 10px 20px",border:"6px solid white"}}>
-    <p  className='construction' style={{textAlign:"center",fontSize:'80px',fontWeight:"600"}}>
-   Under Construction
-     </p>
-
-     </div>
-<br></br>
-<br></br>
-
-     <p className='construction' style={{textAlign:"center",fontSize:'18px',fontWeight:"200"}}>In the meantime, you can browse the rest of the site or 
-     <br>
-     </br>check out our other channels!</p>
-     <br></br>
-     <br></br>
-
-     <br></br>
-     <div style={{textAlign:"center",color:"white"}}>
-       <a style={{color:"white"}} href='mailto:fanuelnalem@outlook.com' >
-
-      <Icon size='large' name='mail'/>
-      </a>
-
-     </div>
-  </Container>
-
-</div> 
- 
-                
+  render() {
+    console.log(this.state, 'console');
+    return (
+      <div>
+        <Helmet>
+          <style>
+            {
+              'body { background-image: linear-gradient(to bottom right, #30496b, #30b8d2) }'
+            }
+          </style>
+        </Helmet>
+        
+        <div>
+          <Container>
+            <p
+              className="construction"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '120px 0 0 0',
+                fontSize: '18px',
+                fontWeight: '200',
+              }}
+            >
+              This part of the website is
+            </p>
+            <div
+              style={{
+                margin: '0 140px 0 140px',
+                padding: '10px 20px 10px 20px',
+                border: '6px solid white',
+              }}
+            >
+              <p
+                className="construction"
+                style={{
+                  textAlign: 'center',
+                  fontSize: '80px',
+                  fontWeight: '600',
+                }}
+              >
+                Under Construction
+              </p>
             </div>
-        )
-    }
+            <br></br>
+            <br></br>
+
+            <p
+              className="construction"
+              style={{
+                textAlign: 'center',
+                fontSize: '18px',
+                fontWeight: '200',
+              }}
+            >
+              In the meantime, you can browse the rest of the site or
+              <br></br>check out our other channels!
+            </p>
+            <br></br>
+            <br></br>
+
+            <br></br>
+            <div style={{ textAlign: 'center', color: 'white' }}>
+              <a
+                style={{ color: 'white' }}
+                href="mailto:fanuelnalem@outlook.com"
+              >
+                <Icon size="large" name="mail" />
+              </a>
+            </div>
+          </Container>
+        </div>
+      </div>
+    );
+  }
 }

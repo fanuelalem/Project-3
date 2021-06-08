@@ -11,10 +11,19 @@ const UserSchema = new Schema({
     validate: [isEmail, 'Please enter a valid email address'],
     required: [true, 'You must provide an email address'],
   },
+  username: {
+    type: String,
+    unique: true,
+    required: [true, 'You must provide an username'],
+  },
   password: {
     type: String,
     required: [true, 'You must provide a password'],
     validate: [(value) => isLength(value, { min: 6 }), 'Your password must be at least 6 characters long'],
+  },
+  open : {
+    type: Boolean,
+    default: false,
   },
   dateCreated: {
     type: Date,

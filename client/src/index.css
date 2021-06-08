@@ -223,6 +223,19 @@ cursor: pointer;
      
 
  }
+
+ .datainfo {
+  
+    opacity:0;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: all 0.4s ease;
+  }
+  
+  .isopen .datainfo {
+  max-height: 1000px;
+  opacity: 1;
+  }
  
 
  .search-tool[type="text"]
